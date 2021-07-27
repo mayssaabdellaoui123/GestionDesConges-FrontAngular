@@ -1,0 +1,44 @@
+<div *ngIf="authorityadmin==true">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="h1" (click)="reloadPage()">ACCOUNTS MANAGEMENT</div>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a  (click)="GoToDeliverer()">Deliverers</a></li>
+        <li><a  (click)="reloadPage()">Clients</a></li>
+      </ul> 
+    </div> 
+</nav>
+</div>
+
+<div *ngIf="authoritymanager==true">
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="h1" (click)="reloadPage()">ACCOUNTS MANAGEMENT</div>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a  (click)="GoToDeliverer()">Deliverers</a></li>
+          <li><a  (click)="GoToAdmin()">Admins</a></li>
+          <li><a  (click)="reloadPage()">Clients</a></li>
+        </ul>
+        <button class="col-6  btn btn-danger navbar-btn" (click)="addManager()">Add Manager</button>
+      </div> 
+  </nav>
+  </div>
+ 
+<div *ngIf="goToDeliverer==true" class="nav-item" class="container">
+    <app-deliverer></app-deliverer>
+</div>
+<div *ngIf="goToAdmin==true" class="nav-item" class="container">
+    <app-admin></app-admin>
+</div>
+<div *ngIf="addManagerClicked==true" class="nav-item" class="container">
+    <app-manager></app-manager>
+</div>
+<div *ngIf="goToAdmin==false && addManagerClicked==false && goToDeliverer==false" class="container">
+    <h2>LIST OF CLIENTS</h2>
+    <app-client></app-client>
+</div>
+

@@ -1,0 +1,151 @@
+<p class="p-3 mb-2 btn-primary"> ACCOUNTS IN NUMBERS </p>
+<div class="container" >
+    <div class="row">
+        <div class="col-lg-2 col-sm-6">
+        </div>
+      <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile ">
+          <a><div class="circle-tile-heading dark-gray"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+          <div class="circle-tile-content dark-gray">
+            <div class="circle-tile-description text-faded"> Managers </div>
+            <div class="circle-tile-number text-faded ">{{nbManagers}}</div>
+            <a class="circle-tile-footer">...</a>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile ">
+          <a><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+          <div class="circle-tile-content dark-blue">
+            <div class="circle-tile-description text-faded"> Admins </div>
+            <div class="circle-tile-number text-faded ">{{nbAdmins}}</div>
+            <a class="circle-tile-footer" (click)="onInfoAdmin()">More Info <i class="fa fa-chevron-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile ">
+          <a><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+          <div class="circle-tile-content red">
+            <div class="circle-tile-description text-faded"> Deliverers </div>
+            <div class="circle-tile-number text-faded ">{{nbDeliverers}}</div>
+            <a class="circle-tile-footer" (click)="onInfoDeliverer()" >More Info <i class="fa fa-chevron-circle-right"></i></a>
+          </div>
+        </div>
+      </div> 
+      <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile ">
+          <a><div class="circle-tile-heading orange"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+          <div class="circle-tile-content orange">
+            <div class="circle-tile-description text-faded"> Clients </div>
+            <div class="circle-tile-number text-faded ">{{nbClients}}</div>
+            <a class="circle-tile-footer" (click)="onInfoClient()">More Info <i class="fa fa-chevron-circle-right"></i></a>
+          </div>
+        </div>
+      </div> 
+    </div> 
+  </div> 
+  <div *ngIf="infodeliverer" class="container">
+      <h2 class="p-3 mb-2 btn-failure"> DELIVERERS STATISTICS </h2>
+      <div class="row">
+        <h2 class="col-md-6"> Deliverer of the month :</h2><h2 class="text-danger">{{delivMonth}}</h2></div>
+        <br>
+      <div class="container">
+            
+        <div class="row">
+            <p class="p-3 mb-2 btn-secondary"> Availability for Deliveries : </p>
+            <div class="col-xs-4 col-md-3">   
+                <div class="panel status panel-success">
+                    <div class="panel-heading">
+                        <h1 class="panel-title text-center"> {{nbAvailable}} </h1>
+                    </div>
+                    <div class="panel-body text-center">                        
+                        <strong>Available Deliverers</strong>
+                    </div>
+                </div>
+            </div>              
+            <div class="col-xs-4 col-md-3">
+                <div class="panel status panel-danger">
+                    <div class="panel-heading">
+                        <h1 class="panel-title text-center"> {{nbNotAvailable}} </h1>
+                    </div>
+                    <div class="panel-body text-center">                        
+                        <strong>Not Available Deliverers</strong>
+                    </div>
+                </div>
+            </div>
+  </div> </div>
+</div>
+<div *ngIf="infoclient" class="container">
+   <div> <h2 class="p-3 mb-2 btn-warning"> CLIENTS STATISTICS </h2>
+    <h2 class="col-md-5">Client of the month : </h2><h2 class="text-danger">{{clientMonth}}</h2>
+    <br>
+    <h2 class="col-md-12 color-default"> ~~Clients Statistics by Workfield~~ </h2></div>
+    <a (click)="statistics()"> show percentage </a>
+      <div class="progress">
+        <div id="prog2" class="color-orange1 progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"style="width: 12%">
+        </div>
+        <span class="progress-type">EDUCATION</span>
+        <span *ngIf="stat" class="progress-completed">{{nbCEdu}} % </span>
+    </div>
+    <div class="progress">
+      <div id="prog3" class="color-orange2 progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+      </div>
+      <span class="progress-type">FARMING_FISHING_FORESTRY</span>
+      <span *ngIf="stat" class="progress-completed">{{nbCF}} % </span>
+  </div>
+  <div class="progress">
+    <div id="prog1" class="color-orange3 progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 12%">
+    </div>
+    <span class="progress-type">COSMETICS</span>
+    <span *ngIf="stat"class="progress-completed">{{nbCCos}} % </span>
+</div>
+<h2 class="col-md-12 color-default"> ~~Subscription Statistics~~ </h2>
+<app-navbar-authorities></app-navbar-authorities>
+<br>
+</div>
+<div *ngIf="infoadmin" class="container">
+    <h2 class="p-3 mb-2 btn-success"> ADMINS STATISTICS </h2>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Role</th>
+            <th scope="col">Number of Admins</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>PRODUCTS_ADMIN</td>
+            <td>{{nbAProducts}}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>ACCOUNTS_ADMIN</td>
+            <td>{{nbAAccounts}}</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>ADVERTISEMENTS_ADMIN</td>
+            <td>{{nbAAds}}</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>DELIVERIES_ADMIN</td>
+            <td>{{nbADeleveries}}</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>CLAIMS_ADMIN</td>
+            <td>{{nbAClaims}}</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>EVENTS_ADMIN</td>
+            <td>{{nbAEvents}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div> 

@@ -1,0 +1,59 @@
+<div>
+      <div class=" col-md-offset-4"><h1> ADD A MANAGER</h1>
+      <div class="row col-sm-6">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="name">Firstname</label>
+            <input type="text" class="form-control" name="firstname" [(ngModel)]="form.firstname" #firstname="ngModel" required />
+            <div *ngIf="f.submitted && firstname.invalid">
+              <div *ngIf="firstname.errors.required" class="text-warning">Firstname is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="name">LastName</label>
+              <input type="text" class="form-control" name="lastname" [(ngModel)]="form.lastname" #lastname="ngModel" required />
+              <div *ngIf="f.submitted && lastname.invalid">
+                <div *ngIf="lastname.errors.required" class="text-warning" >Lastname is required</div>
+              </div>
+            </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel" required />
+            <div *ngIf="f.submitted && username.invalid">
+              <div *ngIf="username.errors.required" class="text-warning" >Username is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required email />
+            <div *ngIf="f.submitted && email.invalid">
+              <div *ngIf="email.errors.required" class="text-warning">Email is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+              required minlength="6" />
+            <div *ngIf="f.submitted && password.invalid">
+              <div *ngIf="password.errors.required" class="text-warning">Password is required</div>
+              <div *ngIf="password.errors.minlength" class="text-warning">Password must be at least 6 characters</div>
+            </div>
+          </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                  <input type="text" class="form-control" name="username" [(ngModel)]="form.phone" #phone="ngModel" required minlength="8" placeholder="+216 "/>
+                  <div *ngIf="f.submitted && phone.invalid">
+                    <div *ngIf="phone.errors.required"class="text-warning">Phone is required</div>
+                  </div>
+                </div>
+          <div class="form-group"> 
+            <button class="btn btn-failure">ADD</button>
+            <div *ngIf="f.submitted && !isSignedUp" class="alert alert-warning">
+              Could not add Manager..<br/>{{errorMessage}}</div>
+              <div *ngIf="f.submitted && isSignedUp" class="alert alert-success">
+                Successfuly added Manager<br/>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div></div>

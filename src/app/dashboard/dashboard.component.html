@@ -1,0 +1,19 @@
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 sidebar1">
+                <br>
+                <div class="left-navigation">
+                    <ul class="list">
+                        <h5><strong>STATISTICS</strong></h5>
+                        <li (click)="onAccounts()">ACCOUNTS</li>
+                        <li>PRODUCTS</li>
+                        <li>CLAIMS</li>
+                        <li>DELIVERIES</li>
+                        <li>FORUM</li>
+                    </ul>
+                </div>
+            </div>
+            <div *ngIf="accounts" class="col-md-10 col-sm-8 main-content">
+            <app-accounts-dashboard></app-accounts-dashboard></div>
+        </div>
+    </div>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Consomi Tounsi</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,500' rel='stylesheet' type='text/css'>
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<!-- fontawesome css -->
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+	<!-- revolution banner css settings -->
+	<link rel="stylesheet" type="text/css" href="assets/lib/rs-plugin/css/settings.css" media="screen" />
+	<!-- style css -->
+    <link rel="stylesheet" href="styles.css">
+	<!-- mobilemenu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css"/>
+	<!-- responsive css -->
+    <link rel="stylesheet" href="assets/css/responsive.css"/>
+	<!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+</head>
+<body>
+  <app-root></app-root>
+  <script src="assets/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+	<!-- revolution js -->
+	<script type="text/javascript" src="assets/lib/rs-plugin/js/jquery.themepunch.tools.min.js"></script>   
+	<script type="text/javascript" src="assets/lib/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="assets/lib/rs-plugin/rs.home.js"></script>
+	<!-- search-box js -->
+    <script src="assets/js/search-box.js"></script>
+	<!-- scrollUp js -->
+    <script src="assets/js/jquery.scrollUp.js"></script>
+	<!-- mobilemenu js -->
+    <script src="assets/js/jquery.meanmenu.js"></script>
+	<!-- main js -->
+    <script src="assets/js/main.js"></script>
+	<!-- Google Map js -->
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<script>
+		function initialize() {
+		  var mapOptions = {
+			zoom: 15,
+			scrollwheel: false,
+			center: new google.maps.LatLng(40.663293, -73.956351)
+		  };
+		  var map = new google.maps.Map(document.getElementById('googleMap'),
+			  mapOptions);
+		  var marker = new google.maps.Marker({
+			position: map.getCenter(),
+			animation:google.maps.Animation.BOUNCE,
+			icon: 'assets/images/map-marker.png',
+			map: map
+		  });
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>  
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<div class="main container" center >
+    <div *ngIf="!edit" class="container contact">
+    <ul>
+        <div class="contact-info">
+            <div class="col-2">
+                <a><img src="assets/images/avatar.jpg" alt="" class="img-fluid rounded-circle w-60"></a>
+             </div>
+             <h1 class="text-danger">{{employee?.firstNameUser}} {{employee?.lastNameUser}}</h1>
+             <h3 class="text-secondary">USERNAME : {{employee?.usernameUser}} </h3>
+             <div *ngIf="employee?.delivererOfTheMonthDeliverer == true "> <p class="p-1 mb-1 text-success"> Elected as Deliverer of the month </p> </div>
+             <ul>
+               <li class="list-group-item"><i class="fa fa-envelope float-right"></i><strong>Email : </strong>{{employee?.emailAddressUser}}</li>
+               <li class="list-group-item"><i class="fa fa-phone float-right"></i><strong>Phone : </strong> {{employee?.phoneNumberUser}}</li>
+            </ul>
+            <button class="btn btn-failure col-md-12" (click)="Onedit()">Edit Account Information</button>
+        </div></ul></div>
+<div *ngIf="edit" class="container contact">
+	<div class="row">
+		<div class="col-md-3" >
+            <ul>
+			<div class="contact-info">
+                <div class="col-6">
+                    <a><img src="assets/images/avatar.jpg" alt="" class="img-fluid rounded-circle w-60"></a>
+                 </div>
+                 <h1 class="text-danger">{{employee?.firstNameUser}} {{employee?.lastNameUser}}</h1>
+                 <h3 class="text-secondary">USERNAME : {{employee?.usernameUser}} </h3>
+                 <div *ngIf="employee?.delivererOfTheMonthDeliverer == true "> <p class="p-1 mb-1 text-success"> Elected as Deliverer of the month </p> </div>
+                 <ul>
+                   <li class="list-group-item"><i class="fa fa-envelope float-right"></i><strong>Email : </strong>{{employee?.emailAddressUser}}</li>
+                   <li class="list-group-item"><i class="fa fa-phone float-right"></i><strong>Phone : </strong> {{employee?.phoneNumberUser}}</li>
+                </ul>
+			</div></ul>
+		</div>
+		<div class="col-md-9">
+			<div class="contact-form">
+				<div class="form-group">
+				  <div class="col-sm-10">  
+                    <form #form="ngForm">
+                        <div class="form-group">
+                            <label for="firstNameUser">Fisrt Name</label>
+                            <input type="text" ngModel="{{editEmployee?.firstNameUser}}" name="firstNameUser" class="form-control" id="firstNameUser" placeholder="Name">
+                         </div>
+                         <div class="form-group">
+                             <label for="lastNameUser">Last Name</label>
+                             <input type="text" ngModel="{{editEmployee?.lastNameUser}}" name="lastNameUser" class="form-control" id="lastNameUser" placeholder="Name">
+                          </div>
+                         <input type="hidden" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.idUser}}" name="idUser" class="form-control" id="idUser" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.addressUser}}" name="addressUser" class="form-control" id="addressUser" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.roleUser}}" name="roleUser" class="form-control" id="roleUser" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.updatedPassword}}" name="updatedPassword" class="form-control" id="updatedPassword" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.nbaccessUser}}" name="nbaccessUser" class="form-control" id="nbaccessUser" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.salary}}" name="salary" class="form-control" id="salary" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.enabled}}" name="enabled" class="form-control" id="enabled" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.locked}}" name="locked" class="form-control" id="locked" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.dateBirthUser}}" name="dateBirthUser" class="form-control" id="dateBirthUser" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.Latitude}}" name="Latitude" class="form-control" id="Latitude" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.Longitude}}" name="Longitude" class="form-control" id="Longitude" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.bonusDeliverer}}" name="bonusDeliverer" class="form-control" id="bonusDeliverer" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.delivererOfTheMonthDeliverer}}" name="delivererOfTheMonthDeliverer" class="form-control" id="delivererOfTheMonthDeliverer" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.availableDeliverer}}" name="availableDeliverer" class="form-control" id="availableDeliverer" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.score_deliverer}}" name="score_deliverer" class="form-control" id="score_deliverer" placeholder="Email">
+                         <input type="hidden" ngModel="{{editEmployee?.distanceDeliverer}}" name="distanceDeliverer" class="form-control" id="distanceDeliverer" placeholder="Email">
+         
+                         <div class="form-group">
+                            <label for="emailAddressUser">Email Address</label>
+                            <input type="email" ngModel="{{editEmployee?.emailAddressUser}}" name="emailAddressUser" class="form-control" id="emailAddressUser" placeholder="Email">
+                         </div>
+                         <div class="form-group">
+                             <label for="passwordUser">Password</label>
+                             <input type="password" ngModel="{{editEmployee?.passwordUser}}" name="passwordUser" class="form-control" id="passwordUser">
+                          </div>
+                         <div class="form-group">
+                            <label for="phoneNumberUser">Phone</label>
+                            <input type="text" ngModel="{{editEmployee?.phoneNumberUser}}" name="phoneNumberUser" class="form-control" id="phoneNumberUser" placeholder="Phone">
+                         </div>
+				<div class="form-group">        
+				  <div class="col-sm-offset-8 col-sm-10">
+					<button type="submit" class="btn btn-default" (click)=" updateClient(form.value)">Save Changes</button>
+                    <a class="btn btn-secondary" (click)="resetEdit()">Exit</a>
+				  </div>
+				</div></form>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

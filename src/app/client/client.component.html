@@ -1,0 +1,38 @@
+    <div class="row">
+        <div class="col-md-12">
+                <ul class="searchbox">
+                    <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
+                        name="key" id="searchName" class="form-control mr-sm-2" placeholder="search clients..." required>
+                    <span class="searchbox-icon"><i class="fa fa-search"></i></span>
+                </ul> 
+            </div>
+        </div>
+<div class="container" id="main-container">
+<div class="row">
+<div *ngFor="let employee of employees" class="col-md-6 col-xl-3">
+ <div class="card m-b-30">
+    <div class="card-body row">
+       <div class="col-6">
+          <div *ngIf="employee?.genderClient=='FEMALE'"><a><img src="assets/images/female.jpg" alt="" class="img-fluid rounded-circle w-60"></a></div>
+          <div *ngIf="employee?.genderClient=='MALE'"><a><img src="assets/images/male.jpg" alt="" class="img-fluid rounded-circle w-60"></a></div>
+       </div>
+       <div class="col-6 card-title align-self-center mb-0">
+          <h5>{{employee?.firstNameUser}} {{employee?.lastNameUser}}</h5>
+          <div *ngIf="employee?.enabled == true "> <p class="text-success">account enabled</p>  </div>
+          <div *ngIf="employee?.locked == true "> <p class="text-danger">account locked</p>  </div>
+       </div>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="fa fa-group float-right"></i><strong>Work Field : </strong>{{employee?.workfieldClient}}</li>
+       <li class="list-group-item"><i class="fa fa-envelope float-right"></i><strong>Email : </strong>{{employee?.emailAddressUser}}</li>
+       <li class="list-group-item"><i class="fa fa-phone float-right"></i><strong>Phone : </strong> {{employee?.phoneNumberUser}}</li>
+       <li class="list-group-item"><i class="fa fa-calendar	float-right"></i><strong>Birthday : </strong> {{employee?.dateBirthUser}}</li>
+       <li class="list-group-item"><i class="fa fa-street-view float-right"></i><strong>Address : </strong> {{employee?.addressUser}}</li>
+    </ul>
+    <div class="card-body">
+        <div class="float-right btn-group btn-group-sm">
+        </div>
+     </div>
+ </div>
+</div>
+</div>

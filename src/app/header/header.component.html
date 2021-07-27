@@ -1,0 +1,84 @@
+<header><div class="container">
+    <div class="header_top">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="header_top_left float-left">
+                    <ul class="social_icon">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                    <ul class="social_others">
+                        <li><a><i class="fa fa-phone"></i>+216 xx-xxx-xxx</a></li>
+                        <li><a><i class="fa fa-envelope-o"></i>tn.consomi.tounsi@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="header_top_right text-right">
+                    <ul>
+                        <li *ngIf="info.token" ><p class="p-4 text-failure"> Logged in as {{info.username}}  </p></li>
+                        <li *ngIf="authority && !authoritymanager"><a routerLink="account">My Account</a></li>
+                        <li *ngIf="!authority" class="nav-item">
+                            <a class="nav-link" routerLink="auth/login">Register / Login</a>
+                        </li>
+                        <li *ngIf="info.token"><button class="btn btn-secondary" (click)="logout()" >Logout</button></li></ul>
+                        <!--<li class="searchbox">
+                            <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                            <input type="submit" class="searchbox-submit" value="">
+                            <span class="searchbox-icon"><i class="fa fa-search"></i></span>
+                        </li>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container">
+        <div class="row mega_relative">
+            <div class="col-xs-12 col-sm-2">
+                <div class="logo head_lo">
+                    <a href="index.html"><img src="assets/images/logo.png" alt="Logo" /></a>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <div class="mainmenu float-right">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">HOME</a></li>
+                            <li *ngIf="authority && !authorityclient && !authoritydeliverer" ><a routerLink="accountsmanag">ACCOUNTS MANAGEMENT</a></li>
+                            <li><a routerLink="virtualvisit">VIRTUAL VISIT</a></li>
+                            <li><a routerLink="products">OUR PRODUCTS </a></li>
+                            <li><a routerLink="forum">FORUM</a></li>
+                            <li><a routerLink="events">EVENTS</a></li>
+                            <li *ngIf="authoritymanager" class="nav-item" ><a routerLink="dashboard">DASHBOARD</a></li>
+                            <li><a routerLink="contact">CONTACT US</a></li>
+                            <li class="shop_icon">
+                                <a href="checkout.html"><img src="assets/images/menu_icon_img.png" alt="" /></a>
+                                <span>10</span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mobile-menu-area">
+    <div class="container">
+        <div class="mobile-menu">
+            <nav id="dropdown">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                            <li><a routerLink="virtualvisit">VIRTUAL VISIT</a></li>
+                            <li><a routerLink="products">OUR PRODUCTS </a></li>
+                            <li><a routerLink="forum">FORUM</a></li>
+                            <li><a routerLink="events">EVENTS</a></li>
+                            <li><a routerLink="contact">CONTACT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- mobile-menu-area end -->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
