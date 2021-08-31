@@ -1,3 +1,45 @@
 .text-failure{
-    color : #e74c3c;
+    color : #8E3B13;
 }
+
+body{
+    background:#eee;
+    }                       
+    .header {
+        background-color: #FFFFFF;
+        border-width: 0;
+    }
+    #subnav {
+        position: fixed;
+        width: 100%;
+    }
+    .navbar-default {
+        background-color: #d1e3e7;
+        border-width: 0;
+        margin-top: 50px;
+        z-index: 5;
+    }
+    
+    .btn-primary, .label-primary, .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+        background-color: #4285F4;
+    }
+    .btn-primary {
+        border-color: #3A5761;
+    }
+    .btn, .form-control, .panel, .list-group, .well {
+        border-radius: 7px;
+        box-shadow: 1 1 10;
+    }
+    
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > li:hover > a {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background-color: rgba(0, 0, 0, 0);
+        border-color: #ca784f;
+        border-image: none;
+        border-style: solid;
+        border-width: 0 0 2px;
+        font-weight: 800;
+    }                    
