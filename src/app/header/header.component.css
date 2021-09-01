@@ -10,7 +10,7 @@ body{
         border-width: 0;
     }
     #subnav {
-        position: fixed;
+        
         width: 100%;
     }
     .navbar-default {

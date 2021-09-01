@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DelivererComponent } from './deliverer/deliverer.component';
 import { DonationsComponent } from './donations/donations.component';
+import { EmployeeComponent } from './employee/employee.component';
 import { EventsComponent } from './events/events.component';
 import { FoodComponent } from './food/food.component';
 import { ForumComponent } from './forum/forum.component';
@@ -115,10 +116,15 @@ const routes: Routes = [
   component: RegisterComponent
 },
 {
+  path: 'employee',
+  component: EmployeeComponent
+},
+{
   path: '',
   redirectTo: 'home',
   pathMatch: 'full'
 },
+
 {path: '**', component: MemeComponent}
 ];
 
