@@ -566,9 +566,14 @@ padding:0;
 list-style:none;
 }
 .compare_menu ul li a,th,.features_text h5,.disclaimer h5 {
+/* old setting 
 font-family: nexa_blackregular;
 font-size: 18px;
-font-weight: 400;
+font-weight: 400;*/
+font-family: Georgia, serif;
+font-size: 13px;
+font-weight: 900;
+
 }
 .compare_menu ul li a {
 border-left: 2px solid rgb(229, 229, 229);
@@ -645,7 +650,7 @@ padding: 20px;
 }
 table tr td {
 color: rgb(37, 51, 69);
-font-size: 18px;
+font-size: 15px;
 padding: 20px;
 font-family:nexa_bookregular;
 font-weight:400;
