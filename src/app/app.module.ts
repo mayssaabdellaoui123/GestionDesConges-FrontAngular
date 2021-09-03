@@ -40,6 +40,7 @@ import { MyaccountdelivererComponent } from './myaccountdeliverer/myaccountdeliv
 import { AccountsDashboardComponent } from './accounts-dashboard/accounts-dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { EmployeeComponent } from './employee/employee.component';
+import { DepartmentComponent } from './department/department.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { EmployeeComponent } from './employee/employee.component';
     MyaccountdelivererComponent,
     AccountsDashboardComponent,
     EmployeeComponent,
+    DepartmentComponent,
     
   ],
   imports: [

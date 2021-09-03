@@ -23,6 +23,7 @@ export class Client {
     subscriptionDate : Date;
     subMonth : string;
     matricule : number;
+    Image_URL: string;
 
     constructor(id : number ,firstname: string, lastname: string,username: string, email: string, password: string , 
         phone:string, address:string , gender:string , workfield : string , birthdate : string,

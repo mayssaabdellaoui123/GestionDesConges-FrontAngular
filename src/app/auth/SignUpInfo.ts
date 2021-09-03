@@ -9,8 +9,9 @@ export class SignUpInfo {
     genderClient: string;
     workfieldClient : string;
     dateBirthUser : string;
+    Image_URL: string;
 
-    constructor(firstname: string, lastname: string,username: string, email: string, password: string , phone:string, address:string , gender:string , workfield : string , birthdate : string) {
+    constructor(firstname: string, lastname: string,username: string, email: string, password: string , phone:string, address:string , gender:string , workfield : string , birthdate : string, Image_URL:string) {
         this.firstNameUser = firstname;
         this.lastNameUser = lastname;
         this.usernameUser = username;
@@ -21,6 +22,7 @@ export class SignUpInfo {
         this.genderClient=gender;
         this.workfieldClient=workfield;
         this.dateBirthUser=birthdate;
+        this.Image_URL=Image_URL;
     }
 }
 export class SignUpInfoM {

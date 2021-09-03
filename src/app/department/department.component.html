@@ -40,7 +40,7 @@ $(document).ready(function(){
 				<div class="table-title">
 					<div class="row">
 						<div class="col-xs-6">
-							<h2>Manage <b>Employees</b></h2>
+							<h2>Manage <b>Department</b></h2>
 						</div>
 						<div class="col-xs-6">
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
@@ -57,24 +57,13 @@ $(document).ready(function(){
 									<label for="selectAll"></label>
 								</span>
 							</th>
-							<th>matricule</th>
-							<th>first Name</th>
-							<th>last Name</th>
-							<th>work field</th>
-							<th>email Address</th>
-							<th>user name</th>
-							<th>address</th>
-							<th>Phone</th>
-
-							<th>role</th>
-							<th>salary</th>
-							<th>dateBirthUser</th>
-
-							<th>gender</th>
-							<th>Actions</th>
+							<th>id</th>
+							<th>nom Departement</th>
+							<th>matricule Boss</th>
+							
 						</tr>
 					</thead>
-					<tbody *ngFor="let employee of employees">
+					<tbody *ngFor="let department of Department">
 						<tr>
 							<td>
 								<span class="custom-checkbox">
@@ -82,20 +71,10 @@ $(document).ready(function(){
 									<label for="checkbox1"></label>
 								</span>
 							</td>
-							<td>{{employee?.matricule}}</td>
-							<td>{{employee?.firstNameUser}}</td>
-							<td>{{employee?.lastNameUser}}</td>
-							<td>{{employee?.workfieldClient}}</td>
-							<td>{{employee?.emailAddressUser}}</td>
-							<td>{{employee?.usernameUser}}</td>
-							<td>{{employee?.addressUser}}</td>
-							<td>{{employee?.phoneNumberUser}}</td>
-
-							<td>{{employee?.roleUser}}</td>
-							<td>{{employee?.salary}}</td>
-							<td>{{employee?.dateBirthUser}}</td>
-
-							<td>{{employee?.genderClient}}</td>
+							<td>{{department?.idDepartement}}</td>
+							<td>{{department?.nomDepartement}}</td>
+							<td>{{department?.matriculeBoss}}</td>
+							
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -132,25 +111,25 @@ $(document).ready(function(){
 					<ng-template #signupForm>
 			    	<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 					<div class="modal-header">						
-						<h4 class="modal-title">Add Employee</h4>
+						<h4 class="modal-title">Add Departement</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label for="name">Firstname</label>
-							<input type="text" class="form-control" name="firstname" [(ngModel)]="form.firstname" #firstname="ngModel" required />
-							<div *ngIf="f.submitted && firstname.invalid">
-							  <div *ngIf="firstname.errors.required" class="text-warning">Firstname is required</div>
+							<label for="name">Departement Name</label>
+							<input type="text" class="form-control" name="firstname" [(ngModel)]="form.nomDepartement" #nomDepartement="ngModel" required />
+							<div *ngIf="f.submitted && nomDepartement.invalid">
+							  <div *ngIf="nomDepartement.errors.required" class="text-warning">Departement Name is required</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="name">LastName</label>
-                            <input type="text" class="form-control" name="lastname" [(ngModel)]="form.lastname" #lastname="ngModel" required />
-                            <div *ngIf="f.submitted && lastname.invalid">
-                            <div *ngIf="lastname.errors.required" class="text-warning" >Lastname is required</div>
+							<label for="name">matricule Boss</label>
+                            <input type="text" class="form-control" name="lastname" [(ngModel)]="form.matriculeBoss" #matriculeBoss="ngModel" required />
+                            <div *ngIf="f.submitted && matriculeBoss.invalid">
+                            <div *ngIf="matriculeBoss.errors.required" class="text-warning" >matricule Boss is required</div>
                             </div>
 						</div>
-						<div class="form-group">
+						<!--div class="form-group">
 							<label for="dateofbirth" class="form-label">Date of Birth </label>
                             <input type="text" class="form-control" name="dateofbirth" [(ngModel)]="form.dateofbirth" #dateofbirth="ngModel" required>
                            <div id="dateofbirthHelper" class="form-text" class="text-muted">
@@ -222,18 +201,13 @@ $(document).ready(function(){
 								  <div *ngIf="f.submitted && phone.invalid">
 									<div *ngIf="phone.errors.required"class="text-warning">Phone is required</div>
 								  </div>
-								</div>
-								<div class="form-group">
-									<label for="phone">Photo URL</label>
-									<input type="file" class="form-control" name="username" [(ngModel)]="form.image_URL" data-toggle="tooltip" data-placement="right" title="Enter Product Image URL" accept="image/*" (change)="addImage($event)"/>
-									
-								  </div>
+								</div-->
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
 						<input type="submit" class="btn btn-success" [disabled]="!f.valid" value="Add">
 						<div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-							Signup failed!<br/>{{errorMessage}}
+							add failed!<br/>{{errorMessage}}
 						  </div>
 					</div>
 				</form>

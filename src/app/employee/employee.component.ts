@@ -17,8 +17,9 @@ export class EmployeeComponent implements OnInit {
   private signupInfo: SignUpInfo;
   isSignedUp = false;
   isSignUpFailed = false;
-  errorMessage = 'Email is not Valid !';
-
+  errorMessage = 'Matricule Boss is not found !';
+  imageFile
+  
   constructor(private employeeService: ClientService,private authService: AuthService) { }
 
   ngOnInit(
@@ -53,7 +54,8 @@ export class EmployeeComponent implements OnInit {
       this.form.address, 
       this.form.gender,
       this.form.workfield,
-      this.form.dateofbirth
+      this.form.dateofbirth,
+      this.form.Image_URL
       );
 
     this.authService.signUp(this.signupInfo).subscribe(
@@ -61,6 +63,7 @@ export class EmployeeComponent implements OnInit {
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
+        this.employeeService.addClient(this.imageFile).subscribe();
       },
       error => {
         console.log(error);
@@ -68,6 +71,12 @@ export class EmployeeComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
+  }
+
+  addImage(event:any){
+    this.imageFile = event.target.files[0];
+    
+    console.log("mayssa");
   }
 
 }
