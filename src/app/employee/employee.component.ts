@@ -63,7 +63,7 @@ export class EmployeeComponent implements OnInit {
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
-        this.employeeService.addClient(this.imageFile).subscribe();
+        this.employeeService.addImage(this.imageFile).subscribe();
       },
       error => {
         console.log(error);

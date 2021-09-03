@@ -30,10 +30,20 @@ export class ClientService {
     return this.http.get<Client>(`http://localhost:8081/ressources/client/getbyusername/${username}`);
   }
 
-  addImage(L: File): Observable<any>{
+/*  addImage(L: File): Observable<any>{
     const file = new FormData();
     file.append('file',L);
     return this.http.put(`http://localhost:8081/image/uploadclient`,file)
-  }
+  }*/
+
+
+  addImage(L: File): Observable<any>{
+        
+    const file = new FormData();
+    
+     file.append('file', L);
+    return this.http.put('http://localhost:8081/image/uploadclient',file)
+}
+
  
 }
