@@ -14,8 +14,17 @@ export class DepartmentServiceService {
     return this.http.get<Department[]>(`http://localhost:8081/Department/getall`);
   }
 
-  public addClient(Department: Department): Observable<Department> {
+  public addDepartment(Department: Department): Observable<Department> {
     return this.http.post<Department>(`http://localhost:8081/Department/addDep`, Department);
+  }
+
+
+  public deleteDepartment(DepartmentId: number): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Department/delete/${DepartmentId}`);
+  }
+
+  public updateDepartment(Department: Department): Observable<Department> {
+    return this.http.put<Department>(`http://localhost:8081/Department/update`, Department);
   }
 
 

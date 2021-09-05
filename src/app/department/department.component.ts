@@ -17,6 +17,8 @@ export class DepartmentComponent implements OnInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = 'Email is not Valid !';
+  public deletedepartment: Department;
+  public editdepartment: Department;
 
   constructor(private DepartmentService: DepartmentServiceService,private authService: AuthService) { }
 
@@ -47,7 +49,7 @@ export class DepartmentComponent implements OnInit {
       
       );
 
-    this.DepartmentService.addClient(this.department).subscribe(
+    this.DepartmentService.addDepartment(this.department).subscribe(
       data => {
         console.log(data);
         this.isSignedUp = true;
@@ -62,4 +64,57 @@ export class DepartmentComponent implements OnInit {
     );
   }
 
+
+  public onDeleteShelves(DepartmentId: number): void{
+    this.DepartmentService.deleteDepartment(DepartmentId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getDepartment();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+
+      }
+
+    )
+  
+    close() ;
+  }
+
+
+    public onOpenModal(department: Department,mode: string): void{
+      const container = document.getElementById('main-container');
+      const button = document.createElement('button')
+      button.type='button';
+      button.style.display='none';
+      button.setAttribute('data-toggle','modal')
+      if (mode == 'add') {
+        button.setAttribute('data-target','#addShelfModal')
+      }  
+      if (mode == 'edit') {
+        this.editdepartment = department;
+        button.setAttribute('data-target','#editDepartmentModal')
+      }  
+      if (mode == 'delete') {
+        this.deletedepartment = department;
+        button.setAttribute('data-target','#deleteDepartmentModal')
+      }  
+      container.appendChild(button);
+      button.click();   
+  }
+
+
+  public onUpdateDepartments(Department: Department): void{
+    this.DepartmentService.updateDepartment(Department).subscribe(
+      (response: Department) => {
+        console.log(response);
+        this.getDepartment();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )  }
+
+
+  
 }
