@@ -1,39 +1,41 @@
 body {
     color: #566787;
-    background: #f5f5f5;
+    background: #ebeeef;
     font-family: 'Varela Round', sans-serif;
     font-size: 13px;
 }
-.table-responsive {
-    /*margin: 30px 0;*/
-    width: 1200px;
-    margin: auto;
-}
+/*
+
+*/
 .table-wrapper {
-    /*min-width: 1000px;
-    background: #fff;
-    padding: 20px 25px;
-    border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);*/
-    /*min-width: 100px;
+    min-width: 100px;
     
     /* background: #fff;*/
-    width: auto;
     padding: 20px 0px;
     border-radius: 3px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {        
     padding-bottom: 15px;
-    background: #435d7d;
+    background: transparent;
+    width: auto;
     color: #fff;
     padding: 16px 30px;
-    margin: -20px -25px 10px;
+    margin: 20px -25px 10px;
     border-radius: 3px 3px 0 0;
 }
 .table-title h2 {
     margin: 5px 0 0;
     font-size: 24px;
+    color: #704523;
+}
+
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #704523;
+}
+.btn-success {
+    background-color: #704523;
 }
 .table-title .btn-group {
     float: right;
@@ -82,8 +84,11 @@ table.table th i {
 }	
 table.table td:last-child i {
     opacity: 0.9;
-    font-size: 22px;
+    font-size: 20px;
     margin: 0 5px;
+}
+tr{
+    background-color: #E9E2D7;
 }
 table.table td a {
     font-weight: bold;
@@ -237,12 +242,36 @@ table.table .avatar {
 .container123{
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: -250px;
-    margin-left: -350px;
+    /*margin-right: -250px;
+    margin-left: -350px;*/
 }
 
 .fonttable{
     font-family: Georgia, serif;
     font-size: 13px;
     font-weight: 900;
+}
+.table{
+    /*margin-right: -250px*/
+    table-layout: auto;
+    width: 1300px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.table-responsive {
+  /*  margin: 30px 100px 0px 800px;
+    margin-right: -250px*/
+    width: 100%;
+}
+
+.table td {
+    width:20px ;
+    table-layout: auto;
+   
+}
+
+.col-xs-6 {
+    
+    padding-left: 50px;
 }

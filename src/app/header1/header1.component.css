@@ -1,67 +1,4 @@
-
-
-
-.text-failure{
-    color : #8E3B13;
-}
-
-body{
-    background:#eee;
-    }                       
-    .header {
-        background-color: #FFFFFF;
-        border-width: 0;
-    }
-    #subnav {
-        
-        width: 100%;
-    }
-    .navbar-default {
-        background-color: #d1e3e7;
-        border-width: 0;
-        margin-top: 0;
-        margin-bottom: 0px;
-        z-index: 5;
-    }
-    
-    .btn-primary, .label-primary, .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-        background-color: #4285F4;
-    }
-    .btn-primary {
-        border-color: #3A5761;
-    }
-    .btn, .form-control, .panel, .list-group, .well {
-        border-radius: 7px;
-        box-shadow: 1 1 10;
-    }
-    
-.homescreen{
-   background-color:  #eeeeee;
-   height: 100%;
-   
-  }
-  
-
-    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > li:hover > a {
-        -moz-border-bottom-colors: none;
-        -moz-border-left-colors: none;
-        -moz-border-right-colors: none;
-        -moz-border-top-colors: none;
-        background-color: rgba(0, 0, 0, 0);
-        border-color: #ca784f;
-        border-image: none;
-        border-style: solid;
-        border-width: 0 0 2px;
-        font-weight: 800;
-    }                    
-
-    .username {
-        margin-top: 17px;
-    }
-
-
-
-    @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body{
   font-family: 'Roboto', sans-serif;
@@ -77,11 +14,10 @@ i {
 .navbar-logo{
   padding: 15px;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
 }
 .navbar-mainbg{
-  background-color: #5a7a9a;
+  margin-top: 30px;
+  background-color: #5161ce;
   padding: 0px;
 }
 #navbarSupportedContent{
@@ -100,7 +36,7 @@ i {
   float: left;
 }
 #navbarSupportedContent ul li a{
-  color: #fff;
+  color: rgba(255,255,255,0.5);
     text-decoration: none;
     font-size: 15px;
     display: block;
@@ -110,7 +46,7 @@ i {
     position: relative;
 }
 #navbarSupportedContent>ul>li.active>a{
-  color: rgb(103 124 134);
+  color: #5161ce;
   background-color: transparent;
   transition: all 0.7s;
 }
@@ -138,7 +74,7 @@ i {
   left: 0px;
   transition-duration:0.6s;
   transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  background-color: #ebeeef;
+  background-color: #fff;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   margin-top: 10px;
@@ -148,7 +84,7 @@ i {
   position: absolute;
   width: 25px;
   height: 25px;
-  background-color: #ebeeef;
+  background-color: #fff;
   bottom: 10px;
 }
 .hori-selector .right{
@@ -164,7 +100,7 @@ i {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #5a7a9a;
+    background-color: #5161ce;
 }
 .hori-selector .right:before{
   bottom: 0;
@@ -182,7 +118,6 @@ i {
       flex-flow: row nowrap;
       -ms-flex-pack: start;
       justify-content: flex-start;
-      height: 25px;
   }
   .navbar-expand-custom .navbar-nav {
       -ms-flex-direction: row;
@@ -230,41 +165,7 @@ i {
     bottom: -25px;
     left: -25px;
   }
-
 }
 
-svg:not(:root) {
-    overflow: hidden;
-    margin-top: -4px;
-}
-.btnn {
-    cursor: pointer;
-    width: 80px;
-    height: 50%;
-    margin-top: 13px;
-    margin-right: 15px;
-    font-size: 15px;
-}
 
-.btn-outline-light{
-    color: #5a7a9a;
-    border-color: transparent;
-    background-color: transparent;
-    font-family: 'Roboto', sans-serif;
-}
-.stylebtn{
-    font-family: 'Roboto', sans-serif;
-    color: #5a7a9a;
-}
 
-.titleitceq{
-    color: #5a7a9a;
-    font-family: 'Roboto', sans-serif;
-   
-    margin-left: 30px;
-    font-size: 28px;
-}
-
-.list{
-  color: white;
-}

@@ -48,6 +48,8 @@ export class HeaderComponent implements OnInit {
         return true;
       });
     }
+
+    
   }
   
   logout() {
@@ -57,5 +59,9 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
   }); 
   }
+
+  
+
+  
 }
 

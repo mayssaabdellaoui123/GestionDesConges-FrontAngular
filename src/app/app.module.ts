@@ -41,6 +41,8 @@ import { AccountsDashboardComponent } from './accounts-dashboard/accounts-dashbo
 import { ChartsModule } from 'ng2-charts';
 import { EmployeeComponent } from './employee/employee.component';
 import { DepartmentComponent } from './department/department.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Header1Component } from './header1/header1.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,7 @@ import { DepartmentComponent } from './department/department.component';
     AccountsDashboardComponent,
     EmployeeComponent,
     DepartmentComponent,
+    Header1Component,
     
   ],
   imports: [
@@ -87,7 +90,8 @@ import { DepartmentComponent } from './department/department.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

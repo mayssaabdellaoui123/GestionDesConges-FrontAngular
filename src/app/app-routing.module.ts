@@ -17,6 +17,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EventsComponent } from './events/events.component';
 import { FoodComponent } from './food/food.component';
 import { ForumComponent } from './forum/forum.component';
+import { Header1Component } from './header1/header1.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ManagerComponent } from './manager/manager.component';
@@ -124,6 +125,13 @@ const routes: Routes = [
   path: 'department',
   component: DepartmentComponent
 },
+{
+  path: 'navbar',
+  component: Header1Component
+}
+,
+
+
 {
   path: '',
   redirectTo: 'home',
