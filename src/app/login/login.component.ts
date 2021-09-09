@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { AuthLoginInfo } from '../auth/login-info';
 import { TokenStorgeService } from '../token-storage.service';
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   private loginInfo: AuthLoginInfo;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorgeService ,private token: TokenStorgeService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorgeService ,private token: TokenStorgeService, private router: Router ) { }
 
   ngOnInit() {
     this.info = {
@@ -69,6 +70,8 @@ export class LoginComponent implements OnInit {
   }
 
   reloadPage() {
+    //this.router.navigate(['/account']) ;
     window.location.reload();
+    
   }
 }

@@ -14,11 +14,12 @@ export class User {
     enabled :boolean;
     locked : boolean;
     dateBirthUser : string;
+    matricule: string;
     
 
     constructor(id : number ,firstname: string, lastname: string,username: string, email: string, password: string , 
         phone:string, address:string ,  birthdate : string, role : string , updated : boolean , nb : number , 
-        salary: number , enable : boolean , lock : boolean) {
+        salary: number , enable : boolean , lock : boolean , matricule: string) {
         this.idUser = id;
         this.firstNameUser = firstname;
         this.lastNameUser = lastname;
@@ -34,5 +35,6 @@ export class User {
         this.updatedPassword=updated;
         this.roleUser=role;
         this.nbaccessUser=nb;
+        this.matricule= matricule;
     }
 }

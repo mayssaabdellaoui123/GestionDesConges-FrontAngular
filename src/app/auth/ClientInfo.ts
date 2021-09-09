@@ -7,11 +7,11 @@ export class Client {
     usernameUser: string;
     emailAddressUser: string;
     passwordUser: string;
-    addressUser: string; 
+    //addressUser: string; 
     roleUser : string; 
     updatedPassword : boolean;
     nbaccessUser : number ;
-    salary : number ;
+    //salary : number ;
     enabled :boolean;
     locked : boolean;
     dateBirthUser : string;
@@ -19,16 +19,16 @@ export class Client {
     genderClient: string;
     workfieldClient : string;
     Latitude : number;
-    Longitude : number;
+    //Longitude : number;
     subscriptionDate : Date;
     subMonth : string;
-    matricule : number;
+     matricule : string;
     Image_URL: string;
 
     constructor(id : number ,firstname: string, lastname: string,username: string, email: string, password: string , 
-        phone:string, address:string , gender:string , workfield : string , birthdate : string,
-        latitude : number, longitude : number , subscriptionDate : Date , subMonth : string , role : string ,
-        updated : boolean , nb : number , salary: number , enable : boolean , lock : boolean, matricule : number) {
+        phone:string, /*address:string , */gender:string , workfield : string , birthdate : string,
+        /*latitude : number, longitude : number ,*/ subscriptionDate : Date , subMonth : string , role : string ,
+        updated : boolean , nb : number ,/* salary: number ,*/ enable : boolean , lock : boolean, matricule : string) {
         //user    
         this.idUser = id;
         this.firstNameUser = firstname;
@@ -37,17 +37,17 @@ export class Client {
         this.emailAddressUser = email;
         this.passwordUser = password;
         this.phoneNumberUser = phone; 
-        this.addressUser=address;
+       // this.addressUser=address;
         this.dateBirthUser=birthdate;
         this.enabled=enable;
         this.locked=lock;
-        this.salary=salary;
+       // this.salary=salary;
         this.updatedPassword=updated;
         this.roleUser=role;
         this.nbaccessUser=nb;
         //client
-        this.Latitude=latitude;
-        this.Longitude=longitude;
+        //this.Latitude=latitude;
+        //this.Longitude=longitude;
         this.subscriptionDate=subscriptionDate;
         this.subMonth=subMonth
         this.genderClient=gender;

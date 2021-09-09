@@ -1,4 +1,5 @@
-  <!--div *ngIf="isLoggedIn; else loggedOut"-->
+
+<!--div *ngIf="isLoggedIn; else loggedOut"-->
     <!--Logged in as {{roles}}.-->
   <!--/div>
  <div *ngIf="info.token">
@@ -83,7 +84,7 @@
   <strong>Successfuly Logged in!</strong> Good Day {{info.username}} , Welcome to Consomi Tounsi #619  </div>
   <div *ngIf="!changed" class="alert alert-warning"> 
     <strong> You still have not changed the default password !</strong> </div>
-<!--app-home></app-home-->
+<app-home></app-home-->
 <!--/div>
 
 
@@ -151,7 +152,8 @@
 <!------------------------------------------->
 
 
-<div *ngIf="isLoggedIn; else loggedOut">
+<div *ngIf="isLoggedIn; else loggedOut" >
+
     <!--Logged in as {{roles}}.-->
   </div>
  <!--div *ngIf="info.token" id="nav" >
@@ -161,11 +163,11 @@
       <strong> You still have not changed the default password !</strong> </div-->
   <!--app-home></app-home-->
   <!--/div-->
-  <div class="center-screen">
+  <div class="center-screen" >
   <ng-template #loggedOut>
     <div class="limiter" >
-      <div class="container-login100">
-        <div class="wrap-login100">
+      <div class="container-login100" >
+        <div class="wrap-login100"  >
           
           <div class="login100-form-titlee" style="background-image: url(assets/images/bg-02.jpg);">
             <span class="login100-form-titlee-1">

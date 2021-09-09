@@ -4,19 +4,21 @@ body {
     font-family: 'Varela Round', sans-serif;
     font-size: 13px;
 }
-.table-responsive {
-    margin: 30px 0;
-}
+/*
+
+*/
 .table-wrapper {
-    min-width: 1000px;
-    background: #fff;
-    padding: 20px 25px;
+    min-width: 100px;
+    
+    /* background: #fff;*/
+    padding: 20px 0px;
     border-radius: 3px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {        
     padding-bottom: 15px;
     background: #435d7d;
+    width: auto;
     color: #fff;
     padding: 16px 30px;
     margin: -20px -25px 10px;
@@ -73,7 +75,7 @@ table.table th i {
 }	
 table.table td:last-child i {
     opacity: 0.9;
-    font-size: 22px;
+    font-size: 20px;
     margin: 0 5px;
 }
 table.table td a {
@@ -228,12 +230,34 @@ table.table .avatar {
 .container123{
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: -250px;
-    margin-left: -350px;
+    /*margin-right: -250px;
+    margin-left: -350px;*/
 }
 
 .fonttable{
     font-family: Georgia, serif;
     font-size: 13px;
     font-weight: 900;
+}
+.table{
+    /*margin-right: -250px*/
+    table-layout: auto;
+    width: 100px;
+    max-width: 700px;
+}
+
+.table-responsive {
+  /*  margin: 30px 100px 0px 800px;
+    margin-right: -250px*/
+}
+
+.table td {
+    width:20px ;
+    table-layout: auto;
+   
+}
+
+.col-xs-6 {
+    
+    padding-left: 50px;
 }

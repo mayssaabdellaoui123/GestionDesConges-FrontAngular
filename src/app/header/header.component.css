@@ -17,6 +17,7 @@ body{
         background-color: #d1e3e7;
         border-width: 0;
         margin-top: 50px;
+        margin-bottom: 0px;
         z-index: 5;
     }
     
@@ -31,6 +32,13 @@ body{
         box-shadow: 1 1 10;
     }
     
+.homescreen{
+   background-color:  #eeeeee;
+   height: 100%;
+   
+  }
+  
+
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > li:hover > a {
         -moz-border-bottom-colors: none;
         -moz-border-left-colors: none;
@@ -43,3 +51,7 @@ body{
         border-width: 0 0 2px;
         font-weight: 800;
     }                    
+
+    .username {
+        margin-top: 17px;
+    }

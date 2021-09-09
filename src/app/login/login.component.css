@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 50vh;   
+    /*min-height: 50vh;   */
   }
   .btn-failure {
     background: #e74c3c;
@@ -92,16 +92,15 @@ input[type='text']:-ms-input-placeholder, input[type='password']:-ms-input-place
 
 #nav {
    
-    height: 200px;
-    width: 1000px;
-   
+    height: auto;
+    width: auto;
     font-size: 20px;
     text-align: center;
     
     text-decoration: none;
     background-position: center;
-    margin: 110px;
     display: block;
    
    justify-content: center;
+   background-color: white;
 }

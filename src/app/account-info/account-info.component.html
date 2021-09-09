@@ -19,108 +19,102 @@
                <div class="table-responsive">
                <table class="table table-user-information">
                    <tbody>
+
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                matricule                                            
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                         {{employee?.matricule}}     
+                        </td>
+                    </tr>
                        <tr>        
                            <td>
                                <strong>
                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                   Identificacion                                                
-                               </strong>
-                           </td>
-                           <td class="text-primary">
-                               123456789     
-                           </td>
-                       </tr>
-                       <tr>    
-                           <td>
-                               <strong>
-                                   <span class="glyphicon glyphicon-user  text-primary"></span>    
-                                   Name                                                
-                               </strong>
-                           </td>
-                           <td class="text-primary">
-                              <h4>{{employee?.firstNameUser}}</h4>     
-                           </td>
-                       </tr>
-                       <tr>        
-                           <td>
-                               <strong>
-                                   <span class="glyphicon glyphicon-cloud text-primary"></span>  
-                                   Lastname                                                
-                               </strong>
-                           </td>
-                           <td class="text-primary">
-                              <h4>{{employee?.lastNameUser}}</h4>
-                           </td>
-                       </tr>
-   
-                       <tr>        
-                           <td>
-                               <strong>
-                                   <span class="glyphicon glyphicon-bookmark text-primary"></span> 
                                    Username                                                
                                </strong>
                            </td>
                            <td class="text-primary">
-                               bootnipets 
+                            {{employee?.usernameUser}}     
                            </td>
                        </tr>
-   
-   
+
                        <tr>        
-                           <td>
-                               <strong>
-                                   <span class="glyphicon glyphicon-eye-open text-primary"></span> 
-                                   Role                                                
-                               </strong>
-                           </td>
-                           <td class="text-primary">
-                               Admin
-                           </td>
-                       </tr>
-                       <tr>        
-                           <td>
-                               <strong>
-                                   <span class="glyphicon glyphicon-envelope text-primary"></span> 
-                                   Email                                                
-                               </strong>
-                           </td>
-                           <td class="text-primary">
-                               noreply@email.com  
-                           </td>
-                       </tr>
-                       <tr>        
-                           <td>
-                               <strong>
-                                   <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                   created                                                
-                               </strong>
-                           </td>
-                           <td class="text-primary">
-                               20 jul 20014
-                           </td>
-                       </tr>
-                       <tr>        
-                           <td>
-                               <strong>
-                                   <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                   Modified                                                
-                               </strong>
-                           </td>
-                           <td class="text-primary">
-                                20 jul 20014 20:00:00
-                           </td>
-                       </tr>                                    
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                first Name                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                         {{employee?.firstNameUser}}     
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                last Name                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                         {{employee?.lastNameUser}}     
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                email Address                                              
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                         {{employee?.emailAddressUser}}     
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                role                                            
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                         {{employee?.roleUser}}     
+                        </td>
+                    </tr>
+                    
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                work field                                           
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                         {{employee?.workfieldClient}}     
+                        </td>
+                    </tr>
+                   
                    </tbody>
                </table>
                </div>
+               <button class="btn btn-failure col-md-12" (click)="Onedit()">Edit Account Information</button>
            </div>
        </div>
    </div>
    </div>   
    
 </div>
-<!------>
-<div class="main container" center >
+<!-------------------->
+<!--div class="main container" center >
     <div *ngIf="!edit" class="container contact">
     <ul>
         <div class="contact-info">
@@ -135,10 +129,12 @@
                <li class="list-group-item"><i class="fa fa-envelope float-right"></i><strong>Email : </strong>{{employee?.emailAddressUser}}</li>
                <li class="list-group-item"><i class="fa fa-phone float-right"></i><strong>Phone : </strong> {{employee?.phoneNumberUser}}</li>
                <li class="list-group-item"><i class="fa fa-calendar	float-right"></i><strong>Birthday : </strong> {{employee?.dateBirthUser}}</li>
-               <li class="list-group-item"><i class="fa fa-street-view float-right"></i><strong>Address : </strong> {{employee?.addressUser}}</li>
+               <!--li class="list-group-item"><i class="fa fa-street-view float-right"></i><strong>Address : </strong> {{employee?.addressUser}}</li>
             </ul>
+
+        
             <button class="btn btn-failure col-md-12" (click)="Onedit()">Edit Account Information</button>
-        </div></ul></div>
+        </div></ul></div-->
 <div *ngIf="edit" class="container contact">
 	<div class="row">
 		<div class="col-md-3" >
@@ -155,7 +151,7 @@
                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i><strong>Email : </strong>{{employee?.emailAddressUser}}</li>
                    <li class="list-group-item"><i class="fa fa-phone float-right"></i><strong>Phone : </strong> {{employee?.phoneNumberUser}}</li>
                    <li class="list-group-item"><i class="fa fa-calendar	float-right"></i><strong>Birthday : </strong> {{employee?.dateBirthUser}}</li>
-                   <li class="list-group-item"><i class="fa fa-street-view float-right"></i><strong>Address : </strong> {{employee?.addressUser}}</li>
+                   <!--li class="list-group-item"><i class="fa fa-street-view float-right"></i><strong>Address : </strong> {{employee?.addressUser}}</li-->
                 </ul>
 			</div></ul>
 		</div>
@@ -184,21 +180,22 @@
                         <label for="phoneNumberUser">Phone</label>
                         <input type="text" ngModel="{{editEmployee?.phoneNumberUser}}" name="phoneNumberUser" class="form-control" id="phoneNumberUser" placeholder="Phone">
                      </div>
-                     <div class="form-group">
+                     <!--div class="form-group">
                         <label for="addressUser">Address</label>
                         <input type="text" ngModel="{{editEmployee?.addressUser}}" name="addressUser" class="form-control" id="addressUser" placeholder="Phone">
-                     </div>
+                     </div-->
                      <input type="hidden" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" placeholder="Email">
                 <input type="hidden" ngModel="{{editEmployee?.idUser}}" name="idUser" class="form-control" id="idUser" placeholder="Email">
                 <input type="hidden" ngModel="{{editEmployee?.roleUser}}" name="roleUser" class="form-control" id="roleUser" placeholder="Email">
                 <input type="hidden" ngModel="{{editEmployee?.updatedPassword}}" name="updatedPassword" class="form-control" id="updatedPassword" placeholder="Email">
                 <input type="hidden" ngModel="{{editEmployee?.nbaccessUser}}" name="nbaccessUser" class="form-control" id="nbaccessUser" placeholder="Email">
-                <input type="hidden" ngModel="{{editEmployee?.salary}}" name="salary" class="form-control" id="salary" placeholder="Email">
+                <!--input type="hidden" ngModel="{{editEmployee?.salary}}" name="salary" class="form-control" id="salary" placeholder="Email"-->
                 <input type="hidden" ngModel="{{editEmployee?.enabled}}" name="enabled" class="form-control" id="enabled" placeholder="Email">
                 <input type="hidden" ngModel="{{editEmployee?.locked}}" name="locked" class="form-control" id="locked" placeholder="Email">
                 <input type="hidden" ngModel="{{editEmployee?.dateBirthUser}}" name="dateBirthUser" class="form-control" id="dateBirthUser" placeholder="Email">
-                <input type="hidden" ngModel="{{editEmployee?.Latitude}}" name="Latitude" class="form-control" id="Latitude" placeholder="Email">
-                <input type="hidden" ngModel="{{editEmployee?.Longitude}}" name="Longitude" class="form-control" id="Longitude" placeholder="Email">
+                <!--input type="hidden" ngModel="{{editEmployee?.Latitude}}" name="Latitude" class="form-control" id="Latitude" placeholder="Email">
+                <input type="hidden" ngModel="{{editEmployee?.Longitude}}" name="Longitude" class="form-control" id="Longitude" placeholder="Email"-->
+                <!-- ne9sa adress -->
                 <input type="hidden" ngModel="{{editEmployee?.genderClient}}" name="genderClient" class="form-control" id="genderClient" placeholder="Email">
                 <input type="hidden" ngModel="{{editEmployee?.workfieldClient}}" name="workfieldClient" class="form-control" id="workfieldClient" placeholder="Email">
                 <input type="hidden" ngModel="{{editEmployee?.subscriptionDate}}" name="subscriptionDate" class="form-control" id="subscriptionDate" placeholder="Email">
