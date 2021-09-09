@@ -76,9 +76,10 @@ i {
 /*----------bootstrap-navbar-css------------*/
 .navbar-logo{
   padding: 15px;
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
+  color: rgb(199, 149, 92);
+  font-family: Perpetua	  ;
+  font-size: 17px;
+  margin-top: -5px;
 }
 .navbar-mainbg{
   background-color: #5a7a9a;
