@@ -116,5 +116,11 @@ export class DepartmentComponent implements OnInit {
     )  }
 
 
-  
+    reloadPage() {
+      //this.router.navigate(['/account']) ;
+      window.location.reload();
+      
+    }
+
+
 }

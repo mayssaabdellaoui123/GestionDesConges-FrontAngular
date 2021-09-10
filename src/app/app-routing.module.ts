@@ -4,6 +4,7 @@ import { AccessoriesComponent } from './accessories/accessories.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
 import { AccountComponent } from './account/account.component';
 import { AccountsManagementComponent } from './accounts-management/accounts-management.component';
+import { AdminManagerComponent } from './admin-manager/admin-manager.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdvertisementsComponent } from './advertisements/advertisements.component';
 import { ClientComponent } from './client/client.component';
@@ -125,6 +126,11 @@ const routes: Routes = [
   path: 'department',
   component: DepartmentComponent
 },
+{
+  path: 'adminManager',
+  component: AdminManagerComponent
+}
+,
 {
   path: 'navbar',
   component: Header1Component

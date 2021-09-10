@@ -81,6 +81,12 @@ export class EmployeeComponent implements OnInit {
     console.log("mayssa");
   }
 
+  reloadPage() {
+    //this.router.navigate(['/account']) ;
+    window.location.reload();
+    
+  }
+
   
 
 }

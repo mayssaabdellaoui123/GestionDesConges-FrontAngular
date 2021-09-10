@@ -19,10 +19,11 @@ export class Admin{
     //admin
     roleAdmin: string;
     nbabsenceAdmin : number;
+    matriculeBoss: string;
 
     constructor(id : number ,firstname: string, lastname: string,username: string, email: string, password: string , 
         phone:string, address:string , role1:string , nbabsenceAdmin : number , birthdate : string, role : string ,
-        updated : boolean , nb : number , salary: number , enable : boolean , lock : boolean) {
+        updated : boolean , nb : number , salary: number , enable : boolean , lock : boolean , matriculeBoss : string){
         //user    
         this.idUser = id;
         this.firstNameUser = firstname;
@@ -42,6 +43,7 @@ export class Admin{
         //admin
         this.roleAdmin=role1;
         this.nbabsenceAdmin=nbabsenceAdmin;
+        this.matriculeBoss=matriculeBoss;
     }
 
 

@@ -213,6 +213,9 @@
             <li *ngIf="authority && !authoritymanager" class="nav-item ">
                 <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>History</a>
             </li>
+            <li *ngIf="authority && authoritymanager" class="nav-item ">
+                <a class="nav-link" routerLink="adminManager"><i class="far fa-calendar-alt"></i>Admins</a>
+            </li>
             <!--li class="nav-item">
                 <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
             </li>

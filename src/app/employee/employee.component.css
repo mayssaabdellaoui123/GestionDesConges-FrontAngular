@@ -275,3 +275,10 @@ table.table .avatar {
     
     padding-left: 50px;
 }
+
+.addbtn{
+    width: auto;
+    margin-top: 30px;
+  margin-left: 1400px;
+ color: #5a7a9a;
+}

@@ -43,6 +43,10 @@ import { EmployeeComponent } from './employee/employee.component';
 import { DepartmentComponent } from './department/department.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Header1Component } from './header1/header1.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { AdminManagerComponent } from './admin-manager/admin-manager.component';
+
 
 @NgModule({
   declarations: [
@@ -83,6 +87,7 @@ import { Header1Component } from './header1/header1.component';
     EmployeeComponent,
     DepartmentComponent,
     Header1Component,
+    AdminManagerComponent,
     
   ],
   imports: [
@@ -91,7 +96,9 @@ import { Header1Component } from './header1/header1.component';
     FormsModule,
     HttpClientModule,
     ChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
