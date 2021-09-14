@@ -1,6 +1,6 @@
 body {
     color: #566787;
-    background: #ebeeef;
+    background-image: linear-gradient(#ebeeef, white);
     font-family: 'Varela Round', sans-serif;
     font-size: 13px;
 }
@@ -20,8 +20,8 @@ body {
     background: transparent;
     width: auto;
     color: #fff;
-    padding: 16px 30px;
-    margin: 20px -25px 10px;
+    /*padding: 16px 30px;
+    margin: 20px -25px 10px;*/
     border-radius: 3px 3px 0 0;
 }
 .table-title h2 {
@@ -311,6 +311,6 @@ section {
   .addbtn{
       width: auto;
       margin-top: 30px;
-    margin-left: 1400px;
+    margin-left: 1200px;
    color: #5a7a9a;
   }

@@ -330,7 +330,7 @@ $(document).ready(function(){
 			<div class="modal-content">
 				<form #editForm="ngForm">
 					<div class="modal-header">						
-						<h4 class="modal-title">Edit Employee</h4>
+						<h4 class="modal-title">Edit Department</h4>
 						<button type="button" class="close" (click)="reloadPage()" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
@@ -353,10 +353,27 @@ $(document).ready(function(){
 							<input type="text" class="form-control" required>
 						</div-->					
 					</div>
-					<div class="modal-footer">
+					<!--div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="reloadPage()" value="Cancel">
 						<input type="submit" class="btn btn-info" value="Save" data-dismiss="modal"  (click)="onUpdateDepartments(editForm.value)" >
+					</div-->
+
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="reloadPage()" value="Cancel">
+						<input type="submit" class="btn btn-info" value="Save" (click)="onUpdateDepartments(editForm.value)" >
+						<div *ngIf="isSignUpFailed" class="alert alert-warning">
+							add failed!<br/>{{errorMessage}}
+						  </div>
 					</div>
+
+					<!--div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="reloadPage()" value="Cancel">
+						<input type="submit" class="btn btn-success" [disabled]="!f.valid" value="Add">
+						<div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+							add failed!<br/>{{errorMessage}}
+						  </div>
+					</div-->
+
 				</form>
 			</div>
 		</div>

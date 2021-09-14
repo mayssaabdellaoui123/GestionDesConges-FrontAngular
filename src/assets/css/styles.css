@@ -63,6 +63,11 @@
   --bs-body-bg: #fff;
 }
 
+
+*{
+  transition: none;
+}
+
 *,
 *::before,
 *::after {

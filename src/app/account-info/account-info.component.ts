@@ -30,6 +30,7 @@ export class AccountInfoComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()};
     this.getClient();
+
   }
 
   public getClient(): void {
@@ -45,9 +46,12 @@ export class AccountInfoComponent implements OnInit {
   }
 
   public Onedit() : void {
+    
     this.edit=true;
     this.editEmployee=this.employee;
   }
+
+
 
   public resetEdit() : void {
     this.edit = false; 

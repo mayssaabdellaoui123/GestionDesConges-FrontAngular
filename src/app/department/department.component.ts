@@ -55,6 +55,7 @@ export class DepartmentComponent implements OnInit {
         this.isSignedUp = true;
         this.isSignUpFailed = false;
         this.getDepartment();
+        this.reloadPage();
       },
       error => {
         console.log(error);
@@ -64,22 +65,31 @@ export class DepartmentComponent implements OnInit {
     );
   }
 
-
-  public onDeleteShelves(DepartmentId: number): void{
-    this.DepartmentService.deleteDepartment(DepartmentId).subscribe(
-      (response: void) => {
+  public onUpdateDepartments(Department: Department): void{
+    this.DepartmentService.updateDepartment(Department).subscribe(
+      /*(response: Department) => {
         console.log(response);
         this.getDepartment();
+        this.reloadPage();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
+      }*/
 
+      data => {
+        console.log(data);
+        this.isSignedUp = true;
+        this.isSignUpFailed = false;
+        this.getDepartment();
+        this.reloadPage();
+      },
+      error => {
+        console.log(error);
+        this.errorMessage = error.error.message;
+        this.isSignUpFailed = true;
       }
 
-    )
-  
-    close() ;
-  }
+    )  }
 
 
     public onOpenModal(department: Department,mode: string): void{
@@ -104,16 +114,27 @@ export class DepartmentComponent implements OnInit {
   }
 
 
-  public onUpdateDepartments(Department: Department): void{
-    this.DepartmentService.updateDepartment(Department).subscribe(
-      (response: Department) => {
+
+
+  public onDeleteShelves(DepartmentId: number): void{
+    this.DepartmentService.deleteDepartment(DepartmentId).subscribe(
+      (response: void) => {
         console.log(response);
         this.getDepartment();
+        this.reloadPage();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
+
       }
-    )  }
+
+    )
+  
+    close() ;
+  }
+
+
+  
 
 
     reloadPage() {

@@ -19,6 +19,9 @@ export class EmployeeComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = 'Matricule Boss is not found !';
   imageFile
+
+  public deleteclient: Client;
+  public editdeclient: Client;
   
   constructor(private employeeService: ClientService,private authService: AuthService) { }
 
@@ -29,7 +32,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   public getEmployees(): void {
-    this.employeeService.getClients().subscribe(
+    this.employeeService.getClients1().subscribe(
       (response: Client[]) => {
         this.employees = response;
         console.log(this.employees);
@@ -66,6 +69,7 @@ export class EmployeeComponent implements OnInit {
         this.isSignUpFailed = false;
       //  this.employeeService.addImage(this.imageFile).subscribe();
         this.getEmployees();
+        this.reloadPage();
       },
       error => {
         console.log(error);
@@ -86,6 +90,76 @@ export class EmployeeComponent implements OnInit {
     window.location.reload();
     
   }
+
+  
+  public onDeleteShelves(clientId: number): void{
+    this.employeeService.deleteClient(clientId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getEmployees();
+        this.reloadPage();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+
+      }
+
+    )
+  
+    close() ;
+  }
+
+
+  public onOpenModal(employee: Client,mode: string): void{
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button')
+    button.type='button';
+    button.style.display='none';
+    button.setAttribute('data-toggle','modal')
+    if (mode == 'add') {
+      button.setAttribute('data-target','#addShelfModal')
+    }  
+    if (mode == 'edit') {
+      this.editdeclient = employee;
+      button.setAttribute('data-target','#editEmployeeModal')
+    }  
+    if (mode == 'delete') {
+      this.deleteclient = employee;
+      button.setAttribute('data-target','#deleteEmployeeModal')
+    }  
+    container.appendChild(button);
+    button.click();   
+}
+
+
+public onUpdateEmployees(Employee: Client): void{
+  this.employeeService.updateClient(Employee).subscribe(
+    /*(response: Department) => {
+      console.log(response);
+      this.getDepartment();
+      this.reloadPage();
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+    }*/
+
+    data => {
+      console.log(data);
+      this.isSignedUp = true;
+      this.isSignUpFailed = false;
+      this.getEmployees();
+      this.reloadPage();
+    },
+    error => {
+      console.log(error);
+      this.errorMessage = error.error.message;
+      this.isSignUpFailed = true;
+    }
+
+  )  }
+
+
+
 
   
 

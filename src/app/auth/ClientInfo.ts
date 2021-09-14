@@ -24,11 +24,12 @@ export class Client {
     subMonth : string;
      matricule : string;
     Image_URL: string;
+    soldeDeConge:  number;
 
     constructor(id : number ,firstname: string, lastname: string,username: string, email: string, password: string , 
         phone:string, /*address:string , */gender:string , workfield : string , birthdate : string,
-        /*latitude : number, longitude : number ,*/ subscriptionDate : Date , subMonth : string , role : string ,
-        updated : boolean , nb : number ,/* salary: number ,*/ enable : boolean , lock : boolean, matricule : string) {
+        /*latitude : number, longitude : number ,*/ subscriptionDate : Date , subMonth : string , role : string , 
+        updated : boolean , nb : number ,/* salary: number ,*/ enable : boolean , lock : boolean, matricule : string, soldeDeConge:  number) {
         //user    
         this.idUser = id;
         this.firstNameUser = firstname;
@@ -53,5 +54,6 @@ export class Client {
         this.genderClient=gender;
         this.workfieldClient=workfield;
         this.matricule=matricule;
+        this.soldeDeConge=soldeDeConge;
     }
 }

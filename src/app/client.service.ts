@@ -45,5 +45,10 @@ export class ClientService {
     return this.http.put('http://localhost:8081/image/uploadclient',file)
 }
 
+
+public getClients1(): Observable<Client[]> {
+  return this.http.get<Client[]>(`http://localhost:8081/ressources/client/allclients`);
+}
+
  
 }

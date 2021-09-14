@@ -36,7 +36,7 @@ body{
     }
     
 .homescreen{
-   background-color:  #eeeeee;
+  background-image: linear-gradient(#ebeeef, white);
    height: auto;
   
   }
@@ -75,7 +75,7 @@ i {
 }
 /*----------bootstrap-navbar-css------------*/
 .navbar-logo{
-  padding: 15px;
+  padding: 19px;
   color: rgb(199, 149, 92);
   font-family: Perpetua	  ;
   font-size: 17px;
@@ -83,7 +83,8 @@ i {
 }
 .navbar-mainbg{
   background-color: #5a7a9a;
-  padding: 0px;
+  /*padding: 0px;*/
+  padding-right: 49px;
 }
 #navbarSupportedContent{
   overflow: hidden;
