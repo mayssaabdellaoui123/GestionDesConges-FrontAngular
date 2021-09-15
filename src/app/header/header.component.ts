@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../auth/user';
+import { ClientService } from '../client.service';
 import { TokenStorgeService } from '../token-storage.service';
 
 @Component({
@@ -11,18 +14,27 @@ export class HeaderComponent implements OnInit {
 
   private roles: string[];
   public authority: string;
+  public authorityAdmin: string;
   public authoritymanager : boolean = false ;
   public authorityadmin : boolean = false ;
   public authorityclient : boolean = false ;
   public authoritydeliverer : boolean = false ;
+  public username : any;
+  public RoleAdmin: String
+  public authoritydepartmentboss: boolean = false;
+  public authoritygeneralmanager: boolean = false;
+  public authorityresponsable: boolean = false;
+  public authorityadministrativeoffice: boolean = false;
+
   
     info : any ; 
-    constructor(private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService ) { }
+    constructor(private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService) { }
     
   ngOnInit() {
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
+   
       authorities: this.token.getAuthorities()};
     if (this.tokenStorage.getToken()) {
       this.roles = this.tokenStorage.getAuthorities();
@@ -47,7 +59,41 @@ export class HeaderComponent implements OnInit {
         this.authority = 'user';
         return true;
       });
+      this.employeeService.getRoleByusername(this.username).subscribe(
+        (response: String) => {
+          this.RoleAdmin = response;
+          console.log(this.RoleAdmin );
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+
+
+          if (this.RoleAdmin === 'DEPARTMENT_BOSS') {
+            this.authorityAdmin = 'department boss';
+            this.authoritydepartmentboss = true;
+            return false;
+          } else if (this.RoleAdmin  === 'GENERAL_MANAGER') {
+            this.authority = 'general manager';
+            this.authoritygeneralmanager = true;
+            return false;
+          }else if (this.RoleAdmin  === 'RESPONSIBLE') {
+            this.authority = 'responsible';
+            this.authorityresponsable = true;
+            return false;
+          }else if (this.RoleAdmin  === 'ADMINISTRATIVE_OFFICE') {
+            this.authority = 'administrative office ';
+            this.authorityadministrativeoffice = true;
+            return false;
+          }
+          
+        ;
+
+
     }
+
+   
 
     
   }

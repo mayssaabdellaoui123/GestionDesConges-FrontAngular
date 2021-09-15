@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from './auth/ClientInfo';
+import { User } from './auth/user';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,15 @@ export class ClientService {
 
 public getClients1(): Observable<Client[]> {
   return this.http.get<Client[]>(`http://localhost:8081/ressources/client/allclients`);
+}
+
+
+public findByUsernameUser(username): any {
+  return this.http.get(`http://localhost:8081/ressources/client/getbyusername/{username}`);
+}
+
+public getRoleByusername(username): any {
+  return this.http.get(`http://localhost:8081/ressources/client/getRolebyusername/{username}`);
 }
 
  
