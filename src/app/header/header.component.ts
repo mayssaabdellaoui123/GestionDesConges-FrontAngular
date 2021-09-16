@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   public authoritygeneralmanager: boolean = false;
   public authorityresponsable: boolean = false;
   public authorityadministrativeoffice: boolean = false;
-
+  public usernameuser: string;
   
     info : any ; 
     constructor(private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService) { }
@@ -42,6 +42,48 @@ export class HeaderComponent implements OnInit {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
           this.authorityadmin = true;
+
+
+          this.employeeService.getRoleByusername(this.info.username).subscribe(
+            (response: string) => {
+              console.log("response");
+              console.log(response);
+              this.RoleAdmin = response;
+              console.log("response == "+response );
+              if (this.RoleAdmin === 'DEPARTMENT_BOSS') {
+                console.log("role admin if")
+             this.authoritydepartmentboss = true;
+             return false;
+           } else if (this.RoleAdmin  === 'GENERAL_MANAGER') {
+             
+             this.authoritygeneralmanager = true;
+             return false;
+           }else if (this.RoleAdmin  === 'RESPONSIBLE') {
+            
+             this.authorityresponsable = true;
+             return false;
+           }else if (this.RoleAdmin  === 'ADMINISTRATIVE_OFFICE') {
+            
+             this.authorityadministrativeoffice = true;
+             return false;
+           }
+           
+    
+            },
+            (error: HttpErrorResponse) => {
+              console.log("error");
+              alert(error.message);
+            }
+    
+            
+          );
+    
+        
+       
+
+
+
+
           return false;
         } else if (role === 'ROLE_CLIENT') {
           this.authority = 'client';
@@ -59,43 +101,11 @@ export class HeaderComponent implements OnInit {
         this.authority = 'user';
         return true;
       });
-      this.employeeService.getRoleByusername(this.username).subscribe(
-        (response: String) => {
-          this.RoleAdmin = response;
-          console.log(this.RoleAdmin );
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      );
-
-
-          if (this.RoleAdmin === 'DEPARTMENT_BOSS') {
-            this.authorityAdmin = 'department boss';
-            this.authoritydepartmentboss = true;
-            return false;
-          } else if (this.RoleAdmin  === 'GENERAL_MANAGER') {
-            this.authority = 'general manager';
-            this.authoritygeneralmanager = true;
-            return false;
-          }else if (this.RoleAdmin  === 'RESPONSIBLE') {
-            this.authority = 'responsible';
-            this.authorityresponsable = true;
-            return false;
-          }else if (this.RoleAdmin  === 'ADMINISTRATIVE_OFFICE') {
-            this.authority = 'administrative office ';
-            this.authorityadministrativeoffice = true;
-            return false;
-          }
-          
-        ;
-
 
     }
 
-   
-
     
+       
   }
   
   logout() {

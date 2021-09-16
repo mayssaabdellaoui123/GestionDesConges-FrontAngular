@@ -210,11 +210,9 @@
             <li *ngIf="authority && authoritymanager" class="nav-item ">
                 <a class="nav-link" routerLink="department"><i class="far fa-clone"></i>Departments</a>
             </li>
-            <li *ngIf="authority && !authoritymanager" class="nav-item ">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>History</a>
-            </li>
-            <li *ngIf="authority && authorityadmin && authoritygeneralmanager" class="nav-item ">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>History</a>
+            
+            <li *ngIf="authority" class="nav-item ">
+                <a class="nav-link" routerLink="historique"><i class="far fa-calendar-alt"></i>History</a>
             </li>
             <li *ngIf="authority && authoritymanager" class="nav-item ">
                 <a class="nav-link" routerLink="adminManager"><i class="far fa-calendar-alt"></i>Admins</a>

@@ -15,11 +15,12 @@ export class User {
     locked : boolean;
     dateBirthUser : string;
     matricule: string;
+    soldeDeConge: number;
     
 
     constructor(id : number ,firstname: string, lastname: string,username: string, email: string, password: string , 
         phone:string, address:string ,  birthdate : string, role : string , updated : boolean , nb : number , 
-        salary: number , enable : boolean , lock : boolean , matricule: string) {
+        salary: number , enable : boolean , lock : boolean , matricule: string, soldeDeConge: number ) {
         this.idUser = id;
         this.firstNameUser = firstname;
         this.lastNameUser = lastname;
@@ -36,5 +37,6 @@ export class User {
         this.roleUser=role;
         this.nbaccessUser=nb;
         this.matricule= matricule;
+        this. soldeDeConge= soldeDeConge;
     }
 }

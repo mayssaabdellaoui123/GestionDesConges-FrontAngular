@@ -56,8 +56,8 @@ public findByUsernameUser(username): any {
   return this.http.get(`http://localhost:8081/ressources/client/getbyusername/{username}`);
 }
 
-public getRoleByusername(username): any {
-  return this.http.get(`http://localhost:8081/ressources/client/getRolebyusername/{username}`);
+public getRoleByusername(username){
+  return this.http.get(`http://localhost:8081/ressources/client/getRolebyusername/`+username,{responseType: 'text'});
 }
 
  
