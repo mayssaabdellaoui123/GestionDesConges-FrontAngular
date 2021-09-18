@@ -1,83 +1,193 @@
-<div class="main container" center >
-    <div *ngIf="!edit" class="container contact">
-    <ul>
-        <div class="contact-info">
-            <div class="col-2">
-                <a><img src="assets/images/avatar.jpg" alt="" class="img-fluid rounded-circle w-60"></a>
-             </div>
-             <h1 class="text-danger">{{employee?.firstNameUser}} {{employee?.lastNameUser}}</h1>
-             <h2 class="text-default">{{employee?.roleAdmin}}</h2>
-             <h3 class="text-secondary">USERNAME : {{employee?.usernameUser}} </h3>
-             <h4 class="text-info">{{employee?.nbabsenceAdmin}} day(s) absent this month.</h4>
-             <ul>
-               <li class="list-group-item"><i class="fa fa-envelope float-right"></i><strong>Email : </strong>{{employee?.emailAddressUser}}</li>
-               <li class="list-group-item"><i class="fa fa-phone float-right"></i><strong>Phone : </strong> {{employee?.phoneNumberUser}}</li>
-            </ul>
-            <button class="btn btn-failure col-md-12" (click)="Onedit()">Edit Account Information</button>
-        </div></ul></div>
-<div *ngIf="edit" class="container contact">
-	<div class="row">
-		<div class="col-md-3" >
-            <ul>
-			<div class="contact-info">
-                <div class="col-6">
-                    <a><img src="assets/images/avatar.jpg" alt="" class="img-fluid rounded-circle w-60"></a>
-                 </div>
-                 <h1 class="text-danger">{{employee?.firstNameUser}} {{employee?.lastNameUser}}</h1>
-                 <h2 class="text-default">{{employee?.roleAdmin}}</h2>
-                 <h3 class="text-secondary">USERNAME : {{employee?.usernameUser}} </h3>
-                 <h4 class="text-info">{{employee?.nbabsenceAdmin}} day(s) absent this month.</h4>
-                 <ul>
-                   <li class="list-group-item"><i class="fa fa-envelope float-right"></i><strong>Email : </strong>{{employee?.emailAddressUser}}</li>
-                   <li class="list-group-item"><i class="fa fa-phone float-right"></i><strong>Phone : </strong> {{employee?.phoneNumberUser}}</li>
-                </ul>
-			</div></ul>
-		</div>
-		<div class="col-md-9">
-			<div class="contact-form">
-				<div class="form-group">
-				  <div class="col-sm-10">  
-                    <form #form="ngForm">
+
+
+
+
+<!--------------------------------------------------------->
+
+<div class="container">
+  <div class="main-body">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="d-flex flex-column align-items-center text-center">
+                          <div><a><img src="assets/images/avatar.jpg"  alt="" class="rounded-circle p-1 bg-primary" width="110"></a></div>
+                          <div class="mt-3">
+                              <h4> {{employee?.firstNameUser}} {{employee?.lastNameUser}}   </h4>
+                              <!--p class="text-secondary mb-1">{{employee?.workfieldClient}}</p-->
+                              <p class="text-muted font-size-sm">{{employee?.roleUser}}</p>
+                          </div>
+                      </div>
+                      <hr class="my-4">
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                              <h6 class="mb-0">Matricule</h6>
+                              <span class="text-secondary"> {{employee?.matricule}}  </span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                              <h6 class="mb-0">Username</h6>
+                              <span class="text-secondary">{{employee?.usernameUser}}</span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                              <h6 class="mb-0">Email Adress</h6>
+                              <span class="text-secondary">{{employee?.emailAddressUser}} </span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0">phone Number</h6>
+                            <span class="text-secondary">{{employee?.phoneNumberUser}} </span>
+                        </li>
+                          <!--li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                              <h6 class="mb-0">Date Birth</h6>
+                              <span class="text-secondary">{{employee?.dateBirthUser}}</span>
+                          </li-->
+                          <!--li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                              <h6 class="mb-0">Subscription Date</h6>
+                              <span class="text-secondary">{{employee?.subscriptionDate}}</span>
+                          </li-->
+                          <!--li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                              <h6 class="mb-0">Gender</h6>
+                              <span class="text-secondary">{{employee?.genderClient}}</span>
+                          </li-->
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                              <h6 class="mb-0">role Admin </h6>
+                              <span class="text-secondary">{{employee?.roleAdmin}}</span>
+                          </li>
+                          <li>
+                              <button class="btn btn-failure col-md-12" (click)="Onedit()">Edit Account Information</button>
+                          </li>
+                      </ul>
+
+                  </div>
+              </div>
+          </div>
+          <!--edit-->
+          <div class="col-lg-8">
+              <div class="card">
+                  <div class="card-body">
+                      <!--div class="row mb-3">
+                          <div class="col-sm-3">
+                              <h6 class="mb-0">Full Name</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="text" class="form-control" value="John Doe">
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <div class="col-sm-3">
+                              <h6 class="mb-0">Email</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="text" class="form-control" value="john@example.com">
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <div class="col-sm-3">
+                              <h6 class="mb-0">Phone</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="text" class="form-control" value="(239) 816-9029">
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <div class="col-sm-3">
+                              <h6 class="mb-0">Mobile</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="text" class="form-control" value="(320) 380-4539">
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <div class="col-sm-3">
+                              <h6 class="mb-0">Address</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="text" class="form-control" value="Bay Area, San Francisco, CA">
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-3"></div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="button" class="btn btn-primary px-4" value="Save Changes">
+                          </div>
+                      </div-->
+
+
+
+
+                      <form #form="ngForm">
+
+                           <input type="hidden" ngModel="{{editEmployee?.matricule}}" name="matricule" class="form-control" id="matricule" placeholder="matricule">
+                 
+                          <div class="form-group">
+                          <label for="firstNameUser">Fisrt Name</label>
+                          <input type="text" ngModel="{{editEmployee?.firstNameUser}}" name="firstNameUser" class="form-control" id="firstNameUser" placeholder="{{employee?.firstNameUser}}">
+                       </div>
+                       <div class="form-group">
+                           <label for="lastNameUser">Last Name</label>
+                           <input type="text" ngModel="{{editEmployee?.lastNameUser}}" name="lastNameUser" class="form-control" id="lastNameUser" placeholder="{{employee?.lastNameUser}}">
+                        </div> 
                         <div class="form-group">
-                            <label for="firstNameUser">First Name</label>
-                            <input type="text" ngModel="{{editEmployee?.firstNameUser}}" name="firstNameUser" class="form-control" id="firstNameUser" placeholder="Name">
-                         </div>
-                         <div class="form-group">
-                             <label for="lastNameUser">Last Name</label>
-                             <input type="text" ngModel="{{editEmployee?.lastNameUser}}" name="lastNameUser" class="form-control" id="lastNameUser" placeholder="Name">
-                          </div>
-                         <input type="hidden" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.idUser}}" name="idUser" class="form-control" id="idUser" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.addressUser}}" name="addressUser" class="form-control" id="addressUser" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.roleUser}}" name="roleUser" class="form-control" id="roleUser" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.updatedPassword}}" name="updatedPassword" class="form-control" id="updatedPassword" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.nbaccessUser}}" name="nbaccessUser" class="form-control" id="nbaccessUser" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.salary}}" name="salary" class="form-control" id="salary" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.enabled}}" name="enabled" class="form-control" id="enabled" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.locked}}" name="locked" class="form-control" id="locked" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.dateBirthUser}}" name="dateBirthUser" class="form-control" id="dateBirthUser" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.nbabsenceAdmin}}" name="nbabsenceAdmin" class="form-control" id="nbabsenceAdmin" placeholder="Email">
-                         <input type="hidden" ngModel="{{editEmployee?.roleAdmin}}" name="roleAdmin" class="form-control" id="roleAdmin" placeholder="Email">
-                         <div class="form-group">
-                            <label for="emailAddressUser">Email Address</label>
-                            <input type="email" ngModel="{{editEmployee?.emailAddressUser}}" name="emailAddressUser" class="form-control" id="emailAddressUser" placeholder="Email">
-                         </div>
-                         <div class="form-group">
-                             <label for="passwordUser">Password</label>
-                             <input type="password" ngModel="{{editEmployee?.passwordUser}}" name="passwordUser" class="form-control" id="passwordUser">
-                          </div>
-                         <div class="form-group">
-                            <label for="phoneNumberUser">Phone</label>
-                            <input type="text" ngModel="{{editEmployee?.phoneNumberUser}}" name="phoneNumberUser" class="form-control" id="phoneNumberUser" placeholder="Phone">
-                         </div>
-				<div class="form-group">        
-				  <div class="col-sm-offset-8 col-sm-10">
-					<button type="submit" class="btn btn-default" (click)=" updateClient(form.value)">Save Changes</button>
-                    <a class="btn btn-secondary" (click)="resetEdit()">Exit</a>
-				  </div>
-				</div></form>
-			</div>
-		</div>
-	</div>
-</div>
+                          <label for="usernameUser">Username</label>
+                          <input type="text" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" placeholder="{{employee?.usernameUser}}">
+                       </div> 
+                      <div class="form-group">
+                          <label for="emailAddressUser">Email Address</label>
+                          <input type="email" ngModel="{{editEmployee?.emailAddressUser}}" name="emailAddressUser" class="form-control" id="emailAddressUser" placeholder="{{employee?.emailAddressUser}}">
+                       </div>
+                       <div class="form-group">
+                           <label for="passwordUser">Password</label>
+                           <input type="password" ngModel="{{editEmployee?.passwordUser}}" name="passwordUser" class="form-control" id="passwordUser">
+                        </div>
+                        <!--div class="form-group">
+                          <label for="dateBirthUser">Date Birth</label>
+                          <input type="password" ngModel="{{editEmployee?.dateBirthUser}}" name="dateBirthUser" class="form-control" id="dateBirthUser" placeholder="{{employee?.dateBirthUser}}">
+                          <div id="dateofbirthHelper" class="form-text" class="text-muted">
+                              Your Date Of Birth must be following this format : year-month-day (example : 1920-03-01)
+                               </div>
+                       </div-->
+                       <div class="form-group">
+                          <label for="phoneNumberUser">Phone</label>
+                          <input type="text" ngModel="{{editEmployee?.phoneNumberUser}}" name="phoneNumberUser" class="form-control" id="phoneNumberUser" placeholder="{{employee?.phoneNumberUser}}">
+                       </div>
+                       <!--div class="form-group">
+                          <label for="addressUser">Address</label>
+                          <input type="text" ngModel="{{editEmployee?.addressUser}}" name="addressUser" class="form-control" id="addressUser" placeholder="Phone">
+                       </div-->
+                       <input type="hidden" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" placeholder="Email">
+                  <input type="hidden" ngModel="{{editEmployee?.idUser}}" name="idUser" class="form-control" id="idUser" placeholder="Email">
+                  <input type="hidden" ngModel="{{editEmployee?.roleUser}}" name="roleUser" class="form-control" id="roleUser" placeholder="Email">
+                  <input type="hidden" ngModel="{{editEmployee?.updatedPassword}}" name="updatedPassword" class="form-control" id="updatedPassword" placeholder="Email">
+                  <input type="hidden" ngModel="{{editEmployee?.nbaccessUser}}" name="nbaccessUser" class="form-control" id="nbaccessUser" placeholder="Email">
+                  <input type="hidden" ngModel="{{editEmployee?.roleAdmin}}" name="roleAdmin" class="form-control" id="roleAdmin" placeholder="roleAdmin">
+
+                  <!--input type="hidden" ngModel="{{editEmployee?.salary}}" name="salary" class="form-control" id="salary" placeholder="Email"-->
+                  <input type="hidden" ngModel="{{editEmployee?.enabled}}" name="enabled" class="form-control" id="enabled" placeholder="Email">
+                  <input type="hidden" ngModel="{{editEmployee?.locked}}" name="locked" class="form-control" id="locked" placeholder="Email">
+                  <input type="hidden" ngModel="{{editEmployee?.dateBirthUser}}" name="dateBirthUser" class="form-control" id="dateBirthUser" placeholder="Email">
+                  <!--input type="hidden" ngModel="{{editEmployee?.Latitude}}" name="Latitude" class="form-control" id="Latitude" placeholder="Email">
+                  <input type="hidden" ngModel="{{editEmployee?.Longitude}}" name="Longitude" class="form-control" id="Longitude" placeholder="Email"-->
+                  <!-- ne9sa adress -->
+                  <!--input type="hidden" ngModel="{{editEmployee?.genderClient}}" name="genderClient" class="form-control" id="genderClient" placeholder="Email"-->
+                  <!--input type="hidden" ngModel="{{editEmployee?.workfieldClient}}" name="workfieldClient" class="form-control" id="workfieldClient" placeholder="Email"-->
+                  <!--input type="hidden" ngModel="{{editEmployee?.subscriptionDate}}" name="subscriptionDate" class="form-control" id="subscriptionDate" placeholder="Email"-->
+                  <!--input type="hidden" ngModel="{{editEmployee?.subMonth}}" name="subMonth" class="form-control" id="subMonth" placeholder="Email"-->
+                  <input type="hidden" ngModel="{{editEmployee?.soldeDeConge}}" name="soldeDeConge" class="form-control" id="soldeDeConge" placeholder="Email">
+
+                  <div class="form-group">        
+                    <div class="col-sm-offset-8 col-sm-10">
+                      <button type="submit" class="btn btn-failure col-md-12" (click)=" updateClient(form.value)">Save Changes</button>
+                      <!--a class="btn btn-secondary" (click)="resetEdit()">Exit</a-->
+                    </div>
+                  </div></form>
+
+
+
+
+
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </div>
 </div>

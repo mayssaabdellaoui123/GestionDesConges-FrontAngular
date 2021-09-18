@@ -1,3 +1,11 @@
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+   
+    padding-top: 80px;
+}
+
+.col-sm-10 {
+    margin-left: 560px;
+    width: 112px;}
 
 .contact{
     padding: 4%;
@@ -29,7 +37,7 @@
     font-weight:600;
 }
 .contact-form button{
-    background: #e74c3c;
+    background: #9e7444;
     color: #fff;
     font-weight: 600;
     width: 25%;
@@ -38,7 +46,7 @@
     box-shadow:none;
 }
 .btn-failure {
-    background: #e74c3c;
+    background: #9e7444;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-size: 1rem;
     font-weight: 400;

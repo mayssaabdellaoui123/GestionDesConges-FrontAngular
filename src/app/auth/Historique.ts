@@ -1,7 +1,7 @@
 export class historique {
     idHistorique: number;
     Description: string;
-    Date: string ;
+    Date: Date ;
     Owner: string ;
     Action:string ;
     Typehistorique:string ;
@@ -9,7 +9,7 @@ export class historique {
 
 
     
-    constructor(idHistorique : number ,Description: string, Date: string,Owner: string, Action: string, Typehistorique: string ) {
+    constructor(idHistorique : number ,Description: string, Date: Date,Owner: string, Action: string, Typehistorique: string ) {
         //user    
         this.idHistorique = idHistorique;
         this.Description = Description;
@@ -17,7 +17,7 @@ export class historique {
         this.Owner = Owner;
         this.Action = Action;
         this.Typehistorique = Typehistorique;}
-     
+       // this.addressUser=address;
 
 
 

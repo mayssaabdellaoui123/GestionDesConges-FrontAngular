@@ -1,3 +1,27 @@
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+  float: right;
+}
+.col-md-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin-right: -300px;
+  margin-top: -505px;
+}
+
+.h5, h5 {
+  font-size: 1.25rem;
+  margin-top: 44px;
+}
+
+h1, h2, h5, a, .header_top_right ul li a:hover, .mainmenu a:hover, .choose_text:hover.choose_text i, .choose_active.choose_text i, .choose_text:hover.choose_text h5 a, .choose_active.choose_text h5 a, .social_icon li a i, .review_icon i, .compare_menu ul li a, th, .features_text h5, .disclaimer h5, .single_features i, .single_features i.flaticon-lightbulbs, .single_features i.flaticon-tshirt17, .disclaimer i, .newsletter input {
+  color: #5a7a9a;
+}
+
+.h4, h4 {
+  font-size: 13px;
+  width: 200px;
+}
+
 body{margin-top:20px;
     background:#eee;
 }
@@ -5,7 +29,7 @@ h3 {
     font-size: 16px;
 }
 .text-navy {
-    color: #1ab394;
+    color: #cb9d68;
 }
 .cart-product-imitation {
   text-align: center;
