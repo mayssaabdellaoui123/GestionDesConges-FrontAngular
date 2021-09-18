@@ -18,6 +18,7 @@ export class AdminManagerComponent implements OnInit {
   public deleteEmployee: Admin;
   public absentEmployee: Admin;
   public admin : Admin;
+  optionValue : any;
 
 
   constructor(private employeeService: AdminService) { }
@@ -138,5 +139,11 @@ export class AdminManagerComponent implements OnInit {
     container.appendChild(button);
     button.click();
   }
+
+
+ showDiv(divId, element)
+{
+    document.getElementById(divId).style.display = element.value == "DEPARTMENT_BOSS" ? 'block' : 'none';
+}
 
 }

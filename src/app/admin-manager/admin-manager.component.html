@@ -116,6 +116,15 @@
                   <input type="text" ngModel name="lastNameUser" class="form-control" id="lastNameUser" placeholder="Last Name" required>
                </div-->
                <div class="form-group">
+                  <label for="firstNameUser">First name</label>
+                  <input type="text" ngModel name="firstNameUser" class="form-control" id="firstNameUser" placeholder="firstNameUser" required>
+               </div>
+               <div class="form-group">
+                  <label for="lastNameUser">lastNameUser</label>
+                  <input type="text" ngModel name="lastNameUser" class="form-control" id="lastNameUser" placeholder="lastNameUser" required>
+               </div>
+
+               <div class="form-group">
                   <label for="usernameUser">Username</label>
                   <input type="text" ngModel name="usernameUser" class="form-control" id="usernameUser" placeholder="Username" required>
                </div>
@@ -127,13 +136,10 @@
                  <label for="phoneNumberUser">Phone</label>
                  <input type="text" ngModel name="phoneNumberUser" class="form-control" id="phoneNumberUser" placeholder="Phone" required>
               </div>
-              <div class="form-group">
-                 <label for="matriculeBoss">Matricule Boss</label>
-                 <input type="text" ngModel name="matriculeBoss" class="form-control" id="matriculeBoss" placeholder="matricule Boss" required>
-              </div>
+              
                <div class="form-group"> 
                   <label for="roleAdmin" class="form-label">Role </label>
-                  <div><select class="form-control" aria-label="Default select example" name="roleAdmin"  ngModel id="roleAdmin" required>
+                  <div><select class="form-control" aria-label="Default select example" name="roleAdmin"  ngModel id="roleAdmin" [(ngModel)]="optionValue" required>
                     <option disabled selected > Admin manages </option>
                     <option value="DEPARTMENT_BOSS">DEPARTMENT BOSS</option>
                     <option value="GENERAL_MANAGER">GENERAL_MANAGER</option>
@@ -143,6 +149,13 @@
                     <!--option value="ADVERTISEMENTS_MANGER">Advertisements</option>
                     <option value="EVENT_MANGER">Events</option-->
                   </select></div></div>
+
+                  <div *ngIf="optionValue == 'DEPARTMENT_BOSS'" class="form-group">
+                     <label for="matriculeBoss">Matricule</label>
+                     <input type="text" ngModel name="matriculeBoss" class="form-control" id="matriculeBoss" placeholder="matricule Boss" >
+                  </div>
+
+                  <h5></h5>
               <div class="modal-footer">
                  <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
                  <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
@@ -191,7 +204,7 @@
                     <label for="roleAdmin">Role</label>
                     <input type="email" ngModel="{{editEmployee?.roleAdmin}}" name="roleAdmin" class="form-control" id="roleAdmin" placeholder="Role">
                     <div id="dateofbirthHelper" class="form-text" class="text-muted">
-                        Roles : PRODUCTS_MANGER , ACCOUNTS_MANGER , ADVERTISEMENTS_MANGER, DELIVERIES_MANGER, CLAIMS_MANGER , EVENT_MANGER
+                        Roles : DEPARTMENT_BOSS , GENERAL_MANAGER , RESPONSIBLE , ADMINISTRATIVE_OFFICE
                     </div>
                  </div>
                 <div class="form-group">
@@ -206,7 +219,7 @@
                    <label for="phoneNumberUser">Phone</label>
                    <input type="text" ngModel="{{editEmployee?.phoneNumberUser}}" name="phoneNumberUser" class="form-control" id="phoneNumberUser" placeholder="Phone">
                 </div>
-                <div class="form-group">
+                <div class="form-group" *ngIf="editEmployee?.roleAdmin == 'DEPARTMENT_BOSS' ">
                   <label for="phoneNumberUser">matricule Boss</label>
                   <input type="text" ngModel="{{editEmployee?.matriculeBoss}}" name="matriculeBoss" class="form-control" id="matriculeBoss" placeholder="Phone">
                </div>
