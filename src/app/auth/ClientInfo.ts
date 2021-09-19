@@ -14,7 +14,7 @@ export class Client {
     //salary : number ;
     enabled :boolean;
     locked : boolean;
-    dateBirthUser : string;
+    dateBirthUser : Date;
     //client
     genderClient: string;
     workfieldClient : string;
@@ -27,7 +27,7 @@ export class Client {
     soldeDeConge:  number;
 
     constructor(id : number ,firstname: string, lastname: string,username: string, email: string, password: string , 
-        phone:string, /*address:string , */gender:string , workfield : string , birthdate : string,
+        phone:string, /*address:string , */gender:string , workfield : string , birthdate : Date,
         /*latitude : number, longitude : number ,*/ subscriptionDate : Date , subMonth : string , role : string , 
         updated : boolean , nb : number ,/* salary: number ,*/ enable : boolean , lock : boolean, matricule : string, soldeDeConge:  number) {
         //user    
