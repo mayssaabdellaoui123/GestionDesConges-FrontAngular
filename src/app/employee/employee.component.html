@@ -106,18 +106,7 @@ $(document).ready(function(){
 						
 					</tbody>
 				</table>
-				<!--div class="clearfix">
-					<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-					<ul class="pagination">
-						<li class="page-item disabled"><a href="#">Previous</a></li>
-						<li class="page-item"><a href="#" class="page-link">1</a></li>
-						<li class="page-item"><a href="#" class="page-link">2</a></li>
-						<li class="page-item active"><a href="#" class="page-link">3</a></li>
-						<li class="page-item"><a href="#" class="page-link">4</a></li>
-						<li class="page-item"><a href="#" class="page-link">5</a></li>
-						<li class="page-item"><a href="#" class="page-link">Next</a></li>
-					</ul>
-				</div-->
+			
 			</div>
 		</div>        
     </div>
@@ -217,13 +206,6 @@ $(document).ready(function(){
 								  <div *ngIf="workfield.errors.required"class="text-warning">Work Field is required</div>
 							  </div>
 								</div>
-								<!--div class="form-group">
-								  <label for="address">Address</label>
-								  <input type="text" class="form-control" name="address" [(ngModel)]="form.address" #address="ngModel" required />
-								  <div *ngIf="f.submitted && address.invalid">
-									<div *ngIf="address.errors.required"class="text-warning">Address is required</div>
-								  </div>
-								</div-->
 								<div class="form-group">
 								  <label for="phone">Phone Number</label>
 								  <input type="text" class="form-control" name="username" [(ngModel)]="form.phone" #phone="ngModel" required minlength="8" />
@@ -231,11 +213,6 @@ $(document).ready(function(){
 									<div *ngIf="phone.errors.required"class="text-warning">Phone is required</div>
 								  </div>
 								</div>
-								<!--div class="form-group">
-									<label for="phone">Photo URL</label>
-									<input type="file" class="form-control" name="username" [(ngModel)]="form.image_URL" data-toggle="tooltip" data-placement="right" title="Enter Product Image URL" accept="image/*" (change)="addImage($event)"/>
-									
-								  </div-->
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="reloadPage()" value="Cancel">
@@ -358,11 +335,6 @@ $(document).ready(function(){
 									<div *ngIf="phone.errors.required"class="text-warning">Phone is required</div>
 								  </div>
 								</div>
-								<!--div class="form-group">
-									<label for="phone">Photo URL</label>
-									<input type="file" class="form-control" name="username" [(ngModel)]="form.image_URL" data-toggle="tooltip" data-placement="right" title="Enter Product Image URL" accept="image/*" (change)="addImage($event)"/>
-									
-								  </div-->
 					</div>
 										
 					
@@ -375,162 +347,12 @@ $(document).ready(function(){
 							add failed!<br/>{{errorMessage}}
 						  </div>
 					</div>
-
-					<!--div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="reloadPage()" value="Cancel">
-						<input type="submit" class="btn btn-success" [disabled]="!f.valid" value="Add">
-						<div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-							add failed!<br/>{{errorMessage}}
-						  </div>
-					</div-->
-
 				</form>
 			</div>
 		</div>
 	</div>
 
 
-
-	<!--div id="editEmployeeModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div  *ngIf="isSignedUp ; else signupForm ">
-					<div class="alert alert-success"> 
-					 <strong >Your registration is successful.</strong>  </div>
-					 
-					</div>
-					<ng-template #signupForm>
-			    	<form  #editForm="ngForm"   >
-					<div class="modal-header">						
-						<h4 class="modal-title">Edit Employee</h4>
-						<button type="button" class="close" (click)="reloadPage()" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">	
-						<div class="form-group">
-							<input type="hidden" ngModel="{{editdeclient?.idUser}}" name="idUser" class="form-control" id="idUser" placeholder="Email">
-                <input type="hidden" ngModel="{{editdeclient?.roleUser}}" name="roleUser" class="form-control" id="roleUser" placeholder="Email">
-                <input type="hidden" ngModel="{{editdeclient?.updatedPassword}}" name="updatedPassword" class="form-control" id="updatedPassword" placeholder="Email">
-                <input type="hidden" ngModel="{{editdeclient?.nbaccessUser}}" name="nbaccessUser" class="form-control" id="nbaccessUser" placeholder="Email">
-                <!--input type="hidden" ngModel="{{editEmployee?.salary}}" name="salary" class="form-control" id="salary" placeholder="Email">
-                <input type="hidden" ngModel="{{editdeclient?.enabled}}" name="enabled" class="form-control" id="enabled" placeholder="Email">
-                <input type="hidden" ngModel="{{editdeclient?.locked}}" name="locked" class="form-control" id="locked" placeholder="Email">
-                <!--input type="hidden" ngModel="{{editEmployee?.Latitude}}" name="Latitude" class="form-control" id="Latitude" placeholder="Email">
-                <input type="hidden" ngModel="{{editEmployee?.Longitude}}" name="Longitude" class="form-control" id="Longitude" placeholder="Email"-->
-                <!-- ne9sa adress >
-                <input type="hidden" ngModel="{{editdeclient?.subscriptionDate}}" name="subscriptionDate" class="form-control" id="subscriptionDate" placeholder="Email">
-                <input type="hidden" ngModel="{{editdeclient?.subMonth}}" name="subMonth" class="form-control" id="subMonth" placeholder="Email">
-							<label for="name">matricule</label>
-							<input type="text" class="form-control" name="matricule" ngModel="{{editdeclient?.matricule}}" #Latitude="ngModel" required />
-							<!--div *ngIf="f.submitted && matricule.invalid">
-							  <div *ngIf="matricule.errors.required" class="text-warning">Latitude is required</div>
-							</div>
-						</div>				
-						<div class="form-group">
-							<label for="name">Firstname</label>
-							<input type="text" class="form-control" name="firstNameUser" ngModel="{{editdeclient?.firstNameUser}}" #firstname="ngModel" required />
-							<div *ngIf="editForm.submitted && firstname.invalid">
-							  <div *ngIf="firstname.errors.required" class="text-warning">Firstname is required</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="name">LastName</label>
-                            <input type="text" class="form-control" name="lastNameUser" ngModel="{{editdeclient?.lastNameUser}}" #lastname="ngModel" required />
-                            <div *ngIf="editForm.submitted && lastname.invalid">
-                            <div *ngIf="lastname.errors.required" class="text-warning" >Lastname is required</div>
-                            </div>
-						</div>
-						<div class="form-group">
-							<label for="dateofbirth" class="form-label">Date of Birth </label>
-                            <input type="text" class="form-control" name="dateBirthUser" ngModel="{{editdeclient?.dateBirthUser}}" #dateofbirth="ngModel" required>
-                           <div id="dateofbirthHelper" class="form-text" class="text-muted">
-                           Your Date Of Birth must be following this format : year-month-day (example : 1920-03-01)
-                            </div>
-                            <div *ngIf="editForm.submitted && dateofbirth.invalid">
-                            <div *ngIf="dateofbirth.errors.required" class="text-warning">Date of Birth is required</div>
-                            </div>
-						</div>
-						
-						<div class="form-group">
-							<label for="username">Username</label>
-                           <input type="text" class="form-control" name="usernameUser" ngModel="{{editdeclient?.usernameUser}}" #username="ngModel" required />
-                          <div *ngIf="editForm.submitted && username.invalid">
-                          <div *ngIf="username.errors.required" class="text-warning" >Username is required</div>
-                            </div>
-						</div>
-						
-						<div class="form-group">
-							<label for="email">Email</label>
-							<input type="text" class="form-control" name="emailAddressUser" ngModel="{{editdeclient?.emailAddressUser}}"  #email="ngModel" required email />
-							<div *ngIf="editForm.submitted && email.invalid">
-							  <div *ngIf="email.errors.required" class="text-warning">Email is required</div>
-							</div>
-						  </div>
-						  <div class="form-group">
-							<label for="password">Password</label>
-							<input type="password" class="form-control" name="passwordUser" ngModel="{{editdeclient?.passwordUser}}" #password="ngModel"
-							  required minlength="6" />
-							<div *ngIf="editForm.submitted && password.invalid">
-							  <div *ngIf="password.errors.required" class="text-warning">Password is required</div>
-							  <div *ngIf="password.errors.minlength" class="text-warning">Password must be at least 6 characters</div>
-							</div>
-						  </div>
-						  <div class="form-group">
-							<label for="gender" class="form-label">Gender </label>
-							<div>
-							<select class="form-control" name="genderClient" ngModel="{{editdeclient?.genderClient}}" #gender="ngModel" required>
-							  <option disabled selected>Select your gender :</option>
-							  <option value="FEMALE">female</option>
-							  <option value="MALE">male</option>
-							</select></div>
-							  <div *ngIf="editForm.submitted && gender.invalid">
-								  <div *ngIf="gender.errors.required" class="text-warning" >Gender is required</div>
-							  </div>
-							  </div>
-							  <div class="form-group">
-							  <label for="workfield" class="form-label">Work Field </label>
-							  <div><select class="form-control" aria-label="Default select example" name="workfieldClient" ngModel="{{editdeclient?.workfieldClient}}"  #workfield="ngModel" required>
-								<option disabled selected >Select your Work Field :</option>
-								<option value="COSMETICS">Cosmetics</option>
-								<option value="EDUCATION">Education</option>
-								<option value="FARMING_FISHING_FORESTRY">Farming , Fishing and Foerstry</option>
-							  </select></div>
-								 <div *ngIf="editForm.submitted && workfield.invalid">
-								  <div *ngIf="workfield.errors.required"class="text-warning">Work Field is required</div>
-							  </div>
-								</div>
-								<!--div class="form-group">
-								  <label for="address">Address</label>
-								  <input type="text" class="form-control" name="address" [(ngModel)]="form.address" #address="ngModel" required />
-								  <div *ngIf="f.submitted && address.invalid">
-									<div *ngIf="address.errors.required"class="text-warning">Address is required</div>
-								  </div>
-								</div>
-								<div class="form-group">
-								  <label for="phone">Phone Number</label>
-								  <input type="text" class="form-control" name="phoneNumberUser" ngModel="{{editdeclient?.phoneNumberUser}}" #phone="ngModel" required minlength="8" placeholder="+216 "/>
-								  <div *ngIf="editForm.submitted && phone.invalid">
-									<div *ngIf="phone.errors.required"class="text-warning">Phone is required</div>
-								  </div>
-								</div>
-								<!--div class="form-group">
-									<label for="phone">Photo URL</label>
-									<input type="file" class="form-control" name="username" [(ngModel)]="form.image_URL" data-toggle="tooltip" data-placement="right" title="Enter Product Image URL" accept="image/*" (change)="addImage($event)"/>
-									
-								  </div>
-					</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="reloadPage()" value="Cancel">
-						<input type="submit" class="btn btn-success" [disabled]="!editForm.valid" (click)="onUpdateEmployees(editForm.value)" value="Edit">
-						<div *ngIf="editForm.submitted && isSignUpFailed" class="alert alert-warning">
-							Signup failed!<br/>{{errorMessage}}
-						  </div>
-					</div>
-				</form>
-               
-				</ng-template>
-			</div>
-		</div>
-	</div-->
 	<!-- Delete Modal HTML -->
 	<div id="deleteEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
