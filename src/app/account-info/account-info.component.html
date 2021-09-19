@@ -55,54 +55,7 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <!--div class="row mb-3">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Full Name</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" value="John Doe">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Email</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" value="john@example.com">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Phone</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" value="(239) 816-9029">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Mobile</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" value="(320) 380-4539">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Address</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" value="Bay Area, San Francisco, CA">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="button" class="btn btn-primary px-4" value="Save Changes">
-                            </div>
-                        </div-->
-
-
+                   
 
 
                         <form #form="ngForm">
@@ -111,34 +64,57 @@
                    
                             <div class="form-group">
                             <label for="firstNameUser">Fisrt Name</label>
-                            <input type="text" ngModel="{{editEmployee?.firstNameUser}}" name="firstNameUser" class="form-control" id="firstNameUser" placeholder="{{employee?.firstNameUser}}">
+                            <input type="text" ngModel="{{editEmployee?.firstNameUser}}" name="firstNameUser" class="form-control" id="firstNameUser" value="{{employee?.firstNameUser}}">
                          </div>
                          <div class="form-group">
                              <label for="lastNameUser">Last Name</label>
-                             <input type="text" ngModel="{{editEmployee?.lastNameUser}}" name="lastNameUser" class="form-control" id="lastNameUser" placeholder="{{employee?.lastNameUser}}">
+                             <input type="text" ngModel="{{editEmployee?.lastNameUser}}" name="lastNameUser" class="form-control" id="lastNameUser" value="{{employee?.lastNameUser}}">
                           </div> 
                           <div class="form-group">
                             <label for="usernameUser">Username</label>
-                            <input type="text" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" placeholder="{{employee?.usernameUser}}">
+                            <input type="text" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" value="{{employee?.usernameUser}}">
                          </div> 
                         <div class="form-group">
                             <label for="emailAddressUser">Email Address</label>
-                            <input type="email" ngModel="{{editEmployee?.emailAddressUser}}" name="emailAddressUser" class="form-control" id="emailAddressUser" placeholder="{{employee?.emailAddressUser}}">
+                            <input type="email" ngModel="{{editEmployee?.emailAddressUser}}" name="emailAddressUser" class="form-control" id="emailAddressUser" value="{{employee?.emailAddressUser}}">
                          </div>
                          <div class="form-group">
                              <label for="passwordUser">Password</label>
-                             <input type="password" ngModel="{{editEmployee?.passwordUser}}" name="passwordUser" class="form-control" id="passwordUser">
+                             <input type="password" ngModel="{{editEmployee?.passwordUser}}" name="passwordUser" class="form-control" id="passwordUser" >
                           </div>
+
+
+
+
+
+
                           <div class="form-group">
                             <label for="dateBirthUser">Date Birth</label>
-                            <input type="password" ngModel="{{editEmployee?.dateBirthUser}}" name="dateBirthUser" class="form-control" id="dateBirthUser" placeholder="{{employee?.dateBirthUser}}">
-                            <div id="dateofbirthHelper" class="form-text" class="text-muted">
+                            <!--input type="text" ngModel="{{editEmployee?.dateBirthUser}}" name="dateBirthUser" class="form-control" id="dateBirthUser" placeholder="{{employee?.dateBirthUser}}"-->
+                            
+                            
+                            <label class="visually-hidden" for="date">Start date (DD/MM/YYYY): </label>
+                            <input type="date" ngModel="{{editEmployee?.dateBirthUser}}" name="dateBirthUser" class="form-control" id="dateBirthUser" placeholder="{{employee?.dateBirthUser}}" />
+
+
+
+                            <!--div id="dateofbirthHelper" class="form-text" class="text-muted">
                                 Your Date Of Birth must be following this format : year-month-day (example : 1920-03-01)
-                                 </div>
+                                 </div-->
+
+                                
+
                          </div>
+
+
+
+
+
+
+
                          <div class="form-group">
                             <label for="phoneNumberUser">Phone</label>
-                            <input type="text" ngModel="{{editEmployee?.phoneNumberUser}}" name="phoneNumberUser" class="form-control" id="phoneNumberUser" placeholder="{{employee?.phoneNumberUser}}">
+                            <input type="text" ngModel="{{editEmployee?.phoneNumberUser}}" name="phoneNumberUser" class="form-control" id="phoneNumberUser" value="{{employee?.phoneNumberUser}}">
                          </div>
                          <!--div class="form-group">
                             <label for="addressUser">Address</label>

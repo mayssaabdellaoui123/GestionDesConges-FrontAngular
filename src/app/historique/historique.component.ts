@@ -14,6 +14,7 @@ import { TokenStorgeService } from '../token-storage.service';
 export class HistoriqueComponent implements OnInit {
 
   public Historique: historique[];
+  public NbrHistorique :number;
 
 ////////////////////////////////////
 
@@ -120,6 +121,7 @@ info : any ;
 
     ////////////////////////////////////
     this.getHistory() ;
+    this.getNombreHistorique();
   }
 
   public getHistory(): void {
@@ -137,4 +139,36 @@ info : any ;
       }
     );
 
-}}
+  }
+
+  public getNombreHistorique(): void {
+    this.HistoryService.getNombreHistorique().subscribe(
+      (response:number) => {
+
+        
+        this.NbrHistorique = response;
+       
+        console.log("NbrHistorique");
+       
+        console.log(this.NbrHistorique);
+
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+}

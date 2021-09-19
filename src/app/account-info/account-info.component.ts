@@ -30,13 +30,17 @@ export class AccountInfoComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()};
     this.getClient();
-
+   
   }
 
   public getClient(): void {
     this.serviceClient.getClientByUsername(this.info.username).subscribe(
       (response: Client) => {
         this.employee = response;
+
+        // prend les donnee de edit par defaut 
+        this.editEmployee=this.employee;
+
         console.log(this.employee);
       },
       (error: HttpErrorResponse) => {
