@@ -17,4 +17,11 @@ export class HistoriqueService {
   public getNombreHistorique():  Observable<number> {
     return this.http.get<number>(`http://localhost:8081/Historique/getNombreHistorique`);
   }
+
+  public RetiveHistoriqueByType(type : string) :  Observable<historique[]> {
+    return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByType`);
+  }
+
+
+
 }

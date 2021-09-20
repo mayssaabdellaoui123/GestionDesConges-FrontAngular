@@ -124,3 +124,14 @@ table.shoping-cart-table tr td:last-child {
 .container, .container-lg, .container-md, .container-sm, .container-xl {
     max-width: 1440px;
 }
+
+
+
+/***************************/
+
+
+.pull-right {
+  float: right;
+  font-size: 14px;
+  color: #ab7333;
+}

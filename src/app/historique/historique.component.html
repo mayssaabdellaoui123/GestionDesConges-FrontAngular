@@ -7,6 +7,14 @@
                 <div class="ibox-title">
                     <span class="pull-right">(<strong>{{NbrHistorique}}</strong>) items</span>
                     <h2>Historique</h2>
+                    <select class="form-control form-control-lg" >
+                        <option disabled selected > Filter </option>
+                     
+                       <option value="IMPORTANT" > Important</option>
+  
+                    <option value="NOT_IMPORTANT">Not Important</option>
+                    <option value="DEPARTMENT">Department</option>
+                      </select>
                 </div>
                 <div class="ibox-content" *ngFor="let historique of Historique" >
                     <div class="table-responsive">
@@ -43,7 +51,7 @@
                 </div>
                
         </div>
-        <div class="col-md-3">
+        <!--div class="col-md-3">
             <div class="ibox">
                 <div class="ibox-title">
                     <h5>Cart Summary</h5>
@@ -67,9 +75,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div-->
 
-            <div class="ibox">
+            <!--div class="ibox">
                 <div class="ibox-title">
                     <h5>Support</h5>
                 </div>
@@ -79,9 +87,9 @@
                         Please contact with us if you have any questions. We are avalible 24h.
                     </span>
                 </div>
-            </div>
+            </div-->
 
-            <div class="ibox">
+            <!--div class="ibox">
                 <div class="ibox-content">
 
                     <p class="font-bold">
@@ -110,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div-->
         </div>
     </div>
 </div>

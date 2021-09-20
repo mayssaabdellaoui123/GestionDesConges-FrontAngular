@@ -35,6 +35,7 @@ public usernameuser: string;
 info : any ; 
 
 
+
 ///////////////////////////////////////
 
   constructor(private HistoryService: HistoriqueService,private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService) { }
@@ -133,6 +134,25 @@ info : any ;
         console.log(this.Historique);
 
         console.log("hello");
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+  }
+
+
+  public getHistoryByTypeImportant(): void {
+    this.HistoryService.RetiveHistoriqueByType("IMPORTANT").subscribe(
+      (response: historique[]) => {
+
+        
+        this.Historique = response;
+        console.log("IMPORTANT HISTORY");
+        console.log(this.Historique);
+
+        
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
