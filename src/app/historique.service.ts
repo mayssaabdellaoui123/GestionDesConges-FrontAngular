@@ -19,7 +19,15 @@ export class HistoriqueService {
   }
 
   public RetiveHistoriqueByType(type : string) :  Observable<historique[]> {
-    return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByType`);
+    return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByType/${type}`);
+  }
+
+  public RetiveHistoriqueByOwner(owner : string) :  Observable<historique[]> {
+    return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByOwner/${owner}`);
+  }
+
+  public RetiveHistoriqueByAction(action : string) :  Observable<historique[]> {
+    return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByAction/${action}`);
   }
 
 

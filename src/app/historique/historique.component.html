@@ -7,14 +7,21 @@
                 <div class="ibox-title">
                     <span class="pull-right">(<strong>{{NbrHistorique}}</strong>) items</span>
                     <h2>Historique</h2>
-                    <select class="form-control form-control-lg" >
-                        <option disabled selected > Filter </option>
-                     
-                       <option value="IMPORTANT" > Important</option>
-  
-                    <option value="NOT_IMPORTANT">Not Important</option>
-                    <option value="DEPARTMENT">Department</option>
-                      </select>
+                    Importance
+                    <select class="form-control form-control-lg" [(ngModel)]="importance" (click)="getHistoryByType()" >
+                        <option value="ALL" > All</option>
+                        <option value="IMPORTANT" > Important</option>
+                        <option value="NOT_IMPORTANT">Not Important</option>
+                    </select>
+
+                    Action
+                    <select class="form-control form-control-lg" [(ngModel)]="action" (click)="getHistoryByAction()"  >
+                        <option value="ALL">ALL</option>
+                        <option value="DEPARTMENT" > DEPARTMENT</option>
+                        <option value="EMPLOYEE" > EMPLOYEE</option>
+                        
+                    </select>
+                      <!--br> selected value is {{importance}}-->
                 </div>
                 <div class="ibox-content" *ngFor="let historique of Historique" >
                     <div class="table-responsive">

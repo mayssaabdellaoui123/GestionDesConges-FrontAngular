@@ -40,8 +40,14 @@ info : any ;
 
   constructor(private HistoryService: HistoriqueService,private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService) { }
 
+  importance:String;
+  action:string;
+
   ngOnInit(): void {
 
+
+    this.importance='ALL';
+    this.action='ALL';
 
     this.info = {
       token: this.token.getToken(),
@@ -49,8 +55,8 @@ info : any ;
    
       authorities: this.token.getAuthorities()};
     if (this.tokenStorage.getToken()) {
-      this.roles = this.tokenStorage.getAuthorities();
-      this.roles.every(role => {
+        this.roles = this.tokenStorage.getAuthorities();
+        this.roles.every(role => {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
           this.authorityadmin = true;
@@ -91,11 +97,6 @@ info : any ;
           );
     
         
-       
-
-
-
-
           return false;
         } else if (role === 'ROLE_CLIENT') {
           this.authority = 'client';
@@ -112,18 +113,42 @@ info : any ;
         }
         this.authority = 'user';
         return true;
-      });
+        });
 
-    }
-
-
-
-
+      };
 
     ////////////////////////////////////
-    this.getHistory() ;
+    this.getHistoryByType() ;
+
+    this.getHistoryByAction();
+
     this.getNombreHistorique();
   }
+
+
+  public getHistoryByAction():void{
+    if(this.action==='ALL'){
+      this.getHistory();
+    }
+    else {
+      this.RetiveHistoriqueByAction(this.action)
+    }
+
+  }
+
+
+  public getHistoryByType():void{
+    if(this.importance==='ALL'){
+      this.getHistory();
+    }
+    else if (this.importance==='IMPORTANT'){
+      this.getHistoryByTypeImportant();
+    }
+    else if (this.importance==='NOT_IMPORTANT'){
+      this.getHistoryByTypeNotImportant();
+    }
+  }
+
 
   public getHistory(): void {
     this.HistoryService.getHistories().subscribe(
@@ -142,7 +167,11 @@ info : any ;
 
   }
 
-
+  reloadPage() {
+    //this.router.navigate(['/account']) ;
+    window.location.reload();
+    
+  }
   public getHistoryByTypeImportant(): void {
     this.HistoryService.RetiveHistoriqueByType("IMPORTANT").subscribe(
       (response: historique[]) => {
@@ -150,6 +179,24 @@ info : any ;
         
         this.Historique = response;
         console.log("IMPORTANT HISTORY");
+        console.log(this.Historique);
+
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+  }
+
+  public getHistoryByTypeNotImportant(): void {
+    this.HistoryService.RetiveHistoriqueByType("NOT_IMPORTANT").subscribe(
+      (response: historique[]) => {
+
+        
+        this.Historique = response;
+        console.log("NOT_IMPORTANT HISTORY");
         console.log(this.Historique);
 
         
@@ -182,6 +229,25 @@ info : any ;
 
 
 
+
+
+  public RetiveHistoriqueByAction(action:string): void {
+    this.HistoryService.RetiveHistoriqueByAction(action).subscribe(
+      (response: historique[]) => {
+
+        
+        this.Historique = response;
+        console.log("Action HISTORY");
+        console.log(this.Historique);
+
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+  }
 
 
 

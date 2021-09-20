@@ -135,3 +135,13 @@ table.shoping-cart-table tr td:last-child {
   font-size: 14px;
   color: #ab7333;
 }
+
+.form-control-lg {
+  height: calc(1.5em + 1rem + 2px);
+  width: 100px;
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  display: inline-block;
+  margin-right: 40px;
+}
