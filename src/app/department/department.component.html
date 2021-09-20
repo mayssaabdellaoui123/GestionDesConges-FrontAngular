@@ -34,7 +34,32 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<button class="addbtn" mat-stroked-button color="warn" href="#addEmployeeModal"  data-toggle="modal" >Ajouter</button>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<!--a class="navbar-brand" style="color:white;">Admins Manager</a-->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarColor02">
+		   <ul class="navbar-nav mr-auto">
+			  <li class="nav-item active">
+				 <!--a class="nav-link" href="#addEmployeeModal" >Add Admin<span class="sr-only">(current)</span></a-->
+				 <button class="nav-link"  href="#addEmployeeModal"  data-toggle="modal" >ADD DEPARTMENTS</button>
+
+			  </li> 
+		   </ul>
+		   <form class="form-inline my-2 my-lg-0">
+			
+			  <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
+			   name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+			   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+				<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+			  </svg>
+		   </form>
+		</div>
+	  </nav>
+
+	<!--button class="addbtn" mat-stroked-button color="warn" href="#addEmployeeModal"  data-toggle="modal" >Ajouter</button-->
     <div class="container123">
 		<div > <!--class="table-responsive"-->
 			<div class="table-wrapper">

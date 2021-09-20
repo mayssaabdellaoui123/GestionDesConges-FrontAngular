@@ -1,5 +1,5 @@
 body {
-    color: #566787;
+    color: #ffffff;
     /*background: #ebeeef;*/
 
     background-image: linear-gradient(#ebeeef, white);
@@ -9,6 +9,7 @@ body {
 }
 /*
 
+
 */
 .table-wrapper {
     min-width: 100px;
@@ -17,6 +18,10 @@ body {
     padding: 20px 0px;
     border-radius: 3px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.bg-dark {
+    background-color: #4d5e6e !important;
 }
 .table-title {        
     padding-bottom: 15px;
@@ -284,3 +289,4 @@ table.table .avatar {
   margin-left: 1200px;
  color: #5a7a9a;
 }
+

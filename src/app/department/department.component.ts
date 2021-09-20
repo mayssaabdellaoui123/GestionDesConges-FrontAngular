@@ -144,4 +144,21 @@ export class DepartmentComponent implements OnInit {
     }
 
 
+    public searchEmployees(key: string): void {
+      console.log(key);
+      const results: Department[] = [];
+      for (const employee of this.Department) {
+        if (employee.nomDepartement.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || employee.matriculeBoss.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+          results.push(employee);
+        }
+      }
+      this.Department = results;
+      if (results.length === 0 || !key) {
+        this.getDepartment();
+      }
+    }
+  
+
+
 }

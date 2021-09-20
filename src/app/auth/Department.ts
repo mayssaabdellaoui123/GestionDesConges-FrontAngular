@@ -2,9 +2,9 @@ export class Department {
     //user
     idDepartement : number;
     nomDepartement : string ;
-    matriculeBoss: number;
+    matriculeBoss: string;
 
-    constructor(nomDepartement: string, matriculeBoss: number) {
+    constructor(nomDepartement: string, matriculeBoss: string) {
         //user    
        
         this.nomDepartement = nomDepartement;
