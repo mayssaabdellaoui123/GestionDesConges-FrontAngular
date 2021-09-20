@@ -30,6 +30,9 @@ export class HistoriqueService {
     return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByAction/${action}`);
   }
 
+  public RetiveHistoriqueByFiltre(type : string, action : string) :  Observable<historique[]> {
+    return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByFiltre/${type}/${action}`);
+  }
 
 
 }

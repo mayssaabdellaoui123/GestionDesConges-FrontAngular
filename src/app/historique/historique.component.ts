@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { stringify } from 'querystring';
 import { historique } from '../auth/Historique';
 import { ClientService } from '../client.service';
 import { HistoriqueService } from '../historique.service';
@@ -40,7 +41,7 @@ info : any ;
 
   constructor(private HistoryService: HistoriqueService,private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService) { }
 
-  importance:String;
+  importance:string;
   action:string;
 
   ngOnInit(): void {
@@ -118,13 +119,51 @@ info : any ;
       };
 
     ////////////////////////////////////
-    this.getHistoryByType() ;
+    //this.getHistoryByType() ;
 
-    this.getHistoryByAction();
+    //this.getHistoryByAction();
+
+    this.RetiveHistoriqueByFiltreAndAll();
 
     this.getNombreHistorique();
   }
 
+
+  public RetiveHistoriqueByFiltre(type:string ,action:string): void {
+    this.HistoryService.RetiveHistoriqueByFiltre(type,action).subscribe(
+      (response: historique[]) => {
+
+        
+        this.Historique = response;
+
+        console.log("hello");
+        console.log(this.Historique);
+
+       
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+  }
+
+  public RetiveHistoriqueByFiltreAndAll():void{
+    if(this.importance==='ALL' && this.action==='ALL'){
+      this.getHistory();
+    }
+    else if(this.importance==='ALL'){
+      console.log("inside RetiveHistoriqueByFiltreAndAll")
+      console.log(this.Historique);
+
+      this.RetiveHistoriqueByAction(this.action);
+    }
+    else if(this.action==='ALL') {
+      this.getHistoryByType();
+    }
+    else{this.RetiveHistoriqueByFiltre(this.importance,this.action);}
+
+  }
 
   public getHistoryByAction():void{
     if(this.action==='ALL'){

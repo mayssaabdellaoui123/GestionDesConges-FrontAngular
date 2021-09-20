@@ -8,14 +8,14 @@
                     <span class="pull-right">(<strong>{{NbrHistorique}}</strong>) items</span>
                     <h2>Historique</h2>
                     Importance
-                    <select class="form-control form-control-lg" [(ngModel)]="importance" (click)="getHistoryByType()" >
+                    <select class="form-control form-control-lg" [(ngModel)]="importance" (click)="RetiveHistoriqueByFiltreAndAll()" >
                         <option value="ALL" > All</option>
                         <option value="IMPORTANT" > Important</option>
                         <option value="NOT_IMPORTANT">Not Important</option>
                     </select>
 
                     Action
-                    <select class="form-control form-control-lg" [(ngModel)]="action" (click)="getHistoryByAction()"  >
+                    <select class="form-control form-control-lg" [(ngModel)]="action" (click)="RetiveHistoriqueByFiltreAndAll()"  >
                         <option value="ALL">ALL</option>
                         <option value="DEPARTMENT" > DEPARTMENT</option>
                         <option value="EMPLOYEE" > EMPLOYEE</option>
