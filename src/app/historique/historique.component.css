@@ -76,6 +76,8 @@ table.shoping-cart-table tr td:last-child {
   margin-bottom: 25px;
   margin-top: 0;
   padding: 0;
+  width: 1100px;
+  margin-left: -90px;
 }
 .ibox.collapsed .ibox-content {
   display: none;
@@ -144,4 +146,8 @@ table.shoping-cart-table tr td:last-child {
   line-height: 1.5;
   display: inline-block;
   margin-right: 40px;
+}
+
+.row{
+  display: inline-table;
 }

@@ -28,6 +28,10 @@ export class HeaderComponent implements OnInit {
   public usernameuser: string;
   
     info : any ; 
+    classname : string = "active" ;
+
+    toggleClass: string ;
+
     constructor(private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService) { }
     
   ngOnInit() {

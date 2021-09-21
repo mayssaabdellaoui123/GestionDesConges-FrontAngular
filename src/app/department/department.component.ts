@@ -55,6 +55,7 @@ export class DepartmentComponent implements OnInit {
         this.isSignedUp = true;
         this.isSignUpFailed = false;
         this.getDepartment();
+
         this.reloadPage();
       },
       error => {
@@ -144,7 +145,7 @@ export class DepartmentComponent implements OnInit {
     }
 
 
-    public searchEmployees(key: string): void {
+    public searchDepartment(key: string): void {
       console.log(key);
       const results: Department[] = [];
       for (const employee of this.Department) {
