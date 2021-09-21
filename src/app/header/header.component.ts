@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../auth/user';
 import { ClientService } from '../client.service';
+import { DepartmentServiceService } from '../department-service.service';
 import { TokenStorgeService } from '../token-storage.service';
 
 @Component({
@@ -26,13 +27,17 @@ export class HeaderComponent implements OnInit {
   public authorityresponsable: boolean = false;
   public authorityadministrativeoffice: boolean = false;
   public usernameuser: string;
+
+  public DepartmentNamee: string;
+  public MatriculeDepartment: string;
+
   
     info : any ; 
     classname : string = "active" ;
 
     toggleClass: string ;
 
-    constructor(private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService) { }
+    constructor(private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService, private DepartentService: DepartmentServiceService) { }
     
   ngOnInit() {
     this.info = {
@@ -107,6 +112,26 @@ export class HeaderComponent implements OnInit {
       });
 
     }
+
+
+    this.DepartentService.getMatriculeByUsename(this.info.username).subscribe(
+      (response: string) => {
+        console.log(this.info.username)
+        this.MatriculeDepartment = response;
+        console.log( this.MatriculeDepartment);
+        
+
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+
+      }
+
+
+
+
+    )
 
     
        
