@@ -6,23 +6,26 @@
             <div class="ibox">
                 <div class="ibox-title">
                     <span class="pull-right">({{lenght}}) items</span>
-                    <h2>Historique</h2>
-                    Importance
-                    <select class="form-control form-control-lg" [(ngModel)]="importance" (click)="RetiveHistoriqueByFiltreAndAll()" >
+                    <h2 [hidden]="isAll">My Historique</h2>
+                    <h2 [hidden]="!isAll">All Historique</h2>
+                    <label [hidden]="!isAll" >Importance</label>
+                    <select  [hidden]="!isAll" class="form-control form-control-lg" [(ngModel)]="importance" (click)="RetiveHistoriqueByFiltreAndAll()" >
                         <option value="ALL" > All</option>
                         <option value="IMPORTANT" > Important</option>
                         <option value="NOT_IMPORTANT">Not Important</option>
                     </select>
 
-                    Action
-                    <select class="form-control form-control-lg" [(ngModel)]="action" (click)="RetiveHistoriqueByFiltreAndAll()"  >
+                    <label [hidden]="!isAll" >Action</label>
+                    <select [hidden]="!isAll" class="form-control form-control-lg" [(ngModel)]="action" (click)="RetiveHistoriqueByFiltreAndAll()"  >
                         <option value="ALL">ALL</option>
                         <option value="DEPARTMENT" > DEPARTMENT</option>
                         <option value="EMPLOYEE" > EMPLOYEE</option>
                         
                     </select>
-                    Personal
-                    <button mat-button (click)="RetiveHistoriqueByOwner()">My History</button>
+                    
+                    <button  mat-button (click)="showInput()" (click)="RetiveHistoriqueByOwner()">My History</button>
+                    
+                    <button mat-button (click)="hideInput()" (click)="RetiveHistoriqueByFiltreAndAll()">All History</button>
 
 
                       <!--br> selected value is {{importance}}-->
@@ -146,7 +149,7 @@
             <div class="col-md-9">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <span class="pull-right">({{lenght}}) items</span>
+                        <span class="pull-right">({{lenghtHC}}) items</span>
                         <h2>Historique</h2>
                        <!-- Importance
                         <select class="form-control form-control-lg" [(ngModel)]="importance" (click)="RetiveHistoriqueByFiltreAndAll()" >

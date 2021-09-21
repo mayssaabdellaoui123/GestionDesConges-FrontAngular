@@ -37,6 +37,8 @@ public authorityadministrativeoffice: boolean = false;
 public usernameuser: string;
 info : any ; 
 public lenght: number;
+public lenghtHC:number;
+public isAll:boolean = true;
 
 
 
@@ -46,6 +48,8 @@ public lenght: number;
 
   importance:string;
   action:string;
+
+  bntStyle: string;
 
   ngOnInit(): void {
 
@@ -150,6 +154,22 @@ public lenght: number;
         alert(error.message);
       }
     );
+
+  }
+
+
+
+  hideInput(){
+    this.isAll =true;
+  }
+  showInput(){
+    this.isAll =false;
+  }
+
+
+  submit() {
+    this.bntStyle = 'btn-change';
+    console.log("btn")
 
   }
 
@@ -309,6 +329,7 @@ public lenght: number;
         this.getNombreHistorique();
         this.lenght=response.length;
 
+        this.submit();
         
       },
       (error: HttpErrorResponse) => {
@@ -328,8 +349,10 @@ public lenght: number;
         this.Historique1 = response;
         console.log("Action HISTORY");
         console.log(this.Historique);
-        this.getNombreHistorique();
-        this.lenght=response.length;
+        //this.getNombreHistorique();
+        this.lenghtHC=response.length;
+        console.log("this.lenghtHC");
+        console.log(this.lenghtHC);
 
         
       },

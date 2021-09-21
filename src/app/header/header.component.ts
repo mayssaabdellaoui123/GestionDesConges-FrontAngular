@@ -28,8 +28,8 @@ export class HeaderComponent implements OnInit {
   public authorityadministrativeoffice: boolean = false;
   public usernameuser: string;
 
-  public DepartmentNamee: string;
-  public MatriculeDepartment: string;
+  public DepartmentNamee: string[];
+  public MatriculeBoss: string;
 
   
     info : any ; 
@@ -113,30 +113,70 @@ export class HeaderComponent implements OnInit {
 
     }
 
+    this.getMatriculeByUsename(this.info.username);
+    /*this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);*/
 
-    this.DepartentService.getMatriculeByUsename(this.info.username).subscribe(
-      (response: string) => {
-        console.log(this.info.username)
-        this.MatriculeDepartment = response;
-        console.log( this.MatriculeDepartment);
-        
-
-        
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-
-      }
-
-
-
-
-    )
-
-    
-       
   }
   
+  public getMatriculeByUsename(username: string): void{
+  this.DepartentService.getMatriculeByUsername(username).subscribe(
+    (response: string) => {
+
+      console.log(" this.info.username");
+      console.log(this.info.username);
+      this.MatriculeBoss = response;
+
+      console.log(" this.MatriculeBoss");
+      console.log( this.MatriculeBoss);
+this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);
+      
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+
+    }
+  )
+
+  
+}
+
+  
+  public getNameDepartmentByMatriculeBoss(MatriculeBoss: string): void{
+    this.DepartentService.getNameDepartmentByMatriculeBoss(MatriculeBoss).subscribe(
+    (response: any) => {
+
+      console.log(" this.MatriculeBoss inside name department ");
+      console.log( this.MatriculeBoss);
+
+      console.log(" response");
+      console.log( response);
+      this.DepartmentNamee = response;
+
+      console.log(" this.DepartmentNamee");
+      console.log( this.DepartmentNamee);
+      
+      
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+
+    }
+
+
+  )
+  }
+
+
+
+
+
+
+
+
+
+
+
+
   logout() {
     this.token.signOut();
     this.route.navigateByUrl("home")

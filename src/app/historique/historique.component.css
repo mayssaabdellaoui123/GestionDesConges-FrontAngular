@@ -1,3 +1,16 @@
+.btn-change {
+  display: none;
+}
+
+.hidden{
+  display: none;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+  cursor: pointer;
+  float: right;
+}
+
 .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
   float: right;
 }
@@ -99,7 +112,7 @@ table.shoping-cart-table tr td:last-child {
   color: inherit;
   margin-bottom: 0;
   padding: 14px 15px 7px;
-  min-height: 48px;
+  min-height: 90px;
 }
 .ibox-content {
   background-color: #ffffff;
