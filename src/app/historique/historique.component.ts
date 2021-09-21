@@ -289,6 +289,26 @@ info : any ;
   }
 
 
+  public RetiveHistoriqueByOwner(): void {
+    this.HistoryService.RetiveHistoriqueByOwner(this.info.username).subscribe(
+      (response: historique[]) => {
+
+        
+        this.Historique = response;
+        console.log("Action HISTORY");
+        console.log(this.Historique);
+
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+  }
+
+
+
 
 
 

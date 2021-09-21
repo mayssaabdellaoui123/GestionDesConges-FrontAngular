@@ -21,6 +21,10 @@
                         <option value="EMPLOYEE" > EMPLOYEE</option>
                         
                     </select>
+                    Personal
+                    <button mat-button (click)="RetiveHistoriqueByOwner()">My History</button>
+
+
                       <!--br> selected value is {{importance}}-->
                 </div>
                 <div class="ibox-content" *ngFor="let historique of Historique" >
