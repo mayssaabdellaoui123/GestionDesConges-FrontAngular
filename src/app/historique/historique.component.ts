@@ -34,6 +34,7 @@ public authorityresponsable: boolean = false;
 public authorityadministrativeoffice: boolean = false;
 public usernameuser: string;
 info : any ; 
+public lenght: number;
 
 
 
@@ -198,6 +199,7 @@ info : any ;
         console.log(this.Historique);
 
         console.log("hello");
+        this.lenght=response.length;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -219,6 +221,7 @@ info : any ;
         this.Historique = response;
         console.log("IMPORTANT HISTORY");
         console.log(this.Historique);
+        this.lenght=response.length;
 
         
       },
@@ -237,6 +240,7 @@ info : any ;
         this.Historique = response;
         console.log("NOT_IMPORTANT HISTORY");
         console.log(this.Historique);
+        this.lenght=response.length;
 
         
       },
@@ -278,6 +282,7 @@ info : any ;
         this.Historique = response;
         console.log("Action HISTORY");
         console.log(this.Historique);
+        this.lenght=response.length;
 
         
       },
@@ -297,6 +302,8 @@ info : any ;
         this.Historique = response;
         console.log("Action HISTORY");
         console.log(this.Historique);
+        this.getNombreHistorique();
+        this.lenght=response.length;
 
         
       },
