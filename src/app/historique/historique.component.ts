@@ -16,6 +16,8 @@ export class HistoriqueComponent implements OnInit {
 
   public Historique: historique[];
   public NbrHistorique :number;
+  public Historique1: historique[];
+
 
 ////////////////////////////////////
 
@@ -118,6 +120,8 @@ public lenght: number;
         });
 
       };
+
+    this.RetiveHistoriqueByOwnerClient()
 
     ////////////////////////////////////
     //this.getHistoryByType() ;
@@ -313,6 +317,29 @@ public lenght: number;
     );
 
   }
+
+
+  
+  public RetiveHistoriqueByOwnerClient(): void {
+    this.HistoryService.RetiveHistoriqueByOwner(this.info.username).subscribe(
+      (response: historique[]) => {
+
+        
+        this.Historique1 = response;
+        console.log("Action HISTORY");
+        console.log(this.Historique);
+        this.getNombreHistorique();
+        this.lenght=response.length;
+
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+  }
+
 
 
 
