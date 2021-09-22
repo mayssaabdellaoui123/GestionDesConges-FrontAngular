@@ -105,7 +105,10 @@ export class AdminManagerComponent implements OnInit {
     const results: Admin[] = [];
     for (const employee of this.employees) {
       if (employee.lastNameUser.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || employee.firstNameUser.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+      || employee.firstNameUser.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || employee.usernameUser.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || employee.emailAddressUser.toLowerCase().indexOf(key.toLowerCase()) !== -1
+) {
         results.push(employee);
       }
     }

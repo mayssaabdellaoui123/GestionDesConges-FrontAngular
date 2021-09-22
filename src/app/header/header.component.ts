@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../auth/user';
 import { ClientService } from '../client.service';
+import { DepartmentServiceService } from '../department-service.service';
 import { TokenStorgeService } from '../token-storage.service';
 
 @Component({
@@ -26,13 +27,17 @@ export class HeaderComponent implements OnInit {
   public authorityresponsable: boolean = false;
   public authorityadministrativeoffice: boolean = false;
   public usernameuser: string;
+
+  public DepartmentNamee: string[];
+  public MatriculeBoss: string;
+
   
     info : any ; 
     classname : string = "active" ;
 
     toggleClass: string ;
 
-    constructor(private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService) { }
+    constructor(private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService, private DepartentService: DepartmentServiceService) { }
     
   ngOnInit() {
     this.info = {
@@ -108,10 +113,70 @@ export class HeaderComponent implements OnInit {
 
     }
 
-    
-       
+    this.getMatriculeByUsename(this.info.username);
+    /*this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);*/
+
   }
   
+  public getMatriculeByUsename(username: string): void{
+  this.DepartentService.getMatriculeByUsername(username).subscribe(
+    (response: string) => {
+
+      console.log(" this.info.username");
+      console.log(this.info.username);
+      this.MatriculeBoss = response;
+
+      console.log(" this.MatriculeBoss");
+      console.log( this.MatriculeBoss);
+this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);
+      
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+
+    }
+  )
+
+  
+}
+
+  
+  public getNameDepartmentByMatriculeBoss(MatriculeBoss: string): void{
+    this.DepartentService.getNameDepartmentByMatriculeBoss(MatriculeBoss).subscribe(
+    (response: any) => {
+
+      console.log(" this.MatriculeBoss inside name department ");
+      console.log( this.MatriculeBoss);
+
+      console.log(" response");
+      console.log( response);
+      this.DepartmentNamee = response;
+
+      console.log(" this.DepartmentNamee");
+      console.log( this.DepartmentNamee);
+      
+      
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+
+    }
+
+
+  )
+  }
+
+
+
+
+
+
+
+
+
+
+
+
   logout() {
     this.token.signOut();
     this.route.navigateByUrl("home")

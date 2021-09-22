@@ -16,6 +16,8 @@ export class HistoriqueComponent implements OnInit {
 
   public Historique: historique[];
   public NbrHistorique :number;
+  public Historique1: historique[];
+
 
 ////////////////////////////////////
 
@@ -34,6 +36,9 @@ public authorityresponsable: boolean = false;
 public authorityadministrativeoffice: boolean = false;
 public usernameuser: string;
 info : any ; 
+public lenght: number;
+public lenghtHC:number;
+public isAll:boolean = true;
 
 
 
@@ -43,6 +48,8 @@ info : any ;
 
   importance:string;
   action:string;
+
+  bntStyle: string;
 
   ngOnInit(): void {
 
@@ -118,6 +125,8 @@ info : any ;
 
       };
 
+    this.RetiveHistoriqueByOwnerClient()
+
     ////////////////////////////////////
     //this.getHistoryByType() ;
 
@@ -145,6 +154,22 @@ info : any ;
         alert(error.message);
       }
     );
+
+  }
+
+
+
+  hideInput(){
+    this.isAll =true;
+  }
+  showInput(){
+    this.isAll =false;
+  }
+
+
+  submit() {
+    this.bntStyle = 'btn-change';
+    console.log("btn")
 
   }
 
@@ -198,6 +223,7 @@ info : any ;
         console.log(this.Historique);
 
         console.log("hello");
+        this.lenght=response.length;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -219,6 +245,7 @@ info : any ;
         this.Historique = response;
         console.log("IMPORTANT HISTORY");
         console.log(this.Historique);
+        this.lenght=response.length;
 
         
       },
@@ -237,6 +264,7 @@ info : any ;
         this.Historique = response;
         console.log("NOT_IMPORTANT HISTORY");
         console.log(this.Historique);
+        this.lenght=response.length;
 
         
       },
@@ -278,6 +306,7 @@ info : any ;
         this.Historique = response;
         console.log("Action HISTORY");
         console.log(this.Historique);
+        this.lenght=response.length;
 
         
       },
@@ -287,6 +316,54 @@ info : any ;
     );
 
   }
+
+
+  public RetiveHistoriqueByOwner(): void {
+    this.HistoryService.RetiveHistoriqueByOwner(this.info.username).subscribe(
+      (response: historique[]) => {
+
+        
+        this.Historique = response;
+        console.log("Action HISTORY");
+        console.log(this.Historique);
+        this.getNombreHistorique();
+        this.lenght=response.length;
+
+        this.submit();
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+  }
+
+
+  
+  public RetiveHistoriqueByOwnerClient(): void {
+    this.HistoryService.RetiveHistoriqueByOwner(this.info.username).subscribe(
+      (response: historique[]) => {
+
+        
+        this.Historique1 = response;
+        console.log("Action HISTORY");
+        console.log(this.Historique);
+        //this.getNombreHistorique();
+        this.lenghtHC=response.length;
+        console.log("this.lenghtHC");
+        console.log(this.lenghtHC);
+
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+  }
+
+
 
 
 

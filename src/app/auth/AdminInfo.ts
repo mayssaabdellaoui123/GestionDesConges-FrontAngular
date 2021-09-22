@@ -16,7 +16,7 @@ export class Admin{
     enabled :boolean;
     locked : boolean;
     dateBirthUser : string;
-    matricule: number;
+    matricule: string;
     //admin
     roleAdmin: string;
     nbabsenceAdmin : number;
@@ -26,7 +26,7 @@ export class Admin{
 
     constructor(id : number ,firstname: string, lastname: string,username: string, email: string, password: string , 
         phone:string, address:string , role1:string , nbabsenceAdmin : number , birthdate : string, role : string ,
-        updated : boolean , nb : number , salary: number , enable : boolean , lock : boolean , matriculeBoss : string, soldeDeConge: number, matricule: number
+        updated : boolean , nb : number , salary: number , enable : boolean , lock : boolean , matriculeBoss : string, soldeDeConge: number, matricule: string
         ){
         //user    
         this.idUser = id;

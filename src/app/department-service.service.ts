@@ -27,5 +27,14 @@ export class DepartmentServiceService {
     return this.http.put<Department>(`http://localhost:8081/Department/update`, Department);
   }
 
+  public getNameDepartmentByMatriculeBoss(Matricule: string): Observable<any>{
+    return this.http.get<any>(`http://localhost:8081/Department/getNameDepartmentByMatriculeBoss/${Matricule}`)
+  }
+
+  public getMatriculeByUsername(Username: string): Observable<string>{
+    return this.http.get<string>(`http://localhost:8081/Department/getNMatriculeByUsernameUser/${Username}`)
+  }
+
+
 
 }

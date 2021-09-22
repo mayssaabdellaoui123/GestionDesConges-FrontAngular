@@ -22,7 +22,7 @@ export class HistoriqueService {
     return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByType/${type}`);
   }
 
-  public RetiveHistoriqueByOwner(owner : string) :  Observable<historique[]> {
+  public RetiveHistoriqueByOwner(owner : any) :  Observable<historique[]> {
     return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByOwner/${owner}`);
   }
 
