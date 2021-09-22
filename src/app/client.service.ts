@@ -47,7 +47,7 @@ export class ClientService {
 }
 
 
-public getClients1(): Observable<Client[]> {
+public getEmployee(): Observable<Client[]> {
   return this.http.get<Client[]>(`http://localhost:8081/ressources/client/allclients`);
 }
 

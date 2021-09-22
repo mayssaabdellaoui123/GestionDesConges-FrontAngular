@@ -34,7 +34,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   public getEmployees(): void {
-    this.employeeService.getClients1().subscribe(
+    this.employeeService.getEmployee().subscribe(
       (response: Client[]) => {
         this.employees = response;
         console.log(this.employees);
