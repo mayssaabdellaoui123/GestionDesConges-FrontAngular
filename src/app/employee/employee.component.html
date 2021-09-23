@@ -272,6 +272,7 @@ $(document).ready(function(){
 								  <div *ngIf="gender.errors.required" class="text-warning" >Gender is required</div>
 							  </div>
 							  </div>
+
 							  <div class="form-group">
 							  <label for="workfield" class="form-label">Work Field </label>
 							  <div><select class="form-control" aria-label="Default select example" name="workfield" [(ngModel)]="form.workfield" #workfield="ngModel" required>
@@ -283,6 +284,20 @@ $(document).ready(function(){
 								  <div *ngIf="workfield.errors.required"class="text-warning">Work Field is required</div>
 							  </div>
 								</div>
+								
+
+								<div  class="form-group" >
+									<label for="Department"  class="form-label">Department </label>
+									<div> <select   [(ngModel)]="SelectedDepartment"class="form-control" aria-label="Default select example" name="Department"  required>
+									  <option disabled selected >Select your Department:</option>
+									  <option  *ngFor="let department of Department"  [value]="department.idDepartement">{{department.nomDepartement}}</option>
+									 
+									</select>
+									</div>
+								</div>
+
+
+								
 								<div class="form-group">
 								  <label for="phone">Phone Number</label>
 								  <input type="text" class="form-control" name="username" [(ngModel)]="form.phone" #phone="ngModel" required minlength="8" />
@@ -291,16 +306,32 @@ $(document).ready(function(){
 								  </div>
 								</div>
 					</div>
+
+					
+
+
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="reloadPage()" value="Cancel">
 						<input type="submit" class="btn btn-success" [disabled]="!f.valid" value="Add">
 						<div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
 							Signup failed!<br/>{{errorMessage}}
 						  </div>
+						  <button (click)="testinput()">test input</button>
 					</div>
 				</form>
+
+				
+
+				
                
 				</ng-template>
+
+				
+
+
+					  
+
+			
 			</div>
 		</div>
 	</div>

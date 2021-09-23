@@ -2,8 +2,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Client } from '../auth/ClientInfo';
+import { Department } from '../auth/Department';
 import { SignUpInfo } from '../auth/SignUpInfo';
 import { ClientService } from '../client.service';
+import { DepartmentServiceService } from '../department-service.service';
 
 
 @Component({
@@ -20,10 +22,14 @@ export class EmployeeComponent implements OnInit {
   errorMessage = 'Matricule Boss is not found !';
   imageFile
 
+  public Department: Department[];
+
   public deleteclient: Client;
   public editdeclient: Client;
+
+  public SelectedDepartment: number ;
   
-  constructor(private employeeService: ClientService,private authService: AuthService) { }
+  constructor(private employeeService: ClientService,private authService: AuthService, private DepartmentService: DepartmentServiceService) { }
 
   // back controller : ClientRessources 
 
@@ -31,6 +37,7 @@ export class EmployeeComponent implements OnInit {
     
   ): void {
     this.getEmployees();
+    this.getDepartment();
   }
 
   public getEmployees(): void {
@@ -43,6 +50,20 @@ export class EmployeeComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+
+  public getDepartment(): void {
+    this.DepartmentService.getDepartment().subscribe(
+      (response: Department[]) => {
+        this.Department = response;
+        console.log("get department");
+        console.log(this.Department);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
   }
 
 
@@ -72,6 +93,8 @@ export class EmployeeComponent implements OnInit {
       //  this.employeeService.addImage(this.imageFile).subscribe();
         this.getEmployees();
         this.reloadPage();
+        
+       
       },
       error => {
         console.log(error);
@@ -84,12 +107,26 @@ export class EmployeeComponent implements OnInit {
   addImage(event:any){
     this.imageFile = event.target.files[0];
     
-    console.log("mayssa");
+    
   }
 
   reloadPage() {
     //this.router.navigate(['/account']) ;
     window.location.reload();
+    
+  }
+
+  testinput() {
+    //this.router.navigate(['/account']) ;
+    console.log("test input SelectedDepartment");
+    console.log(this.SelectedDepartment);
+    
+    
+  }
+
+  CreationEmpAndAffectationDep() {
+    //this.router.navigate(['/account']) ;
+    this.onSubmit().then()
     
   }
 

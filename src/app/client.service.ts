@@ -60,5 +60,13 @@ public getRoleByusername(username){
   return this.http.get(`http://localhost:8081/ressources/client/getRolebyusername/`+username,{responseType: 'text'});
 }
 
+
+public AffectationRemplaceur(matricule: string): Observable<any> {
+  return this.http.delete<any>(`http://localhost:8081/ressources/client/AffectationRemplaceur/${matricule}`);
+}
  
+public DesAffectationRemplaceur(matricule: string): Observable<any> {
+  return this.http.delete<any>(`http://localhost:8081/ressources/client/DesAffectationRemplaceur/${matricule}`);
+}
+
 }
