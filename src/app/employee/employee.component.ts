@@ -67,7 +67,9 @@ export class EmployeeComponent implements OnInit {
   }
 
 
-  onSubmit() {
+  onSubmit(): Promise<any> {
+    return Promise.resolve((() => {
+
     console.log(this.form);
 
     this.signupInfo = new SignUpInfo(
@@ -86,22 +88,26 @@ export class EmployeeComponent implements OnInit {
       );
 
     this.authService.signUp(this.signupInfo).subscribe(
-      data => {
+      async data => {
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
       //  this.employeeService.addImage(this.imageFile).subscribe();
+      await this.AffectEmployeeDepartment(this.SelectedDepartment,this.form.matricule);
         this.getEmployees();
         this.reloadPage();
-        
+        return 'on submit DONE ';
        
       },
       error => {
         console.log(error);
         this.errorMessage = error.error.message;
         this.isSignUpFailed = true;
+        return 'on submit FAILED ';
       }
     );
+    
+  })());
   }
 
   addImage(event:any){
@@ -116,17 +122,11 @@ export class EmployeeComponent implements OnInit {
     
   }
 
-  testinput() {
-    //this.router.navigate(['/account']) ;
-    console.log("test input SelectedDepartment");
-    console.log(this.SelectedDepartment);
-    
-    
-  }
+ 
 
   CreationEmpAndAffectationDep() {
     //this.router.navigate(['/account']) ;
-    this.onSubmit().then()
+    this.onSubmit()
     
   }
 
@@ -195,15 +195,7 @@ export class EmployeeComponent implements OnInit {
 
 public onUpdateEmployees(Employee: Client): void{
   this.employeeService.updateClient(Employee).subscribe(
-    /*(response: Department) => {
-      console.log(response);
-      this.getDepartment();
-      this.reloadPage();
-    },
-    (error: HttpErrorResponse) => {
-      alert(error.message);
-    }*/
-
+    
     data => {
       console.log(data);
       this.isSignedUp = true;
@@ -220,8 +212,39 @@ public onUpdateEmployees(Employee: Client): void{
   )  }
 
 
-
+  public AffectEmployeeDepartment(DepartmentId: number,matricule: string): void{
+    this.DepartmentService.AffectEmployeeDepartment(DepartmentId,matricule).subscribe(
+      
+      data => {
+        console.log("AffectEmployeeDepartment");
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+        this.errorMessage = error.error.message;
+      }
+  
+    )  }
 
   
+
+   /* public testinput() {
+      //this.router.navigate(['/account']) ;
+      console.log("test input SelectedDepartment");
+      console.log(this.SelectedDepartment);
+      
+      
+      this.onSubmit().then(data1 => {
+        console.log("data1");
+        console.log(data1);
+        this.AffectEmployeeDepartment(this.SelectedDepartment,this.form.matricule);
+      });
+      
+      
+      
+    }
+*/
+
+
 
 }

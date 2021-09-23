@@ -35,6 +35,9 @@ export class DepartmentServiceService {
     return this.http.get<string>(`http://localhost:8081/Department/getNMatriculeByUsernameUser/${Username}`)
   }
 
+  public AffectEmployeeDepartment(DepartmentId: number,matricule: string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Department/AffectEmployeeDepartment/${DepartmentId}/${matricule}`);
+  }
 
 
 }
