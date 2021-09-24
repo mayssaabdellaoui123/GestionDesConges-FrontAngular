@@ -47,6 +47,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { AdminManagerComponent } from './admin-manager/admin-manager.component';
 import { HistoriqueComponent } from './historique/historique.component';
+import { DemandeCongeComponent } from './demande-conge/demande-conge.component';
 
 
 @NgModule({
@@ -90,6 +91,7 @@ import { HistoriqueComponent } from './historique/historique.component';
     Header1Component,
     AdminManagerComponent,
     HistoriqueComponent,
+    DemandeCongeComponent,
     
   ],
   imports: [

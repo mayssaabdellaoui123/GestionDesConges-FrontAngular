@@ -1,0 +1,131 @@
+
+<div class="container123 " >
+    <div> <!-- class="table-responsive"-->
+        
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+
+                    
+                    <div class="col-lg-12 card-margin">
+                        <div class="card search-form">
+                            <div class="card-body p-0">
+                                <form id="search-form">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row no-gutters">
+                                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                                    <!--select class="form-control" id="exampleFormControlSelect1">
+                                                        <option>Location</option>
+                                                        <option>London</option>
+                                                        <option>Boston</option>
+                                                        <option>Mumbai</option>
+                                                        <option>New York</option>
+                                                        <option>Toronto</option>
+                                                        <option>Paris</option>
+                                                    </select-->
+                                                    <button class="nav-link "   href="#addCongeModal"  data-toggle="modal" ><strong>ADD CONGE</strong></button>
+
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <!-- Add Modal HTML -->
+	<div id="addCongeModal" class="modal fade">
+		<div class="modal-dialog">
+			
+			<div class="modal-content">
+				<div  *ngIf="isSignedUp ; else signupForm ">
+					<div class="alert alert-success"> 
+					 <strong >Your registration is successful.</strong>  </div>
+					 
+					</div>
+					<ng-template #signupForm>
+			    	<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+					<div class="modal-header">						
+						<h4 class="modal-title">Add Conge</h4>
+						<button type="button" class="close" (click)="reloadPage()" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">	
+										
+						
+						<div class="form-group">
+							<label for="dateDebut" class="form-label">Date debut </label>
+                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="form.dateDebut" #dateDebut="ngModel" required>
+                           <div id="dateDebutHelper" class="form-text" class="text-muted">
+                           Your Date Of Birth must be following this format : year-month-day (example : 1920-03-01)
+                            </div>
+                            <div *ngIf="f.submitted && dateDebut.invalid">
+                            <div *ngIf="dateDebut.errors.required" class="text-warning">date Debut is required</div>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label for="dateFin" class="form-label">Date fin </label>
+                            <input type="text" class="form-control" name="dateFin" [(ngModel)]="form.dateFin" #dateFin="ngModel" required>
+                           <div id="dateFinHelper" class="form-text" class="text-muted">
+                           Your Date Of Birth must be following this format : year-month-day (example : 1920-03-01)
+                            </div>
+                            <div *ngIf="f.submitted && dateFin.invalid">
+                            <div *ngIf="dateFin.errors.required" class="text-warning">Date of Birth is required</div>
+                            </div>
+						</div>
+						
+						
+						
+						  <div class="form-group">
+							<label for="type" class="form-label">Type </label>
+							<div>
+							<select class="form-control" name="type" [(ngModel)]="form.type" #type="ngModel" required>
+							  <option disabled selected>Select type :</option>
+							  <option value="demande_permission_repos">demande_permission_repos</option>
+							  <option value="demande_permission_exceptionnelle">demande_permission_exceptionnelle</option>
+							  <option value="demande_permission_maladie">demande_permission_maladie</option>
+							</select></div>
+							  <div *ngIf="f.submitted && type.invalid">
+								  <div *ngIf="type.errors.required" class="text-warning" >Type is required</div>
+							  </div>
+							  </div>
+
+					</div>
+
+					
+
+
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="reloadPage()" value="Cancel">
+						<input type="submit" class="btn btn-success" [disabled]="!f.valid" value="Add">
+						<div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+							Signup failed!<br/>{{errorMessage}}
+						  </div>
+						  
+					</div>
+				</form>
+
+				
+
+				
+               
+				</ng-template>
+
+				
+
+
+					  
+
+			
+		        	</div>
+		        </div>
+	        </div>
+        </div>
+    </div>
+</div>
