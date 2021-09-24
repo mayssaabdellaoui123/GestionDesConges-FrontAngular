@@ -14,6 +14,15 @@ export class CongeService {
     return this.http.post<Conge>(`http://localhost:8081/Conge/addConge`, Conge);
   }
 
+  public addCongeEtAffectation(Conge: Conge, Username: string): Observable<Conge> {
+    return this.http.post<Conge>(`http://localhost:8081/Conge/addCongeEtAffectation/${Username}`, Conge);
+  }
+
+  public AffectEmployeConge(idConge: number,matricule: string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/AffectEmployeConge/${idConge}/${matricule}`);
+  }
+
+
 
 
 

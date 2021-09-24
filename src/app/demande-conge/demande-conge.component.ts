@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Conge } from '../auth/Conge';
 import { CongeService } from '../conge.service';
 import { AuthService } from '../auth.service';
+import { TokenStorgeService } from '../token-storage.service';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class DemandeCongeComponent implements OnInit {
 
 
 
+  info : any ; 
   form: any = {};
 
   private conge: Conge;
@@ -22,11 +24,21 @@ export class DemandeCongeComponent implements OnInit {
   errorMessage = 'Email is not Valid !';
 
 
-  constructor(private CongeService: CongeService, private authService: AuthService) { }
+  constructor(private token:TokenStorgeService ,private CongeService: CongeService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+   
+      authorities: this.token.getAuthorities()
+    };
+
+     
+   
   }
 
+  
 
 
   onSubmit(){
@@ -37,7 +49,8 @@ export class DemandeCongeComponent implements OnInit {
       this.form.dateFin,
       );
 
-      this.CongeService.addConge(this.conge).subscribe(
+      /*this.CongeService.addConge(this.conge).subscribe(*/
+        this.CongeService.addCongeEtAffectation(this.conge,this.info.username).subscribe(
         data => {
           console.log("inside add Conge")
           console.log(data);
@@ -64,6 +77,29 @@ export class DemandeCongeComponent implements OnInit {
     window.location.reload();
     
   }
+
+
+
+
+  public AffectEmployeConge(idConge: number,matricule: string): void{
+    this.CongeService.AffectEmployeConge(idConge,matricule).subscribe(
+      
+      data => {
+        console.log("AffectEmployeConge");
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+        this.errorMessage = error.error.message;
+      }
+  
+    )  }
+
+
+
+
+
+
 
 
   }
