@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Conge } from './auth/Conge';
+import { Conge, Conge1 } from './auth/Conge';
 import { Observable } from 'rxjs';
+import { DetailsUserConge } from './auth/DetailsUserConge';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,14 @@ export class CongeService {
 
   public AffectEmployeConge(idConge: number,matricule: string): Observable<void> {
     return this.http.delete<void>(`http://localhost:8081/Conge/AffectEmployeConge/${idConge}/${matricule}`);
+  }
+
+  public GetCongesForChefDep(username: string): Observable<Conge1[]> {
+    return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForChefDep/${username}`)
+  }
+
+  public getDetailsUserByIdConge(idConge: number): Observable<DetailsUserConge> {
+    return this.http.get<DetailsUserConge>(`http://localhost:8081/Conge/getiduserbyidconge/${idConge}`)
   }
 
 

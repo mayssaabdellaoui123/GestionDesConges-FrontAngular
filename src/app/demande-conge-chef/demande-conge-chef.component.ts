@@ -1,4 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Conge1 } from '../auth/Conge';
+import { DetailsUserConge } from '../auth/DetailsUserConge';
+import { CongeService } from '../conge.service';
+import { TokenStorgeService } from '../token-storage.service';
 
 @Component({
   selector: 'app-demande-conge-chef',
@@ -6,10 +11,61 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demande-conge-chef.component.css']
 })
 export class DemandeCongeChefComponent implements OnInit {
+  info : any ;
+  Conge : Conge1[];
+  add1: number = -1;
+  DetailsUserConge: DetailsUserConge;
+  firstname : string;
 
-  constructor() { }
+
+  constructor(private serviceConge : CongeService,private tokenStorage: TokenStorgeService , private token:TokenStorgeService) { }
 
   ngOnInit(): void {
+
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities() };
+      this.getCongeChef();
+  }
+
+  Quantity(index){
+    this.add1 = +index
+   }
+
+
+  public getCongeChef(): void {
+    this.serviceConge.GetCongesForChefDep(this.info.username).subscribe(
+      (response: Conge1[]) => {
+        this.Conge = response;
+        console.log(this.Conge)
+       
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+
+  vueDetails(){
+    let selectedproduct = this.Conge[this.add1]
+    let data = selectedproduct.idConge;
+   // console.log(idConge);
+     console.log(data);
+     this.serviceConge.getDetailsUserByIdConge(data).subscribe(
+      (response: DetailsUserConge) => {
+        this.add1 = -1;
+        this.DetailsUserConge = response;
+        console.log(this.DetailsUserConge.firstname)
+        this.firstname = this.DetailsUserConge.firstname;
+       
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+
+      }
+     )
   }
 
 }
