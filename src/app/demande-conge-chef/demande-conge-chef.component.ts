@@ -65,7 +65,7 @@ export class DemandeCongeChefComponent implements OnInit {
     );
   }
 
-
+/*hneeeeee*/
   vueDetails(){
     let selectedconge = this.Conge[this.add1]
     let data = selectedconge.idConge;
@@ -85,8 +85,6 @@ export class DemandeCongeChefComponent implements OnInit {
         this.matriculeBossdep = this.DetailsUserConge.matriculeBossdep;
         this.matriculeRemplaceur = this.DetailsUserConge.matriculeRemplaceur;
      
-     
-       
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
