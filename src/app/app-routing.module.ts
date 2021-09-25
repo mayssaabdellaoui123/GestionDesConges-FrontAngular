@@ -29,6 +29,7 @@ import { RegisterComponent } from './register/register.component';
 import { ToolsComponent } from './tools/tools.component';
 import { VirtualVisitComponent } from './virtual-visit/virtual-visit.component';
 import { DemandeCongeComponent } from './demande-conge/demande-conge.component'
+import { DemandeCongeChefComponent } from './demande-conge-chef/demande-conge-chef.component';
 
 
 
@@ -147,6 +148,11 @@ const routes: Routes = [
 {
   path: 'demandeConge',
   component: DemandeCongeComponent
+}
+,
+{
+  path: 'demandeCongechef',
+  component: DemandeCongeChefComponent
 }
 ,
 

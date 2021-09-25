@@ -48,6 +48,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { AdminManagerComponent } from './admin-manager/admin-manager.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import { DemandeCongeComponent } from './demande-conge/demande-conge.component';
+import { DemandeCongeChefComponent } from './demande-conge-chef/demande-conge-chef.component';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { DemandeCongeComponent } from './demande-conge/demande-conge.component';
     AdminManagerComponent,
     HistoriqueComponent,
     DemandeCongeComponent,
+    DemandeCongeChefComponent,
     
   ],
   imports: [
