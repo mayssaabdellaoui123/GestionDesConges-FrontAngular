@@ -68,8 +68,8 @@ export class DemandeCongeChefComponent implements OnInit {
 /*hneeeeee*/
 /************************************************************************ */
   vueDetails(){
-    let selectedconge = this.Conge[this.add1]
-    let data = selectedconge.idConge;
+    let selectedproduct = this.Conge[this.add1]
+    let data = selectedproduct.idConge;
    // console.log(idConge);
      console.log(data);
      this.serviceConge.getDetailsUserByIdConge(data).subscribe(
