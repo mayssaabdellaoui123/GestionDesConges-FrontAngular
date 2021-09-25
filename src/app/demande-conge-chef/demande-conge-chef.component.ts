@@ -67,8 +67,8 @@ export class DemandeCongeChefComponent implements OnInit {
 
 /*hneeeeee*/
   vueDetails(){
-    let selectedproduct = this.Conge[this.add1]
-    let data = selectedproduct.idConge;
+    let selecteduser = this.Conge[this.add1]
+    let data = selecteduser.idConge;
    // console.log(idConge);
      console.log(data);
      this.serviceConge.getDetailsUserByIdConge(data).subscribe(
@@ -111,6 +111,14 @@ export class DemandeCongeChefComponent implements OnInit {
 
       }
      )
+  }
+
+
+
+  reloadPage() {
+    //this.router.navigate(['/account']) ;
+    window.location.reload();
+    
   }
 
 }

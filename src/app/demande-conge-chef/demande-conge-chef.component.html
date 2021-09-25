@@ -4,7 +4,7 @@
         <div class="col-lg-4" *ngFor="let conge of Conge">
             <div class="card card-margin" *ngFor="let conge of Conge;  index as i">
                 <div class="card-header no-border">
-                    <h5 class="card-title">{{conge.type}}</h5>
+                    <h5 class="card-title"><strong>{{conge.type}}</strong></h5>
                 </div>
                 <div class="card-body pt-0">
                     <div class="widget-49">
@@ -14,7 +14,7 @@
                                 <!--span class="widget-49-date-month">apr</span-->
                             </div>
                             <div class="widget-49-meeting-info">
-                                <span class="widget-49-pro-title">{{conge.dateDebut}} to {{conge.dateFin}}</span>
+                                <span class="widget-49-pro-title"><strong>{{conge.dateDebut}}</strong> to <strong>{{conge.dateFin}}</strong></span>
                                 <span class="widget-49-meeting-time">Date saisie : {{conge.dateSaisie}}</span>
                             </div>
                         </div>
@@ -94,12 +94,12 @@
             </div>
         </div-->
     </div>
-    </div>
+</div>
 
 
 
-    <!--modaaaaal-->
-    <div  class="modal fade" data-modal-color="" id="modalColor" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+     <!--modaaaaal-->
+     <div  class="modal fade" data-modal-color="" id="modalColor" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -126,9 +126,20 @@
 
                 </div>
                 <div class="modal-footer">
-                    <!--button type="button" class="btn btn-link">Save changes</button-->
-                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-link">Save changes</button>
+                    <button type="button" class="btn btn-link" data-dismiss="modal" (click)="reloadPage()">Close</button>
                 </div>
+
+
+
+
+
             </div>
         </div>
-    </div>
+     </div>
+     
+
+
+     
+
+     
