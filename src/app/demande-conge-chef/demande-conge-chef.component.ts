@@ -66,6 +66,7 @@ export class DemandeCongeChefComponent implements OnInit {
   }
 
 /*hneeeeee*/
+/************************************************************************ */
   vueDetails(){
     let selecteduser = this.Conge[this.add1]
     let data = selecteduser.idConge;
