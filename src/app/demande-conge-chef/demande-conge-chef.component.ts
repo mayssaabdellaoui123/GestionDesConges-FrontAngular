@@ -67,8 +67,8 @@ export class DemandeCongeChefComponent implements OnInit {
 
 
   vueDetails(){
-    let selectedproduct = this.Conge[this.add1]
-    let data = selectedproduct.idConge;
+    let selectedconge = this.Conge[this.add1]
+    let data = selectedconge.idConge;
    // console.log(idConge);
      console.log(data);
      this.serviceConge.getDetailsUserByIdConge(data).subscribe(
