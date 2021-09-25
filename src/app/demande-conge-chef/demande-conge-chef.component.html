@@ -24,7 +24,7 @@
                             <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
                         </ol-->
                         <div class="widget-49-meeting-action">
-                            <a  *ngIf="add1 !== i"  data-target-color="bluegray" data-toggle="modal"  class="btn btn-sm btn-flash-border-primary" (click)="Quantity(i)"   >more details</a>
+                            <a  *ngIf="add1 !== i"  data-target-color="bluegray" data-toggle="modal"  class="btn btn-sm btn-flash-border-primary" (click)="Next(i)"   >more details</a>
                        
                         <div *ngIf="add1 === i">
                              <a   href="#modalColor" data-target-color="bluegray" data-toggle="modal"  class="btn btn-sm btn-flash-border-primary"  (click)="vueDetails()"  >more details</a>
@@ -107,6 +107,14 @@
                 </div>
                 <div class="modal-body" >
                     <p>{{this.firstname}}</p>
+                    <p>{{this.lastname}}</p>
+                    <p>{{this.matricule}}</p>
+                    <p>{{this.tache}}</p>
+                    <p>{{this.department}}</p>
+                    <p>{{this.phone}}</p>
+                    <p>{{this.matriculeBossdep}}</p>
+                    <p>{{this.matriculeRemplaceur}}</p>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link">Save changes</button>

@@ -16,6 +16,13 @@ export class DemandeCongeChefComponent implements OnInit {
   add1: number = -1;
   DetailsUserConge: DetailsUserConge;
   firstname : string;
+  lastname : string;
+  matricule: string;
+   tache: string;
+   department: string;
+   phone: string;
+   matriculeBossdep:  string;
+   matriculeRemplaceur: string;
 
 
   constructor(private serviceConge : CongeService,private tokenStorage: TokenStorgeService , private token:TokenStorgeService) { }
@@ -29,7 +36,7 @@ export class DemandeCongeChefComponent implements OnInit {
       this.getCongeChef();
   }
 
-  Quantity(index){
+  Next(index){
     this.add1 = +index
    }
 
@@ -59,6 +66,15 @@ export class DemandeCongeChefComponent implements OnInit {
         this.DetailsUserConge = response;
         console.log(this.DetailsUserConge.firstname)
         this.firstname = this.DetailsUserConge.firstname;
+        this.lastname = this.DetailsUserConge.lastname;
+        this.matricule = this.DetailsUserConge.matricule;
+        this.tache = this.DetailsUserConge.tache;
+        this.department = this.DetailsUserConge.department;
+        this.phone = this.DetailsUserConge.phone;
+        this.matriculeBossdep = this.DetailsUserConge.matriculeBossdep;
+        this.matriculeRemplaceur = this.DetailsUserConge.matriculeRemplaceur;
+     
+     
        
       },
       (error: HttpErrorResponse) => {
