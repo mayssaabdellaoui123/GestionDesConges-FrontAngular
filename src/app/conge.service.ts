@@ -32,6 +32,11 @@ export class CongeService {
   }
 
 
+  public getCongeByIdConge(idConge: number): Observable<Conge1> {
+    return this.http.get<Conge1>(`http://localhost:8081/Conge/getCongeByIdConge/${idConge}`)
+  }
+
+
 
 
 

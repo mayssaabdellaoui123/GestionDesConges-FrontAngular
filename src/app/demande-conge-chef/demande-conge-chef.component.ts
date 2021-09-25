@@ -23,6 +23,17 @@ export class DemandeCongeChefComponent implements OnInit {
    phone: string;
    matriculeBossdep:  string;
    matriculeRemplaceur: string;
+  CongeModal : Conge1;
+  /////////////////////////////////
+
+  dateDebut : Date ;
+  dateFin: Date;
+  type : string;
+ dateSaisie: Date;
+ avisPrimaire: string;
+ avisFinale: string;
+ 
+ MatriculeOwnerVP: string
 
 
   constructor(private serviceConge : CongeService,private tokenStorage: TokenStorgeService , private token:TokenStorgeService) { }
@@ -75,6 +86,26 @@ export class DemandeCongeChefComponent implements OnInit {
         this.matriculeRemplaceur = this.DetailsUserConge.matriculeRemplaceur;
      
      
+       
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+
+      }
+     )
+     this.serviceConge.getCongeByIdConge(data).subscribe(
+      (response: Conge1) => {
+       
+        this.CongeModal = response;
+        console.log( this.CongeModal);
+        this.dateDebut = this.CongeModal.dateDebut;
+        this.dateFin = this.CongeModal.dateFin;
+       this.type = this.CongeModal.type;
+       this.dateSaisie = this.CongeModal.dateSaisie;
+       this.avisPrimaire = this.CongeModal.avisPrimaire;
+       this.avisFinale = this.CongeModal.avisFinale;
+       this.MatriculeOwnerVP = this.CongeModal.MatriculeOwnerVP;
+
        
       },
       (error: HttpErrorResponse) => {
