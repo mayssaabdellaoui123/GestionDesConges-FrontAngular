@@ -37,10 +37,11 @@ export class Conge1 {
     avisFinale: string;
     validationPrimaire: boolean;
     validationFinale: boolean;
-    MatriculeOwnerVP: string;
+    matriculeOwnerVP: string;
+    attente: boolean;
 
 
-    constructor(idConge : number, dateDebut: Date, dateFin: Date, type: string, dateSaisie: Date, avisPrimaire: string,  avisFinale: string,validationPrimaire: boolean,validationFinale: boolean,MatriculeOwnerVP: string) {
+    constructor(idConge : number, dateDebut: Date, dateFin: Date, type: string, dateSaisie: Date, avisPrimaire: string,  avisFinale: string,validationPrimaire: boolean,validationFinale: boolean,matriculeOwnerVP: string, attente: boolean) {
         //user
         this.idConge = idConge;
     
@@ -53,7 +54,8 @@ export class Conge1 {
         this.avisFinale = avisFinale;
         this.validationPrimaire = validationPrimaire;
         this.validationFinale = validationFinale;
-        this.MatriculeOwnerVP = MatriculeOwnerVP;
+        this.matriculeOwnerVP = matriculeOwnerVP;
+        this.attente=attente;
         
     }
 

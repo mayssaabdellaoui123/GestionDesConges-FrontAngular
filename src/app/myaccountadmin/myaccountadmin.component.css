@@ -3,9 +3,21 @@
     padding-top: 80px;
 }
 
+.form-group {
+    margin-bottom: 1rem;
+    margin-top: 20px;
+}
+.form-control {
+    transition: none;
+    margin-bottom: 20px;
+}
+
 .col-sm-10 {
-    margin-left: 560px;
-    width: 112px;}
+    margin-left: 0;
+    width: 96px;
+
+    padding: 6px;
+}
 
 .contact{
     padding: 4%;

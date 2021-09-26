@@ -1,5 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { Client } from '../auth/ClientInfo';
 import { Conge1 } from '../auth/Conge';
 import { DetailsUserConge } from '../auth/DetailsUserConge';
 import { CongeService } from '../conge.service';
@@ -25,6 +27,13 @@ export class DemandeCongeChefComponent implements OnInit {
    matriculeRemplaceur: string;
   CongeModal : Conge1;
   idConge : number;
+  validationtest : boolean ;
+  validationPrimaire: boolean;
+  validationFinale: boolean = false;
+  AvisPrimaireSaisie: string;
+
+  shown: boolean = true;
+  hidden: boolean = false;
   /////////////////////////////////
 
   dateDebut : Date ;
@@ -33,8 +42,19 @@ export class DemandeCongeChefComponent implements OnInit {
  dateSaisie: Date;
  avisPrimaire: string;
  avisFinale: string;
- 
+ attenteConge: boolean;
+  
+
  MatriculeOwnerVP: string
+
+ fullname: string; 
+ C: Client;
+ 
+
+ //////////////////
+
+ public show:boolean = false;
+  public buttonName:any = 'Show';
 
 
   constructor(private serviceConge : CongeService,private tokenStorage: TokenStorgeService , private token:TokenStorgeService) { }
@@ -58,8 +78,20 @@ export class DemandeCongeChefComponent implements OnInit {
       (response: Conge1[]) => {
         this.Conge = response;
         console.log(this.Conge)
+        
        
       },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public ValidationPrimaireChefDep(): void {
+    this.serviceConge.ValidationPrimaireChefDep(this.idConge,this.info.username).subscribe(
+      (response:void) => {
+       console.log("id conge inside ValidationPrimaireChefDep : "+ this.idConge );
+             },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
@@ -105,7 +137,15 @@ export class DemandeCongeChefComponent implements OnInit {
        this.dateSaisie = this.CongeModal.dateSaisie;
        this.avisPrimaire = this.CongeModal.avisPrimaire;
        this.avisFinale = this.CongeModal.avisFinale;
-       this.MatriculeOwnerVP = this.CongeModal.MatriculeOwnerVP;
+       this.MatriculeOwnerVP = this.CongeModal.matriculeOwnerVP;
+       this.validationPrimaire = this.CongeModal.validationPrimaire;
+       this.validationFinale = this.CongeModal.validationFinale;
+       this.attenteConge = this.CongeModal.attente;
+
+       console.log("type: "+ this.type);
+       console.log("MatriculeOwnerVP: "+ this.MatriculeOwnerVP);
+
+       this.getusernameUserByMatricule(this.MatriculeOwnerVP);
 
        
       },
@@ -114,7 +154,33 @@ export class DemandeCongeChefComponent implements OnInit {
 
       }
      )
+
+     
   }
+
+
+
+  public getusernameUserByMatricule(MatriculeOwnerVP: string): void{
+    console.log("inside get ... ");
+    console.log("matricule" + MatriculeOwnerVP);
+  this.serviceConge.getusernameUserByMatricule(MatriculeOwnerVP).subscribe(
+    (response: Client) => {
+      console.log("this.MatriculeOwnerVP")
+      console.log(MatriculeOwnerVP)
+      this.C = response
+      this.fullname = this.C.firstNameUser + " "+ this.C.lastNameUser;
+      console.log("this.fullname");
+      console.log(this.fullname);
+
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+
+    }
+
+   )}
+
+
 
 
 
@@ -123,5 +189,27 @@ export class DemandeCongeChefComponent implements OnInit {
     window.location.reload();
     
   }
+
+  AnnuleValidationPrimaireChefDep(){
+    console.log(this.AvisPrimaireSaisie);
+    this.serviceConge.AnnuleValidationPrimaireChefDep(this.idConge,this.info.username,this.AvisPrimaireSaisie).subscribe(
+      (response:void) => {
+        console.log("id conge inside ValidationPrimaireChefDep : "+ this.idConge );
+        console.log("avis inside ValidationPrimaireChefDep : "+ this.AvisPrimaireSaisie );
+              },
+       (error: HttpErrorResponse) => {
+         alert(error.message);
+       }
+
+    )
+  }
+
+
+  Refuser() {
+    this.shown = false;
+    this.hidden = true;  }
+
+
+  
 
 }

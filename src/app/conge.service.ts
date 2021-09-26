@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Conge, Conge1 } from './auth/Conge';
 import { Observable } from 'rxjs';
 import { DetailsUserConge } from './auth/DetailsUserConge';
+import { Client } from './auth/ClientInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,22 @@ export class CongeService {
   public getCongeByIdConge(idConge: number): Observable<Conge1> {
     return this.http.get<Conge1>(`http://localhost:8081/Conge/getCongeByIdConge/${idConge}`)
   }
+
+  public ValidationPrimaireChefDep(idConge: number , username:string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/ValidationPrimaireChefDep/${idConge}/${username}`);
+  }
+
+  public AnnuleValidationPrimaireChefDep(idConge: number , username:string , avisPrimaire: string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/AnnuleValidationPrimaireChefDep/${idConge}/${username}/${avisPrimaire}`);
+  }
+
+  
+  public getusernameUserByMatricule(matricule: string): Observable<Client> {
+    return this.http.get<Client>(`http://localhost:8081/Conge/getusernameUserByMatricule/${matricule}`);
+  }
+
+
+
 
 
 

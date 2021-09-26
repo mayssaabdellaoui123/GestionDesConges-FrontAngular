@@ -56,6 +56,21 @@
                                 <button class="btn btn-failure col-md-12" (click)="Onedit()">Edit Account Information</button>
                             </li>
                         </ul>
+
+                        <!--matricule remplaceur -->
+                        <div class="form-group">
+                            <label for="usernameUser">remplaceur</label>
+                            <input class="form-control"  type="text" [(ngModel)]="matriculeRemplaceur" placeholder="heloooooooooooooo" style="background-color: white;"> 
+                        
+                        <div class="col-sm-offset-8 col-sm-10">
+                            <button (click)="AffectationRemplaceur()"class="btn btn-failure col-md-12" >Affecter</button>
+                            <!--a class="btn btn-secondary" (click)="resetEdit()">Exit</a-->
+                        </div>
+                        <div class="col-sm-offset-8 col-sm-10">
+                            <button (click)="DesAffectationRemplaceur()"class="btn btn-failure col-md-12" >Desaffecter</button>
+                            <!--a class="btn btn-secondary" (click)="resetEdit()">Exit</a-->
+                        </div>
+                        </div>
   
                     </div>
                 </div>
@@ -194,17 +209,5 @@
     </div>
   </div>
   
-<!--matricule remplaceur -->
-<div class="form-group">
-    <label for="usernameUser">remplaceur</label>
-    <input class="form-control"  type="text" [(ngModel)]="matriculeRemplaceur" placeholder="heloooooooooooooo" style="background-color: white;"> 
- </div> 
- <div class="col-sm-offset-8 col-sm-10">
-    <button (click)="AffectationRemplaceur()"class="btn btn-failure col-md-12" >Affecter</button>
-    <!--a class="btn btn-secondary" (click)="resetEdit()">Exit</a-->
-  </div>
-  <div class="col-sm-offset-8 col-sm-10">
-    <button (click)="DesAffectationRemplaceur()"class="btn btn-failure col-md-12" >Desaffecter</button>
-    <!--a class="btn btn-secondary" (click)="resetEdit()">Exit</a-->
-  </div>
+
 

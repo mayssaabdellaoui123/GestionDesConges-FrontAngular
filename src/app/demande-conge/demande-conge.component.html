@@ -105,7 +105,7 @@
 						<input type="button" class="btn btn-default" data-dismiss="modal" (click)="reloadPage()" value="Cancel">
 						<input type="submit" class="btn btn-success" [disabled]="!f.valid" value="Add">
 						<div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-							Signup failed!<br/>{{errorMessage}}
+							Add failed!<br/>{{errorMessage}}
 						  </div>
 						  
 					</div>
