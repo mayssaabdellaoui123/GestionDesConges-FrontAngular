@@ -2,6 +2,25 @@
   max-width: 1000px;
   margin: 1.75rem auto;
 }
+.img{
+  margin-bottom: 30px;
+}
+
+.line {
+  border-top: 1px solid black;
+}
+.aParent div {
+  float: left;
+  clear: none; 
+  width: 50%;
+  padding: 5px;
+  border-style: solid ;
+  border-color: black;
+  border-width: 1px;
+
+  max-height: 150px;
+  height: 150px;
+}
 
 body{
     background: #F4F7FD;

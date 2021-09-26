@@ -82,7 +82,7 @@ i {
   margin-top: -5px;
 }
 .navbar-mainbg{
-  background-color: #5a7a9a;
+  background-color: #426ba8;
   /*padding: 0px;*/
   padding-right: 49px;
 }
@@ -166,7 +166,7 @@ i {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #5a7a9a;
+    background-color: #426ba8;
 }
 .hori-selector .right:before{
   bottom: 0;
@@ -260,7 +260,7 @@ svg:not(:root) {
 }
 
 .titleitceq{
-    color: #5a7a9a;
+    color: #426ba8;
     font-family: 'Roboto', sans-serif;
    
     margin-left: 30px;

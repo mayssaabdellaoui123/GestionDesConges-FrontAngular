@@ -1,8 +1,8 @@
 
 <div class="container espace">
     <div class="row">
-        <div class="col-lg-4" *ngFor="let conge of Conge">
-            <div class="card card-margin" *ngFor="let conge of Conge;  index as i">
+        <div class="col-lg-3" *ngFor="let conge of Conge;  index as i">
+            <div class="card card-margin" >
                 <div class="card-header no-border">
                     <h5 class="card-title"><strong>{{conge.type}}</strong></h5>
                 </div>
@@ -103,9 +103,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Modal title</h4>
+                    <h4 class="modal-title">demande de conge ( id : {{this.idConge}} ) </h4>
                 </div>
                 <div class="modal-body" >
+                  <!--
                     <p>{{this.firstname}}</p>
                     <p>{{this.lastname}}</p>
                     <p>{{this.matricule}}</p>
@@ -122,23 +123,204 @@
                     <p>{{this.avisPrimaire}}</p>
                     <p>{{this.avisFinale}}</p>
                     <p>{{this.MatriculeOwnerVP}}</p>
-                    
+                     -->
+
+
+                                  <!-- newwww -->
+
+                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+                <div class="container">
+                <div class="row flex-lg-nowrap">
+                  <!--div class="col-12 col-lg-auto mb-3" style="width: 200px;">
+                    <div class="card p-3">
+                      <div class="e-navlist e-navlist--active-bg">
+                        <ul class="nav">
+                          <li class="nav-item"><a class="nav-link px-2 active" href="#"><i class="fa fa-fw fa-bar-chart mr-1"></i><span>Overview</span></a></li>
+                          <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-crud-users" target="__blank"><i class="fa fa-fw fa-th mr-1"></i><span>CRUD</span></a></li>
+                          <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-edit-profile-page" target="__blank"><i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div-->
+                
+                  <div class="col">
+                    <div class="row">
+                      <div class="col mb-3">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="e-profile">
+                              
+                              <div class="tab-content pt-3">
+                                <div class="tab-pane active">
+                                  <form class="form" novalidate="">
+                                    <div class="row">
+                                      <div class="col">
+                                        <div class="row">
+                                          <div class="col">
+                                            <div class="form-group">
+                                              <img class="img" src="data:image/jpeg;base64,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" style="width:300px;height:50px;">
+                                             <p></p>
+
+                                              <label><strong>type de conge :</strong> </label>
+                                              <p>{{this.type}}</p>
+                
+                                              <label><strong>nom et prenom :</strong> </label>
+                                              <p>{{this.firstname}} {{this.lastname}}</p>
+                
+                                              <label><strong>departement :</strong></label>
+                                              <p>{{this.department}}</p>
+                
+                                              <label><strong>date de conge :</strong></label>
+                                              <p>{{this.dateDebut}} a {{this.dateFin}}</p>
+
+                                              <label><strong>phone :</strong></label>
+                                              <p>{{this.phone}}</p>
+                   
+                                              
+                                              <div class="aParent">
+                                              <div class="AP">
+                                                <label><strong>avis chef departement :( {{MatriculeOwnerVP}} )</strong></label>
+                                                <p class="cadre">{{this.avisPrimaire}}  </p>
+                                              </div>
+
+                                              <div class="AF">
+                                                <label><strong>avis directeur general :</strong></label>
+                                                <p class="cadre">{{this.avisFinale}}</p>
+                                              </div>
+
+                                              </div>
+
+                                              <label><strong>date saisie :</strong></label>
+                                              <p>{{this.dateSaisie}}</p>
+
+                                              <label><strong>remplaceur :</strong></label>
+                                              <p>{{this.matriculeRemplaceur}}</p>
+                   
+
+                                              <hr class="line">
+                                              <label style="border-bottom: 1px solid black;"><strong> administration </strong></label>
+                                              <p></p>
+
+                                              <label><strong>solde :</strong></label>
+                                              <p></p>
+
+                                              <label><strong>other detail :</strong></label>
+                                              <p></p>
+                   
+
+                                            </div>
+                                          </div>
+                                    
+                                        </div>
+                                        
+                                        <!--div class="row">
+                                          <div class="col mb-3">
+                                            <div class="form-group">
+                                              <label>About</label>
+                                              <textarea class="form-control" rows="5" placeholder="My Bio"></textarea>
+                                            </div>
+                                          </div>
+                                        </div-->
+                                      </div>
+                                    </div>
+                                    <!--div class="row">
+                                      <div class="col-12 col-sm-6 mb-3">
+                                        <div class="mb-2"><b>Change Password</b></div>
+                                        <div class="row">
+                                          <div class="col">
+                                            <div class="form-group">
+                                              <label>Current Password</label>
+                                              <input class="form-control" type="password" placeholder="••••••">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col">
+                                            <div class="form-group">
+                                              <label>New Password</label>
+                                              <input class="form-control" type="password" placeholder="••••••">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col">
+                                            <div class="form-group">
+                                              <label>Confirm <span class="d-none d-xl-inline">Password</span></label>
+                                              <input class="form-control" type="password" placeholder="••••••"></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-12 col-sm-5 offset-sm-1 mb-3">
+                                        <div class="mb-2"><b>Keeping in Touch</b></div>
+                                        <div class="row">
+                                          <div class="col">
+                                            <label>Email Notifications</label>
+                                            <div class="custom-controls-stacked px-2">
+                                              <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="notifications-blog" checked="">
+                                                <label class="custom-control-label" for="notifications-blog">Blog posts</label>
+                                              </div>
+                                              <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="notifications-news" checked="">
+                                                <label class="custom-control-label" for="notifications-news">Newsletter</label>
+                                              </div>
+                                              <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="notifications-offers" checked="">
+                                                <label class="custom-control-label" for="notifications-offers">Personal Offers</label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col d-flex justify-content-end">
+                                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                                      </div>
+                                    </div-->
+                                  </form>
+                
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                
+                
+                    </div>
+                
+                  </div>
+                </div>
+                </div>
+                
+
+
+
+
+
+
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-link">Save changes</button>
+                    <!--button type="button" class="btn btn-link">Save changes</button-->
                     <button type="button" class="btn btn-link" data-dismiss="modal" (click)="reloadPage()">Close</button>
                 </div>
-
-
-
-
 
             </div>
         </div>
      </div>
      
 
+
+  
+
+
+
+     
+
+
+     
 
      
 

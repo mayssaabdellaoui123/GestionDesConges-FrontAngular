@@ -24,6 +24,7 @@ export class DemandeCongeChefComponent implements OnInit {
    matriculeBossdep:  string;
    matriculeRemplaceur: string;
   CongeModal : Conge1;
+  idConge : number;
   /////////////////////////////////
 
   dateDebut : Date ;
@@ -85,6 +86,7 @@ export class DemandeCongeChefComponent implements OnInit {
         this.phone = this.DetailsUserConge.phone;
         this.matriculeBossdep = this.DetailsUserConge.matriculeBossdep;
         this.matriculeRemplaceur = this.DetailsUserConge.matriculeRemplaceur;
+        this.idConge=data;
      
       },
       (error: HttpErrorResponse) => {
