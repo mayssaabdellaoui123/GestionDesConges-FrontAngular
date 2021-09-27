@@ -100,6 +100,13 @@ export class AdminManagerComponent implements OnInit {
     );
   }
 
+  
+  reloadPage() {
+    //this.router.navigate(['/account']) ;
+    window.location.reload();
+    
+  }
+
   public searchEmployees(key: string): void {
     console.log(key);
     const results: Admin[] = [];

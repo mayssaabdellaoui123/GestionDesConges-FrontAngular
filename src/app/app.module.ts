@@ -49,6 +49,7 @@ import { AdminManagerComponent } from './admin-manager/admin-manager.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import { DemandeCongeComponent } from './demande-conge/demande-conge.component';
 import { DemandeCongeChefComponent } from './demande-conge-chef/demande-conge-chef.component';
+import { DemandeCongeServiceADComponent } from './demande-conge-service-ad/demande-conge-service-ad.component';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import { DemandeCongeChefComponent } from './demande-conge-chef/demande-conge-ch
     HistoriqueComponent,
     DemandeCongeComponent,
     DemandeCongeChefComponent,
+    DemandeCongeServiceADComponent,
     
   ],
   imports: [

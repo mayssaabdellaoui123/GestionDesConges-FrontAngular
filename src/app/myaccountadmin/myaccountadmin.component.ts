@@ -42,6 +42,7 @@ export class MyaccountadminComponent implements OnInit {
     this.serviceClient.getAdminByUsername(this.info.username).subscribe(
       (response: Admin) => {
         this.employee = response;
+        this.editEmployee=this.employee;
         console.log(this.employee);
       },
       (error: HttpErrorResponse) => {

@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <div><a><img src="https://thumbs.dreamstime.com/b/businessman-icon-isolated-white-vector-95311874.jpg"  alt="" class="rounded-circle p-1 bg-primary" width="110"></a></div>
+                            <div><a><img src="https://freepikpsd.com/media/2020/11/admin-avatar-png-4.png"  alt="" class="rounded-circle p-1 bg-primary" width="110"></a></div>
                             <div class="mt-3">
                                 <h4> {{employee?.firstNameUser}} {{employee?.lastNameUser}}   </h4>
                                 <!--p class="text-secondary mb-1">{{employee?.workfieldClient}}</p-->
@@ -52,9 +52,7 @@
                                 <h6 class="mb-0">role Admin </h6>
                                 <span class="text-secondary">{{employee?.roleAdmin}}</span>
                             </li>
-                            <li>
-                                <button class="btn btn-failure col-md-12" (click)="Onedit()">Edit Account Information</button>
-                            </li>
+                            
                         </ul>
 
                         <!--matricule remplaceur -->
@@ -170,6 +168,7 @@
                          </div-->
                          <input type="hidden" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" placeholder="Email">
                     <input type="hidden" ngModel="{{editEmployee?.idUser}}" name="idUser" class="form-control" id="idUser" placeholder="Email">
+                    <input type="hidden" ngModel="{{editEmployee?.matriculeBoss}}" name="matriculeBoss" class="form-control" id="matriculeBoss" placeholder="matriculeBoss">
                     <input type="hidden" ngModel="{{editEmployee?.roleUser}}" name="roleUser" class="form-control" id="roleUser" placeholder="Email">
                     <input type="hidden" ngModel="{{editEmployee?.updatedPassword}}" name="updatedPassword" class="form-control" id="updatedPassword" placeholder="Email">
                     <input type="hidden" ngModel="{{editEmployee?.nbaccessUser}}" name="nbaccessUser" class="form-control" id="nbaccessUser" placeholder="Email">

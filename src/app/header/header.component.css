@@ -103,6 +103,8 @@ i {
 }
 #navbarSupportedContent ul li a{
   color: #fff;
+  text-shadow: 0px 3px 9px black;
+
     text-decoration: none;
     font-size: 15px;
     display: block;
@@ -112,7 +114,7 @@ i {
     position: relative;
 }
 #navbarSupportedContent>ul>li.active>a{
-  color: rgb(103 124 134);
+  color: white;
   background-color: transparent;
   transition: all 0.7s;
 }
@@ -237,6 +239,8 @@ i {
 
 svg:not(:root) {
     overflow: hidden;
+    filter: drop-shadow(0px 3px 6px rgb(0 0 0 /10));
+
     margin-top: -4px;
 }
 .btnn {

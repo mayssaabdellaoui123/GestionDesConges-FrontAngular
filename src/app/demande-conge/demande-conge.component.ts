@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Conge } from '../auth/Conge';
+import { Conge, Conge1 } from '../auth/Conge';
 import { CongeService } from '../conge.service';
 import { AuthService } from '../auth.service';
 import { TokenStorgeService } from '../token-storage.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { DetailsUserConge } from '../auth/DetailsUserConge';
+import { Client } from '../auth/ClientInfo';
 
 
 @Component({
@@ -13,15 +16,58 @@ import { TokenStorgeService } from '../token-storage.service';
 export class DemandeCongeComponent implements OnInit {
 
 
-
+  ListConge: Conge1[];
   info : any ; 
   form: any = {};
 
+  
   private conge: Conge;
 
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = 'Email is not Valid !';
+  ///////////////////////////
+
+  
+  Conge : Conge1[];
+  add1: number = -1;
+  DetailsUserConge: DetailsUserConge;
+  firstname : string;
+  lastname : string;
+  matricule: string;
+   tache: string;
+   department: string;
+   phone: string;
+   matriculeBossdep:  string;
+   matriculeRemplaceur: string;
+  CongeModal : Conge1;
+  idConge : number;
+  validationtest : boolean ;
+  validationPrimaire: boolean;
+  validationFinale: boolean = false;
+  AvisPrimaireSaisie: string;
+
+  shown: boolean = true;
+  hidden: boolean = false;
+  /////////////////////////////////
+
+  dateDebut : Date ;
+  dateFin: Date;
+  type : string;
+ dateSaisie: Date;
+ avisPrimaire: string;
+ avisFinale: string;
+ attenteConge: boolean;
+  
+
+ MatriculeOwnerVP: string
+
+ fullname: string; 
+ C: Client;
+
+
+
+  ///////////////////////////
 
 
   constructor(private token:TokenStorgeService ,private CongeService: CongeService, private authService: AuthService) { }
@@ -32,11 +78,28 @@ export class DemandeCongeComponent implements OnInit {
       username: this.token.getUsername(),
    
       authorities: this.token.getAuthorities()
+
     };
 
+    this.GetCongesForEmp();
      
    
   }
+
+  public GetCongesForEmp(): void {
+    this.CongeService.GetCongesForEmp(this.info.username).subscribe(
+      (response: Conge1[]) => {
+        this.ListConge = response;
+        console.log(this.ListConge)
+        
+       
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
 
   
 
@@ -94,6 +157,99 @@ export class DemandeCongeComponent implements OnInit {
       }
   
     )  }
+
+
+
+
+    /*Vue Details */
+
+    vueDetails(){
+      console.log("inside");
+      let selecteduser = this.ListConge[this.add1];
+      console.log("selecteduser ",selecteduser);
+      let data = selecteduser.idConge;
+     // console.log(idConge);
+       console.log("data:"+ data);
+       this.CongeService.getDetailsUserByIdConge(data).subscribe(
+        (response: DetailsUserConge) => {
+          this.add1 = -1;
+          this.DetailsUserConge = response;
+          console.log(this.DetailsUserConge.firstname)
+          this.firstname = this.DetailsUserConge.firstname;
+          this.lastname = this.DetailsUserConge.lastname;
+          this.matricule = this.DetailsUserConge.matricule;
+          this.tache = this.DetailsUserConge.tache;
+          this.department = this.DetailsUserConge.department;
+          this.phone = this.DetailsUserConge.phone;
+          this.matriculeBossdep = this.DetailsUserConge.matriculeBossdep;
+          this.matriculeRemplaceur = this.DetailsUserConge.matriculeRemplaceur;
+          this.idConge=data;
+       
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+  
+        }
+       )
+       this.CongeService.getCongeByIdConge(data).subscribe(
+        (response: Conge1) => {
+         
+          this.CongeModal = response;
+          console.log( this.CongeModal);
+          this.dateDebut = this.CongeModal.dateDebut;
+          this.dateFin = this.CongeModal.dateFin;
+         this.type = this.CongeModal.type;
+         this.dateSaisie = this.CongeModal.dateSaisie;
+         this.avisPrimaire = this.CongeModal.avisPrimaire;
+         this.avisFinale = this.CongeModal.avisFinale;
+         this.MatriculeOwnerVP = this.CongeModal.matriculeOwnerVP;
+         this.validationPrimaire = this.CongeModal.validationPrimaire;
+         this.validationFinale = this.CongeModal.validationFinale;
+         this.attenteConge = this.CongeModal.attente;
+  
+         console.log("type: "+ this.type);
+         console.log("MatriculeOwnerVP: "+ this.MatriculeOwnerVP);
+  
+         this.getusernameUserByMatricule(this.MatriculeOwnerVP);
+  
+         
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+  
+        }
+       )
+  
+       
+    }
+
+
+    public getusernameUserByMatricule(MatriculeOwnerVP: string): void{
+      console.log("inside get ... ");
+      console.log("matricule" + MatriculeOwnerVP);
+    this.CongeService.getusernameUserByMatricule(MatriculeOwnerVP).subscribe(
+      (response: Client) => {
+        console.log("this.MatriculeOwnerVP")
+        console.log(MatriculeOwnerVP)
+        this.C = response
+        console.log("this.fullname");
+        console.log(this.C);
+        this.fullname = this.C.firstNameUser + " "+ this.C.lastNameUser;
+        console.log("this.fullname");
+        console.log(this.fullname);
+  
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+  
+      }
+  
+     )}
+
+
+     Next(index){
+      this.add1 = +index
+     }
 
 
 

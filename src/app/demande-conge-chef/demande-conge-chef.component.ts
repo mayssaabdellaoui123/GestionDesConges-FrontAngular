@@ -65,7 +65,7 @@ export class DemandeCongeChefComponent implements OnInit {
       token: this.token.getToken(),
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities() };
-      this.getCongeChef();
+      this.getCongeChef(this.info.username);
   }
 
   Next(index){
@@ -73,8 +73,8 @@ export class DemandeCongeChefComponent implements OnInit {
    }
 
 
-  public getCongeChef(): void {
-    this.serviceConge.GetCongesForChefDep(this.info.username).subscribe(
+  public getCongeChef(username:string): void {
+    this.serviceConge.GetCongesForChefDep(username).subscribe(
       (response: Conge1[]) => {
         this.Conge = response;
         console.log(this.Conge)

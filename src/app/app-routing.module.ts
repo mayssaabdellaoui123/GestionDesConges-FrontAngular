@@ -30,6 +30,7 @@ import { ToolsComponent } from './tools/tools.component';
 import { VirtualVisitComponent } from './virtual-visit/virtual-visit.component';
 import { DemandeCongeComponent } from './demande-conge/demande-conge.component'
 import { DemandeCongeChefComponent } from './demande-conge-chef/demande-conge-chef.component';
+import { DemandeCongeServiceADComponent } from './demande-conge-service-ad/demande-conge-service-ad.component';
 
 
 
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path :'ads', 
     component : AdvertisementsComponent
+  },
+  {
+    path :'demandeCSA', 
+    component : DemandeCongeServiceADComponent
   },
   {
     path :'contact', 

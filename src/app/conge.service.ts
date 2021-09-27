@@ -28,8 +28,12 @@ export class CongeService {
     return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForChefDep/${username}`)
   }
 
+  public GetCongesForEmp(username: string): Observable<Conge1[]> {
+    return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForEmp/${username}`)
+  }
+
   public getDetailsUserByIdConge(idConge: number): Observable<DetailsUserConge> {
-    return this.http.get<DetailsUserConge>(`http://localhost:8081/Conge/getiduserbyidconge/${idConge}`)
+    return this.http.get<DetailsUserConge>(`http://localhost:8081/Conge/getDetailsUserByIdConge/${idConge}`)
   }
 
 

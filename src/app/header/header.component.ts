@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Department } from '../auth/Department';
 import { User } from '../auth/user';
 import { ClientService } from '../client.service';
 import { DepartmentServiceService } from '../department-service.service';
@@ -28,8 +29,11 @@ export class HeaderComponent implements OnInit {
   public authorityadministrativeoffice: boolean = false;
   public usernameuser: string;
 
-  public DepartmentNamee: string[];
+  public DepartmentNamee: any;
+  public Departmentchef: any;
+
   public MatriculeBoss: string;
+  public DepartmentUser: Department;
 
   
     info : any ; 
@@ -113,12 +117,13 @@ export class HeaderComponent implements OnInit {
 
     }
 
-    this.getMatriculeByUsename(this.info.username);
-    /*this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);*/
+   // this.getMatriculeByUsename(this.info.username);
+    //this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);
+    this.retrieveNameDepartmentByUsername(this.info.username);
 
   }
   
-  public getMatriculeByUsename(username: string): void{
+/*  public getMatriculeByUsename(username: string): void{
   this.DepartentService.getMatriculeByUsername(username).subscribe(
     (response: string) => {
 
@@ -138,12 +143,12 @@ this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);
   )
 
   
-}
+}*/
 
   
-  public getNameDepartmentByMatriculeBoss(MatriculeBoss: string): void{
+/*  public getNameDepartmentByMatriculeBoss(MatriculeBoss: string): void{
     this.DepartentService.getNameDepartmentByMatriculeBoss(MatriculeBoss).subscribe(
-    (response: any) => {
+    (response: string) => {
 
       console.log(" this.MatriculeBoss inside name department ");
       console.log( this.MatriculeBoss);
@@ -151,6 +156,30 @@ this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);
       console.log(" response");
       console.log( response);
       this.DepartmentNamee = response;
+
+      console.log(" this.DepartmentNamee");
+      console.log( this.DepartmentNamee);
+      
+      
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+
+    }
+
+
+  )
+  }*/
+
+
+  public retrieveNameDepartmentByUsername(username: string): void{
+    this.DepartentService.retrieveNameDepartmentByUsername(username).subscribe(
+    (response: Department) => {
+      console.log("DepartmentUser : " + response)
+      this.DepartmentUser = response;
+
+      
+      this.DepartmentNamee = this.DepartmentUser.nomDepartement;
 
       console.log(" this.DepartmentNamee");
       console.log( this.DepartmentNamee);
