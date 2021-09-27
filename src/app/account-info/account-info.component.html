@@ -70,10 +70,10 @@
                              <label for="lastNameUser">Last Name</label>
                              <input type="text" ngModel="{{editEmployee?.lastNameUser}}" name="lastNameUser" class="form-control" id="lastNameUser" value="{{employee?.lastNameUser}}">
                           </div> 
-                          <div class="form-group">
-                            <label for="usernameUser">Username</label>
-                            <input type="text" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" value="{{employee?.usernameUser}}">
-                         </div> 
+                          <!--div class="form-group">
+                            <label for="usernameUser">Username</label-->
+                            <input type="hidden" ngModel="{{editEmployee?.usernameUser}}" name="usernameUser" class="form-control" id="usernameUser" value="{{employee?.usernameUser}}">
+                         <!--/div--> 
                         <div class="form-group">
                             <label for="emailAddressUser">Email Address</label>
                             <input type="email" ngModel="{{editEmployee?.emailAddressUser}}" name="emailAddressUser" class="form-control" id="emailAddressUser" value="{{employee?.emailAddressUser}}">

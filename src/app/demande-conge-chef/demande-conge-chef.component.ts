@@ -168,6 +168,8 @@ export class DemandeCongeChefComponent implements OnInit {
       console.log("this.MatriculeOwnerVP")
       console.log(MatriculeOwnerVP)
       this.C = response
+      console.log("this.fullname");
+      console.log(this.C);
       this.fullname = this.C.firstNameUser + " "+ this.C.lastNameUser;
       console.log("this.fullname");
       console.log(this.fullname);

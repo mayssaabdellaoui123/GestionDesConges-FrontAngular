@@ -192,15 +192,15 @@
                    
                                               
                                               <div class="aParent">
-                                              <div class="AP">
-                                                <label><strong>avis chef departement :( signé par : {{this.fullname}} )</strong></label>
-                                               
-                                                <p class="cadre">{{this.avisPrimaire}}</p>
+                                              <div   class="AP">
+                                                <label><strong>avis chef departement :</strong></label>
+                                                <p *ngIf="!this.validationPrimaire && this.attenteConge"  style="font-family :Arial, Helvetica, sans-serif; color: rgb(121, 71, 15);">( signé par : {{this.fullname}} ) </p>
+                                                <p *ngIf="!this.validationPrimaire && this.attenteConge" class="cadre">{{this.avisPrimaire}}</p>
                                               </div>
 
                                               <div class="AF">
                                                 <label><strong>avis directeur general :</strong></label>
-                                                <p class="cadre">{{this.avisFinale}}</p>
+                                                <p  class="cadre">{{this.avisFinale}}</p>
                                               </div>
 
                                               </div>
