@@ -52,6 +52,11 @@ import { DemandeCongeChefComponent } from './demande-conge-chef/demande-conge-ch
 import { DemandeCongeServiceADComponent } from './demande-conge-service-ad/demande-conge-service-ad.component';
 import { CongeDirecteurGeneraleComponent } from './conge-directeur-generale/conge-directeur-generale.component';
 import { CongeRemplaceurComponent } from './conge-remplaceur/conge-remplaceur.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 @NgModule({
@@ -110,7 +115,11 @@ import { CongeRemplaceurComponent } from './conge-remplaceur/conge-remplaceur.co
     ChartsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

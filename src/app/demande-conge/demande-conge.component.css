@@ -1004,6 +1004,10 @@ body{margin-top:20px;}
   background-color: rgb(248, 118, 118);
 }
 
+.Halfgreen{
+  background-image: linear-gradient(to right , rgb(98 223 139 / 75%), rgb(116, 114, 114));
+}
+
 .Attente{
   background-color: rgb(116, 114, 114);
 }

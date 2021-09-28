@@ -5,6 +5,7 @@ import { Client } from '../auth/ClientInfo';
 import { ClientService } from '../client.service';
 import { TokenStorgeService } from '../token-storage.service';
 
+
 @Component({
   selector: 'app-account-info',
   templateUrl: './account-info.component.html',

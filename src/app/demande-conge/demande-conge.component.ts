@@ -57,13 +57,20 @@ export class DemandeCongeComponent implements OnInit {
  dateSaisie: Date;
  avisPrimaire: string;
  avisFinale: string;
+ 
+ 
  attenteConge: boolean;
+
+ attenteFinale:  boolean;
   
 
  MatriculeOwnerVP: string
 
  fullname: string; 
  C: Client;
+ dateRange: string;
+ dateDebutRange: string;
+ dateFinRange: string;
 
 
 
@@ -106,8 +113,11 @@ export class DemandeCongeComponent implements OnInit {
 
   onSubmit(){
     console.log(this.form);
+   
+    
     this.conge = new Conge(
       this.form.type,
+     
       this.form.dateDebut,
       this.form.dateFin,
       );
@@ -119,6 +129,7 @@ export class DemandeCongeComponent implements OnInit {
           console.log(data);
           this.isSignedUp = true;
           this.isSignUpFailed = false;
+        
           //this.getDepartment();
   
           this.reloadPage();
@@ -206,6 +217,7 @@ export class DemandeCongeComponent implements OnInit {
          this.validationPrimaire = this.CongeModal.validationPrimaire;
          this.validationFinale = this.CongeModal.validationFinale;
          this.attenteConge = this.CongeModal.attente;
+         this.attenteFinale = this.CongeModal.attenteFinale;
   
          console.log("type: "+ this.type);
          console.log("MatriculeOwnerVP: "+ this.MatriculeOwnerVP);

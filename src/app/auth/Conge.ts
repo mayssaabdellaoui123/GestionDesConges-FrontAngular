@@ -1,8 +1,8 @@
 export class Conge {
     //user
     idConge : number;
-    dateDebut : Date ;
-    dateFin: Date;
+    dateDebut : string ;
+    dateFin: string;
     type : string;
     dateSaisie: Date;
     avisPrimaire: string;
@@ -14,7 +14,7 @@ export class Conge {
 
 
 
-    constructor( type: string, dateDebut: Date, dateFin: Date ) {
+    constructor( type: string, dateDebut: string, dateFin: string ) {
         //user    
        this.type = type;
         this.dateDebut = dateDebut;
