@@ -28,6 +28,10 @@ export class CongeService {
     return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForChefDep/${username}`)
   }
 
+  public GetCongesForSA(): Observable<Conge1[]> {
+    return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForSA/`)
+  }
+
   public GetCongesForEmp(username: string): Observable<Conge1[]> {
     return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForEmp/${username}`)
   }
@@ -49,6 +53,12 @@ export class CongeService {
     return this.http.delete<void>(`http://localhost:8081/Conge/AnnuleValidationPrimaireChefDep/${idConge}/${username}/${avisPrimaire}`);
   }
 
+  public ValidationFinale(idConge: number): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/ValidationFinale/${idConge}`);
+  }
+  public AnnuleValidationFinale(idConge: number, AvisFinale: string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/AnnuleValidationFinale/${idConge}/${AvisFinale}`);
+  }
   
   public getusernameUserByMatricule(matricule: string): Observable<Client> {
     return this.http.get<Client>(`http://localhost:8081/Conge/getusernameUserByMatricule/${matricule}`);

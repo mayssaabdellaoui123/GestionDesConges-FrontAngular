@@ -141,6 +141,7 @@ export class DemandeCongeChefComponent implements OnInit {
        this.validationPrimaire = this.CongeModal.validationPrimaire;
        this.validationFinale = this.CongeModal.validationFinale;
        this.attenteConge = this.CongeModal.attente;
+      
 
        console.log("type: "+ this.type);
        console.log("MatriculeOwnerVP: "+ this.MatriculeOwnerVP);
