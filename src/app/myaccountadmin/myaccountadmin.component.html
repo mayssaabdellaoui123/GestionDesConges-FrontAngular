@@ -56,7 +56,7 @@
                         </ul>
 
                         <!--matricule remplaceur -->
-                        <div class="form-group">
+                        <div *ngIf="authority && authorityadmin && authoritydepartmentboss"  class="form-group">
                            <ul class="list-group list-group-flush"> <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"><h6  class="mb-0" for="usernameUser">entrer matricule remplaceur</h6> </li>
                             <input class="form-control"  type="text" [(ngModel)]="matriculeRemplaceur" placeholder="matricule remplaceur"  style="background-color: white;"> 
                         </ul>

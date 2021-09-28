@@ -4,6 +4,7 @@ import { Conge, Conge1 } from './auth/Conge';
 import { Observable } from 'rxjs';
 import { DetailsUserConge } from './auth/DetailsUserConge';
 import { Client } from './auth/ClientInfo';
+import { Admin } from './auth/AdminInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +54,17 @@ export class CongeService {
   public getusernameUserByMatricule(matricule: string): Observable<Client> {
     return this.http.get<Client>(`http://localhost:8081/Conge/getusernameUserByMatricule/${matricule}`);
   }
+
+  public GetCongesForDirecGen(): Observable<Conge1[]> {
+    return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForDirecGen/`);
+  }
+
+
+  public getusernameUserByMatriculeForDirecteur(matricule: string): Observable<Admin> {
+    return this.http.get<Admin>(`http://localhost:8081/Conge/getusernameUserByMatriculeForDirecteur/${matricule}`);
+  }
+
+
 
 
 

@@ -31,6 +31,7 @@ import { VirtualVisitComponent } from './virtual-visit/virtual-visit.component';
 import { DemandeCongeComponent } from './demande-conge/demande-conge.component'
 import { DemandeCongeChefComponent } from './demande-conge-chef/demande-conge-chef.component';
 import { DemandeCongeServiceADComponent } from './demande-conge-service-ad/demande-conge-service-ad.component';
+import { CongeDirecteurGeneraleComponent } from './conge-directeur-generale/conge-directeur-generale.component';
 
 
 
@@ -153,6 +154,11 @@ const routes: Routes = [
 {
   path: 'demandeConge',
   component: DemandeCongeComponent
+}
+,
+{
+  path: 'Congedirecteurgenerale',
+  component: CongeDirecteurGeneraleComponent
 }
 ,
 {
