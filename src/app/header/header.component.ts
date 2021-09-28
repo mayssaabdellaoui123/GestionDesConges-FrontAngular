@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Department } from '../auth/Department';
 import { User } from '../auth/user';
 import { ClientService } from '../client.service';
+import { CongeService } from '../conge.service';
 import { DepartmentServiceService } from '../department-service.service';
 import { TokenStorgeService } from '../token-storage.service';
 
@@ -41,7 +42,9 @@ export class HeaderComponent implements OnInit {
 
     toggleClass: string ;
 
-    constructor(private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService, private DepartentService: DepartmentServiceService) { }
+    Remplaceur: boolean;
+
+    constructor(private congeservice : CongeService , private route : Router , private tokenStorage: TokenStorgeService , private token:TokenStorgeService , private employeeService: ClientService, private DepartentService: DepartmentServiceService) { }
     
   ngOnInit() {
     this.info = {
@@ -120,6 +123,7 @@ export class HeaderComponent implements OnInit {
    // this.getMatriculeByUsename(this.info.username);
     //this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);
     this.retrieveNameDepartmentByUsername(this.info.username);
+    this.findRemplaceurByUserName(this.info.username);
 
   }
   
@@ -212,6 +216,26 @@ this.getNameDepartmentByMatriculeBoss(this.MatriculeBoss);
     .then(() => {
     window.location.reload();
   }); 
+  }
+
+
+
+  public findRemplaceurByUserName(username: string): void{
+    this.congeservice.findRemplaceurByUserName(username).subscribe(
+    (response: boolean) => {
+      console.log("remplaceur : " + response)
+      this.Remplaceur = response;
+
+      
+      
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+
+    }
+
+
+  )
   }
 
   

@@ -4,6 +4,7 @@ import { Conge, Conge1 } from './auth/Conge';
 import { Observable } from 'rxjs';
 import { DetailsUserConge } from './auth/DetailsUserConge';
 import { Client } from './auth/ClientInfo';
+import { Admin } from './auth/AdminInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +64,41 @@ export class CongeService {
   public getusernameUserByMatricule(matricule: string): Observable<Client> {
     return this.http.get<Client>(`http://localhost:8081/Conge/getusernameUserByMatricule/${matricule}`);
   }
+
+  public GetCongesForDirecGen(): Observable<Conge1[]> {
+    return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForDirecGen/`);
+  }
+
+
+  public getusernameUserByMatriculeForDirecteur(matricule: string): Observable<Admin> {
+    return this.http.get<Admin>(`http://localhost:8081/Conge/getusernameUserByMatriculeForDirecteur/${matricule}`);
+  }
+
+  public findRemplaceurByUserName(username: string): Observable<Boolean> {
+    return this.http.get<Boolean>(`http://localhost:8081/Conge/findRemplaceurByUserName/${username}`);
+  }
+
+
+   public GetCongesForRemplaceur(username: string): Observable<Conge1[]> {
+    return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForRemplaceur/${username}`);
+  }
+
+
+  public ValidationPrimaireRemplaceur(idConge: number , username:string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/ValidationPrimaireRemplaceur/${idConge}/${username}`);
+  }
+
+
+  public AnnuleValidationPrimaireRemplaceur(idConge: number , username:string , avisPrimaire: string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/AnnuleValidationPrimaireRemplaceur/${idConge}/${username}/${avisPrimaire}`);
+  }
+
+
+
+
+
+
+
 
 
 

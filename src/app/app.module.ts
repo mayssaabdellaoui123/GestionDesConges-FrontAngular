@@ -50,6 +50,8 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { DemandeCongeComponent } from './demande-conge/demande-conge.component';
 import { DemandeCongeChefComponent } from './demande-conge-chef/demande-conge-chef.component';
 import { DemandeCongeServiceADComponent } from './demande-conge-service-ad/demande-conge-service-ad.component';
+import { CongeDirecteurGeneraleComponent } from './conge-directeur-generale/conge-directeur-generale.component';
+import { CongeRemplaceurComponent } from './conge-remplaceur/conge-remplaceur.component';
 
 
 @NgModule({
@@ -96,6 +98,8 @@ import { DemandeCongeServiceADComponent } from './demande-conge-service-ad/deman
     DemandeCongeComponent,
     DemandeCongeChefComponent,
     DemandeCongeServiceADComponent,
+    CongeDirecteurGeneraleComponent,
+    CongeRemplaceurComponent,
     
   ],
   imports: [
