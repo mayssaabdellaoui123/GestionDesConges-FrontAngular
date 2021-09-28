@@ -64,6 +64,30 @@ export class CongeService {
     return this.http.get<Admin>(`http://localhost:8081/Conge/getusernameUserByMatriculeForDirecteur/${matricule}`);
   }
 
+  public findRemplaceurByUserName(username: string): Observable<Boolean> {
+    return this.http.get<Boolean>(`http://localhost:8081/Conge/findRemplaceurByUserName/${username}`);
+  }
+
+
+   public GetCongesForRemplaceur(username: string): Observable<Conge1[]> {
+    return this.http.get<Conge1[]>(`http://localhost:8081/Conge/GetCongesForRemplaceur/${username}`);
+  }
+
+
+  public ValidationPrimaireRemplaceur(idConge: number , username:string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/ValidationPrimaireRemplaceur/${idConge}/${username}`);
+  }
+
+
+  public AnnuleValidationPrimaireRemplaceur(idConge: number , username:string , avisPrimaire: string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/AnnuleValidationPrimaireRemplaceur/${idConge}/${username}/${avisPrimaire}`);
+  }
+
+
+
+
+
+
 
 
 

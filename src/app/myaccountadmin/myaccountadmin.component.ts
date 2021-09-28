@@ -1,4 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { Admin } from '../auth/AdminInfo';
@@ -32,6 +33,9 @@ export class MyaccountadminComponent implements OnInit {
   public authoritygeneralmanager: boolean = false;
   public authorityresponsable: boolean = false;
   public authorityadministrativeoffice: boolean = false;
+
+  alertAffect = false;
+  alertdesaffect = false;
 
 
   constructor(private employeeService: ClientService, private serviceClient2 : ClientService,private serviceClient : AdminService,private tokenStorage: TokenStorgeService , private token:TokenStorgeService ) { }
@@ -166,6 +170,7 @@ export class MyaccountadminComponent implements OnInit {
         console.log("inside affectation remplaceur ");
         console.log(response);
         this.edit=false;
+        this.alertAffect = true;
         this.getClient();
       },
       (error: HttpErrorResponse) => {
@@ -184,6 +189,7 @@ export class MyaccountadminComponent implements OnInit {
         console.log("inside Desaffectation remplaceur ");
         console.log(response);
         this.edit=false;
+        this.alertdesaffect = true;
         this.getClient();
       },
       (error: HttpErrorResponse) => {
