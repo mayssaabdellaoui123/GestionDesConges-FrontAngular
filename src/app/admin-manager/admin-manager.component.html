@@ -187,7 +187,7 @@
         <div class="modal-content">
            <div class="modal-header">
               <h5 class="modal-title" id="addEmployeeModalLabel">Add Admin</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" (click)="reloadPage()" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>
            </div>
@@ -251,8 +251,8 @@
 
                   <h5></h5>
               <div class="modal-footer">
-                 <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                 <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+                 <button type="button" id="add-employee-form" (click)="reloadPage()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                 <button [disabled]="addForm.invalid" (click)="reloadPage()" type="submit" class="btn btn-primary" >Save changes</button>
               </div>
               </form>
            </div>
@@ -266,7 +266,7 @@
        <div class="modal-content">
           <div class="modal-header">
              <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Admin {{editEmployee?.firstNameUser}} {{editEmployee?.lastNameUser}}</h5>
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <button type="button" class="close" (click)="reloadPage()" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
              </button>
           </div>
@@ -318,8 +318,8 @@
                   <input type="text" ngModel="{{editEmployee?.matriculeBoss}}" name="matriculeBoss" class="form-control" id="matriculeBoss" placeholder="Phone">
                </div>
                 <div class="modal-footer">
-                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                   <button (click)="onUpdateEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                   <button type="button" id="" data-dismiss="modal" (click)="reloadPage()" class="btn btn-secondary">Close</button>
+                   <button (click)="onUpdateEmloyee(editForm.value)" (click)="reloadPage()" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
                 </div>
              </form>
           </div>
@@ -333,7 +333,7 @@
        <div class="modal-content">
           <div class="modal-header">
              <h5 class="modal-title" id="deleteModelLabel">Delete Admin</h5>
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <button type="button" class="close" (click)="reloadPage()" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
              </button>
           </div>
@@ -355,7 +355,7 @@
        <div class="modal-content">
           <div class="modal-header">
              <h5 class="modal-title" id="absenceModelLabel">Admin Absences</h5>
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <button type="button" class="close" (click)="reloadPage()" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
              </button>
           </div>
