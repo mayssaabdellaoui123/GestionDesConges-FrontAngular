@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Conge, Conge1 } from '../auth/Conge';
 import { CongeService } from '../conge.service';
 import { AuthService } from '../auth.service';
@@ -6,6 +6,9 @@ import { TokenStorgeService } from '../token-storage.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DetailsUserConge } from '../auth/DetailsUserConge';
 import { Client } from '../auth/ClientInfo';
+/*import * as jspdf from 'jspdf'*/
+import html2canvas from 'html2canvas';
+import jspdf from 'jspdf';
 
 
 @Component({
@@ -14,6 +17,21 @@ import { Client } from '../auth/ClientInfo';
   styleUrls: ['./demande-conge.component.css']
 })
 export class DemandeCongeComponent implements OnInit {
+
+ /* @ViewChild('content', {static: false}) el!: ElementRef;
+
+  makePDF() {
+    let pdf = new jsPDF('p','pt','a4');
+    pdf.html(this.el.nativeElement,{
+      callback: (pdf)=> {
+        pdf.save("demo.pdf");
+      }
+    });
+   
+
+  }*/
+
+ 
 
 
   ListConge: Conge1[];
@@ -261,6 +279,32 @@ export class DemandeCongeComponent implements OnInit {
 
      Next(index){
       this.add1 = +index
+     }
+
+
+     download(){
+       var element = document.getElementById('pdf')
+       html2canvas(element).then((canvas) => {
+         console.log(canvas)
+
+        /* var imgData = canvas.toDataURL('image/png')
+
+         var doc = new jspdf.jsPDF();
+
+         doc.addImage(imgData,0,0,208,500)
+         doc.save("image.pdf")*/
+
+         var imgWidth = 190;
+         var imgHeight = canvas.height * imgWidth / canvas.width;
+         const contentDataURL = canvas.toDataURL('image/png')
+         let pdf = new jspdf('p', 'mm', 'a4');
+         var position = 0;
+         pdf.addImage(contentDataURL, 'PNG', 10, 20, imgWidth, imgHeight)
+         pdf.save('newPDF.pdf');
+
+
+
+       })
      }
 
 
