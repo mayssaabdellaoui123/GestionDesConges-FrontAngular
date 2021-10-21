@@ -33,6 +33,9 @@ export class DemandeCongeServiceADComponent implements OnInit {
   validationPrimaire: boolean;
   validationFinale: boolean = false;
   AvisFinaleSaisie: string;
+ 
+  usernameVF: string;
+
 
   shown: boolean = true;
   hidden: boolean = false;
@@ -54,6 +57,26 @@ export class DemandeCongeServiceADComponent implements OnInit {
  fullname: string; 
  C: Client;
  
+ //////////////////////
+
+ soldeThisYear: any ;
+ soldeYear_1: string  ;
+ soldeYear_2: string  ;
+ total: string  ;
+ nmbrDeJourConge: string ;
+ RestDeJourConge: string ;
+ datevalidationFinale: Date ;
+
+
+ datevalidationFinaleString : string;
+
+  TypeValidationFinale : boolean=true;
+
+  dateSaisieString: string; 
+
+  datevalidationPrimaire: Date;
+ datevalidationPrimaireString: string;
+
 
  //////////////////
 
@@ -95,11 +118,13 @@ export class DemandeCongeServiceADComponent implements OnInit {
     );
   }
 
-  public ValidationFinale(): void {
-    console.log("id conge inside ValidationFinale : "+ this.idConge );
-    this.serviceConge.ValidationFinale(this.idConge).subscribe(
+  public ValidationFinalee(): void {
+    console.log("id conge inside ValidationFinale 11 : "+ this.AvisFinaleSaisie + " " +this.soldeThisYear);
+    console.log("this.info.username inside "+ this.info.username);
+    this.serviceConge.ValidationFinale(this.info.username,this.idConge, this.soldeThisYear, this.soldeYear_1,this.soldeYear_2, this.total, this.nmbrDeJourConge, this.RestDeJourConge, this.avisFinale, this.TypeValidationFinale)
+      .subscribe(
       (response:void) => {
-       console.log("id conge inside ValidationFinale : "+ this.idConge );
+       console.log("id conge inside ValidationFinale : "+ this.AvisFinaleSaisie + " " +this.soldeThisYear);
              },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -107,6 +132,20 @@ export class DemandeCongeServiceADComponent implements OnInit {
     );
   }
 
+  AnnuleValidationFinale(){
+    console.log(this.AvisFinaleSaisie);
+    this.serviceConge.ValidationFinale(this.info.username,this.idConge, this.soldeThisYear, this.soldeYear_1,this.soldeYear_2, this.total, this.nmbrDeJourConge, this.RestDeJourConge, this.avisFinale, !this.TypeValidationFinale).subscribe(
+      (response:void) => {
+        console.log("id conge inside AnnuleValidationFinale : "+ this.idConge );
+        console.log("avis inside AnnuleValidationFinale : "+ this.AvisFinaleSaisie );
+              },
+       (error: HttpErrorResponse) => {
+         alert(error.message);
+       }
+
+    )
+  }
+  
 /*hneeeeee*/
 /************************************************************************ */
   vueDetails(){
@@ -116,6 +155,7 @@ export class DemandeCongeServiceADComponent implements OnInit {
      console.log(data);
      this.serviceConge.getDetailsUserByIdConge(data).subscribe(
       (response: DetailsUserConge) => {
+        console.log("response : ",response);
         this.add1 = -1;
         this.DetailsUserConge = response;
         console.log(this.DetailsUserConge.firstname)
@@ -128,6 +168,8 @@ export class DemandeCongeServiceADComponent implements OnInit {
         this.matriculeBossdep = this.DetailsUserConge.matriculeBossdep;
         this.matriculeRemplaceur = this.DetailsUserConge.matriculeRemplaceur;
         this.idConge=data;
+
+     
      
       },
       (error: HttpErrorResponse) => {
@@ -153,11 +195,35 @@ export class DemandeCongeServiceADComponent implements OnInit {
        this.attenteFinale = this.CongeModal.attenteFinale;
 
        
+       this.datevalidationPrimaire= this.CongeModal.datevalidationPrimaire;
+
+       this.datevalidationPrimaireString = this.datevalidationPrimaire.toString().substring(0,10)+" || "+this.datevalidationPrimaire.toString().substring(11,20);
+
+       this.dateSaisieString = this.dateSaisie.toString().substring(0,10)+" || "+this.dateSaisie.toString().substring(11,20);
+
+      
+       this.soldeThisYear=this.CongeModal.soldeThisYear ;
+         this.soldeYear_1= this.CongeModal.soldeYear_1  ;
+        this.soldeYear_2= this.CongeModal.soldeYear_2  ;
+        this.total= this.CongeModal.total  ;
+        this.nmbrDeJourConge= this.CongeModal.nmbrDeJourConge ;
+        this.RestDeJourConge= this.CongeModal.RestDeJourConge ;
+        this.datevalidationFinale= this.CongeModal.datevalidationFinale ;
+
+        this.datevalidationFinaleString= this.datevalidationFinale.toString().substring(0,10);
+
+        this.dateSaisieString = this.dateSaisie.toString().substring(0,10)+" || "+this.dateSaisie.toString().substring(11,20);
 
 
 
-       console.log("type: "+ this.type);
+        
+      this.usernameVF= this.CongeModal.userNameVF;
+
+       console.log("inside congeModal psoldeThisYear: "+ this.soldeThisYear);
+
+       
        console.log("MatriculeOwnerVP: "+ this.MatriculeOwnerVP);
+       
 
        this.getusernameUserByMatricule(this.MatriculeOwnerVP);
 
@@ -206,19 +272,7 @@ export class DemandeCongeServiceADComponent implements OnInit {
     
   }
 
-  AnnuleValidationFinale(){
-    console.log(this.AvisFinaleSaisie);
-    this.serviceConge.AnnuleValidationFinale(this.idConge,this.AvisFinaleSaisie).subscribe(
-      (response:void) => {
-        console.log("id conge inside AnnuleValidationFinale : "+ this.idConge );
-        console.log("avis inside AnnuleValidationFinale : "+ this.AvisFinaleSaisie );
-              },
-       (error: HttpErrorResponse) => {
-         alert(error.message);
-       }
-
-    )
-  }
+  
 
 
   Refuser() {

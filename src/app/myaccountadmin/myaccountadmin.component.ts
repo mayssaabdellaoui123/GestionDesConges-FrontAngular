@@ -4,8 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { Admin } from '../auth/AdminInfo';
 import { Client } from '../auth/ClientInfo';
+import { User } from '../auth/user';
 import { ClientService } from '../client.service';
 import { TokenStorgeService } from '../token-storage.service';
+import { CongeService } from '../conge.service';
 
 @Component({
   selector: 'app-myaccountadmin',
@@ -37,8 +39,12 @@ export class MyaccountadminComponent implements OnInit {
   alertAffect = false;
   alertdesaffect = false;
 
+  //////////////
 
-  constructor(private employeeService: ClientService, private serviceClient2 : ClientService,private serviceClient : AdminService,private tokenStorage: TokenStorgeService , private token:TokenStorgeService ) { }
+  public remplaceurs:User[];
+
+
+  constructor(private serviceConge : CongeService, private employeeService: ClientService, private serviceClient2 : ClientService,private serviceClient : AdminService,private tokenStorage: TokenStorgeService , private token:TokenStorgeService ) { }
 
   ngOnInit() {
     this.info = {
@@ -62,8 +68,16 @@ export class MyaccountadminComponent implements OnInit {
                 this.RoleAdmin = response;
                 console.log("response == "+response );
                 if (this.RoleAdmin === 'DEPARTMENT_BOSS') {
-                  console.log("role admin if")
+                  console.log("role admin if");
                this.authoritydepartmentboss = true;
+
+
+               
+
+      console.log("this.info.username", this.info.username);
+      this.retriveRemplaceur(this.info.username);
+
+
                return false;
              } else if (this.RoleAdmin  === 'GENERAL_MANAGER') {
                
@@ -123,6 +137,20 @@ export class MyaccountadminComponent implements OnInit {
 
 
     this.getClient();
+  }
+
+  public retriveRemplaceur(username:string): void {
+    console.log("username inside : " ,username);
+    this.serviceConge.retriveRemplaceur(username).subscribe(
+      (response: any) => {
+        console.log("username inside : " ,username);
+        this.remplaceurs = response;
+        console.log("remplaceurs.matricule : " ,this.remplaceurs[0].matricule);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
   public getClient(): void {

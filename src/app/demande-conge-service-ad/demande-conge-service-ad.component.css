@@ -21,7 +21,11 @@
     max-height: 150px;
     height: 150px;
   }
-  
+
+
+
+
+
   body{
       background: #F4F7FD;
       margin-top:20px;
@@ -472,4 +476,12 @@
     font-weight: 400;
   }
   
+  .SAForm{
+    padding-left: 35px;
+    padding-right: 35px;  
+  }
+
+  .example::-webkit-scrollbar {
+    display: none;
+  }
   

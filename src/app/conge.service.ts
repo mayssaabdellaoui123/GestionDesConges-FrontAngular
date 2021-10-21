@@ -54,8 +54,8 @@ export class CongeService {
     return this.http.delete<void>(`http://localhost:8081/Conge/AnnuleValidationPrimaireChefDep/${idConge}/${username}/${avisPrimaire}`);
   }
 
-  public ValidationFinale(idConge: number): Observable<void> {
-    return this.http.delete<void>(`http://localhost:8081/Conge/ValidationFinale/${idConge}`);
+  public ValidationFinale(userNameVF:string, idConge: number , soldeThisYear: string , soldeYear_1: string , soldeYear_2: string ,total: string ,nmbrDeJourConge: string , RestDeJourConge: string, AvisFinaleSaisie: string, TypeValidationFinale: boolean ): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8081/Conge/ValidationFinale/${userNameVF}/${idConge}/${soldeThisYear}/${soldeYear_1}/${soldeYear_2}/${total}/${nmbrDeJourConge}/${RestDeJourConge}/${AvisFinaleSaisie}/${TypeValidationFinale}`);
   }
   public AnnuleValidationFinale(idConge: number, AvisFinale: string): Observable<void> {
     return this.http.delete<void>(`http://localhost:8081/Conge/AnnuleValidationFinale/${idConge}/${AvisFinale}`);
@@ -93,7 +93,9 @@ export class CongeService {
     return this.http.delete<void>(`http://localhost:8081/Conge/AnnuleValidationPrimaireRemplaceur/${idConge}/${username}/${avisPrimaire}`);
   }
 
-
+  public retriveRemplaceur(username: string): Observable<Client[]>{
+    return this.http.get<Client[]>(`http://localhost:8081/Conge/retriveRemplaceur/${username}`);
+  }
 
 
 

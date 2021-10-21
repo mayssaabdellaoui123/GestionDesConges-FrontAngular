@@ -69,4 +69,10 @@ public DesAffectationRemplaceur(matricule: string): Observable<any> {
   return this.http.delete<any>(`http://localhost:8081/ressources/client/DesAffectationRemplaceur/${matricule}`);
 }
 
+public retriveRemplaceur(username: string): Observable<any>{
+  return this.http.get<any>(`http://localhost:8081/ressources/client/retriveRemplaceur/${username}`);
+}
+
+
+
 }

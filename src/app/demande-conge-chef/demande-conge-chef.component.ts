@@ -44,12 +44,16 @@ export class DemandeCongeChefComponent implements OnInit {
  avisFinale: string;
  attenteConge: boolean;
   
+ dateSaisieString: string; 
 
  MatriculeOwnerVP: string
 
  fullname: string; 
  C: Client;
  
+ 
+ datevalidationPrimaire: Date;
+ datevalidationPrimaireString: string;
 
  //////////////////
 
@@ -142,6 +146,15 @@ export class DemandeCongeChefComponent implements OnInit {
        this.validationFinale = this.CongeModal.validationFinale;
        this.attenteConge = this.CongeModal.attente;
       
+
+       this.datevalidationPrimaire= this.CongeModal.datevalidationPrimaire;
+
+         this.datevalidationPrimaireString = this.datevalidationPrimaire.toString().substring(0,10)+" || "+this.datevalidationPrimaire.toString().substring(11,20);
+
+       
+       this.dateSaisieString = this.dateSaisie.toString().substring(0,10)+" || "+this.dateSaisie.toString().substring(11,20);
+
+
 
        console.log("type: "+ this.type);
        console.log("MatriculeOwnerVP: "+ this.MatriculeOwnerVP);

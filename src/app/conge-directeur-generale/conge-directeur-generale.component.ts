@@ -47,6 +47,12 @@ export class CongeDirecteurGeneraleComponent implements OnInit {
  avisFinale: string;
  attenteConge: boolean;
   
+ dateSaisieString: string; 
+
+ 
+ datevalidationPrimaire: Date;
+ datevalidationPrimaireString: string;
+
 
  MatriculeOwnerVP: string
 
@@ -150,6 +156,13 @@ vueDetails(){
      this.validationPrimaire = this.CongeModal.validationPrimaire;
      this.validationFinale = this.CongeModal.validationFinale;
      this.attenteConge = this.CongeModal.attente;
+
+     this.dateSaisieString = this.dateSaisie.toString().substring(0,10)+" || "+this.dateSaisie.toString().substring(11,20);
+
+     this.datevalidationPrimaire= this.CongeModal.datevalidationPrimaire;
+
+         this.datevalidationPrimaireString = this.datevalidationPrimaire.toString().substring(0,10)+" || "+this.datevalidationPrimaire.toString().substring(11,20);
+
 
      console.log("type: "+ this.type);
      console.log("MatriculeOwnerVP: "+ this.MatriculeOwnerVP);

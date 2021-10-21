@@ -1,5 +1,5 @@
 
-<div class="container espace">
+<div class="container espace" >
     <div class="row">
         <div class="col-lg-4" *ngFor="let conge of Conge;  index as i">
             <div class="card card-margin" >
@@ -175,6 +175,9 @@
                                             <div class="form-group" style="padding-top: 30px;">
                                                 <p></p>
 
+                                                <label><strong>Saisie le :</strong> </label>
+                                              <p>{{this.dateSaisieString}}</p>
+
                                               <label><strong>Type de conge :</strong> </label>
                                               <p>{{this.type}}</p>
                 
@@ -193,8 +196,7 @@
                                               
                                               <div class="aParent">
                                               <div   class="AP">
-                                                <label><strong>La raison du refus finale :</strong></label>
-                                                <p *ngIf="!this.validationFinale && this.attenteFinale"  style="font-family :Arial, Helvetica, sans-serif; color: rgb(121, 71, 15);">( signé par : {{this.fullname}} ) </p>
+                                                <label><strong>La raison du refus primaire :</strong></label>
                                                 <p *ngIf="!this.validationFinale && this.attenteFinale" class="cadre">{{this.avisPrimaire}}</p>
                                               </div>
 
@@ -205,92 +207,22 @@
 
                                               </div>
 
-                                              <label><strong>Date saisie :</strong></label>
-                                              <p>{{this.dateSaisie}}</p>
+                                              <label><strong>Validation Primaire par {{this.fullname}} à {{this.datevalidationPrimaireString}}</strong></label>
+                                              
 
                                          
 
                                               <hr class="line">
-                                              <label style="border-bottom: 1px solid black;"><strong> Administration </strong></label>
-                                              <p></p>
-
-                                              <label><strong>Solde :</strong></label>
-                                              <p></p>
-
-                                              <label><strong>Autre details:</strong></label>
-                                              <p></p>
-                   
-
+                                             
+                                             
                                             </div>
                                           </div>
                                     
                                         </div>
-                                        
-                                        <!--div class="row">
-                                          <div class="col mb-3">
-                                            <div class="form-group">
-                                              <label>About</label>
-                                              <textarea class="form-control" rows="5" placeholder="My Bio"></textarea>
-                                            </div>
-                                          </div>
-                                        </div-->
+                                    
                                       </div>
                                     </div>
-                                    <!--div class="row">
-                                      <div class="col-12 col-sm-6 mb-3">
-                                        <div class="mb-2"><b>Change Password</b></div>
-                                        <div class="row">
-                                          <div class="col">
-                                            <div class="form-group">
-                                              <label>Current Password</label>
-                                              <input class="form-control" type="password" placeholder="••••••">
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="row">
-                                          <div class="col">
-                                            <div class="form-group">
-                                              <label>New Password</label>
-                                              <input class="form-control" type="password" placeholder="••••••">
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="row">
-                                          <div class="col">
-                                            <div class="form-group">
-                                              <label>Confirm <span class="d-none d-xl-inline">Password</span></label>
-                                              <input class="form-control" type="password" placeholder="••••••"></div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="col-12 col-sm-5 offset-sm-1 mb-3">
-                                        <div class="mb-2"><b>Keeping in Touch</b></div>
-                                        <div class="row">
-                                          <div class="col">
-                                            <label>Email Notifications</label>
-                                            <div class="custom-controls-stacked px-2">
-                                              <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="notifications-blog" checked="">
-                                                <label class="custom-control-label" for="notifications-blog">Blog posts</label>
-                                              </div>
-                                              <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="notifications-news" checked="">
-                                                <label class="custom-control-label" for="notifications-news">Newsletter</label>
-                                              </div>
-                                              <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="notifications-offers" checked="">
-                                                <label class="custom-control-label" for="notifications-offers">Personal Offers</label>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col d-flex justify-content-end">
-                                        <button class="btn btn-primary" type="submit">Save Changes</button>
-                                      </div>
-                                    </div-->
+                                    
                                   </form>
                 
                                 </div>
@@ -307,14 +239,69 @@
                 </div>
                 </div>
                 
-
-
-
-
-
-
-
                 </div>
+
+                <!--administration-->  
+
+                  <div class="row gutters SAForm">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                      <label style="border-bottom: 1px solid black;"><strong> Administration par {{this.usernameVF}} à {{this.datevalidationFinaleString}}</strong></label>                      
+                    </div>
+
+                    
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="soldeThisYear"><strong>Solde This Year</strong></label>
+                        <input class="votreavis" id="p2" class="form-control"   placeholder="soldeThisYear" type="text"  [(ngModel)]="soldeThisYear" value="{{this.soldeThisYear}}" >
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="soldeYear_1"><strong>Solde Year_1</strong></label>
+                        <input class="votreavis" id="p2" class="form-control"  placeholder="soldeYear_1" type="text"  [(ngModel)]="soldeYear_1"  value="{{this.soldeYear_1}}" > 
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="soldeYear_2"><strong>Solde Year_2</strong></label>
+                        <input class="votreavis" id="p2" class="form-control"  placeholder="soldeYear_2" type="text"  [(ngModel)]="soldeYear_2" value="{{this.soldeYear_2}}" > 
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="total"><strong>Total Solde</strong></label>
+                        <input class="votreavis" id="p2" class="form-control"  placeholder="total" type="text"  [(ngModel)]="total" value="{{this.total}}" > 
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="nmbrDeJourConge"><strong>Nmbr De Jour Conge</strong></label>
+                        <input class="votreavis" id="p2" class="form-control"  placeholder="nmbrDeJourConge" type="text"  [(ngModel)]="nmbrDeJourConge" value="{{this.nmbrDeJourConge}}"> 
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="RestDeJourConge"><strong>Rest De Jour Conge</strong></label>
+                        <input class="votreavis" id="p2" class="form-control"  placeholder="RestDeJourConge" type="text"  [(ngModel)]="RestDeJourConge" value="{{this.RestDeJourConge}}" > 
+                     </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="avisFinale"><strong>Avis Finale</strong></label>
+                        <input class="votreavis" id="p2" class="form-control" placeholder="votre avis: " type="text"  [(ngModel)]="avisFinale" value="{{avisFinale}}">
+                      </div>
+                    </div>
+
+
+
+                  </div>
+
+
+
+
+
+
+              <!--footer-->
                 <div style="max-height: 190px;" class="modal-footer">
                   <div style="    padding-right: 200px;"  *ngIf="this.validationFinale && this.attenteFinale" [ngClass]="{'hidden' : this.hidden}" class="alert alert-info" role="alert">
                    <strong>#Succès</strong> la validation finale a été approuvée
@@ -323,19 +310,21 @@
                     <strong>#Refus</strong> la validation finale a été refusée
                    </div>
                   
+
                   <div class="buttons">
-                  <button type="button" class="btn btn-success" [ngClass]="{'hidden' : this.hidden}" (click)="ValidationFinale()" (click)="reloadPage()">Accepter</button>
+                  <button type="button" class="btn btn-success" [ngClass]="{'hidden' : this.hidden}" (click)="ValidationFinalee()" (click)="reloadPage()">Accepter</button>
                   <!--div *ngIf="this.isValidationPvalidé" class="alert alert-info" role="alert">
                     <strong>#Succès</strong> la validation primaire a été approuvée
                    </div-->
-                    <button type="button" href="#modalavis" class="btn btn-danger"  [ngClass]="{'hidden' : this.hidden}"  (click)="Refuser()" >Refuser</button>
-                   </div> 
+                    <!--button type="button" href="#modalavis" class="btn btn-danger"  [ngClass]="{'hidden' : this.hidden}"  (click)="Refuser()" >Refuser</button-->
+                    <button  type="button" class="btn btn-danger"  (click)="AnnuleValidationFinale()" (click)="reloadPage()" >Refuser</button>
+                  
+                  </div> 
 
-                    <div class="hiddendiv" style="margin-right: 640px;">
-                   
+                    <!--div class="hiddendiv" style="margin-right: 640px;">
                     <textarea class="votreavis" id="p2" class="form-control" [ngClass]="{'hidden' : this.shown}" placeholder="votre avis: " type="text"  [(ngModel)]="AvisFinaleSaisie" > </textarea>
                     <button style="margin-top: 20px; " type="button" href="#modalavis" class="btn btn-danger"  [ngClass]="{'hidden' : this.shown}" (click)="AnnuleValidationFinale()" (click)="reloadPage()" >Envoyer votre avis</button>
-                    </div>
+                    </div-->
                     
                     <!--button type="button" class="btn btn-link">Save changes</button-->
                     <button type="button" style="    margin-top: -25px;" class="btn btn-link" data-dismiss="modal" (click)="reloadPage()">Close</button>

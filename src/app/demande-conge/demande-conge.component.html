@@ -271,6 +271,9 @@
                                             <div class="form-group" style="padding-top: 30px;">
                                                 <p></p>
 
+                                              <label><strong>Saisie le :</strong> </label>
+                                              <p>{{this.dateSaisieString}}</p>
+
                                               <label><strong>Type de conge :</strong> </label>
                                               <p>{{this.type}}</p>
                 
@@ -281,7 +284,7 @@
                                               <p>{{this.department}}</p>
                 
                                               <label><strong>Date de conge :</strong></label>
-                                              <p>{{this.dateDebut}} a {{this.dateFin}}</p>
+                                              <p><strong>De</strong> {{this.dateDebut}} <strong>à </strong>{{this.dateFin}}</p>
 
                                               <label><strong>Numero de telephone :</strong></label>
                                               <p>{{this.phone}}</p>
@@ -290,7 +293,6 @@
                                               <div class="aParent">
                                               <div   class="AP">
                                                 <label><strong>La raison du refus Primaire :</strong></label>
-                                                <p *ngIf="!this.validationPrimaire && this.attenteConge"  style="font-family :Arial, Helvetica, sans-serif; color: rgb(121, 71, 15);">( signé par : {{this.fullname}} ) </p>
                                                 <p *ngIf="!this.validationPrimaire && this.attenteConge" class="cadre">{{this.avisPrimaire}}</p>
                                               </div>
 
@@ -301,19 +303,64 @@
 
                                               </div>
 
-                                              <label><strong>Date saisie :</strong></label>
-                                              <p>{{this.dateSaisie}}</p>
+                                              <label><strong>Validation Primaire par {{this.fullname}} à {{this.datevalidationPrimaireString}}</strong></label>
+                                              <p></p>
 
                                               
                                               <hr class="line">
-                                              <label style="border-bottom: 1px solid black;"><strong> Administration </strong></label>
-                                              <p></p>
+                                              
 
-                                              <label><strong>Solde :</strong></label>
-                                              <p></p>
+                                              
+                                              <div class="row gutters SAForm">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                  <label style="border-bottom: 1px solid black;"><strong> Administration par {{this.usernameVF}} à {{this.datevalidationFinaleString}}</strong></label>                      
+                                                </div>
+                            
+                                                
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                  <div class="form-group">
+                                                    <label for="soldeThisYear"><strong>Solde This Year</strong></label>
+                                                    <p>{{this.soldeThisYear}}</p>
+                                                  </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                  <div class="form-group">
+                                                    <label for="soldeYear_1"><strong>Solde Year_1</strong></label>
+                                                    <p>{{this.soldeYear_1}}</p>
+                                                  </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                  <div class="form-group">
+                                                    <label for="soldeYear_2"><strong>Solde Year_2</strong></label>
+                                                    <p>{{this.soldeYear_2}}</p>
+                                                  </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                  <div class="form-group">
+                                                    <label for="total"><strong>Total Solde</strong></label>
+                                                    <p>{{this.total}}</p>
+                                                  </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                  <div class="form-group">
+                                                    <label for="nmbrDeJourConge"><strong>Nmbr De Jour Conge</strong></label>
+                                                    <p>{{this.nmbrDeJourConge}}</p>
+                                                  </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                  <div class="form-group">
+                                                    <label for="RestDeJourConge"><strong>Rest De Jour Conge</strong></label>
+                                                    <p>{{this.RestDeJourConge}}</p>
+                                                  </div>
+                                                </div>
+                                                <!--div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                  <div class="form-group">
+                                                    <label for="avisFinale"><strong>Avis Service Administratif</strong></label>
+                                                    <p>{{this.avisFinale}}</p>
+                                                  </div>
+                                                </div-->
 
-                                              <label><strong>Autre details:</strong></label>
-                                              <p></p>
+                                              </div>
                    
 
                                             </div>

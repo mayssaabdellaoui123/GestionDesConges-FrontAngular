@@ -10,6 +10,9 @@ import { Client } from '../auth/ClientInfo';
 import html2canvas from 'html2canvas';
 import jspdf from 'jspdf';
 
+import { ClientService } from '../client.service';
+
+
 
 @Component({
   selector: 'app-demande-conge',
@@ -90,12 +93,30 @@ export class DemandeCongeComponent implements OnInit {
  dateDebutRange: string;
  dateFinRange: string;
 
+ //////////////////////
 
+ soldeThisYear: any ;
+ soldeYear_1: string  ;
+ soldeYear_2: string  ;
+ total: string  ;
+ nmbrDeJourConge: string ;
+ RestDeJourConge: string ;
+ datevalidationFinale: Date ;
+
+
+ datevalidationFinaleString : string;
+
+ usernameVF: string;
+
+ datevalidationPrimaire: Date;
+ datevalidationPrimaireString: string;
+
+ dateSaisieString: string; 
 
   ///////////////////////////
 
 
-  constructor(private token:TokenStorgeService ,private CongeService: CongeService, private authService: AuthService) { }
+  constructor(private serviceClient : ClientService,private token:TokenStorgeService ,private CongeService: CongeService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.info = {
@@ -214,6 +235,8 @@ export class DemandeCongeComponent implements OnInit {
           this.matriculeRemplaceur = this.DetailsUserConge.matriculeRemplaceur;
           this.idConge=data;
        
+
+        
         },
         (error: HttpErrorResponse) => {
           alert(error.message);
@@ -236,20 +259,74 @@ export class DemandeCongeComponent implements OnInit {
          this.validationFinale = this.CongeModal.validationFinale;
          this.attenteConge = this.CongeModal.attente;
          this.attenteFinale = this.CongeModal.attenteFinale;
+
+         this.datevalidationPrimaire= this.CongeModal.datevalidationPrimaire;
+
+         this.datevalidationPrimaireString = this.datevalidationPrimaire.toString().substring(0,10)+" || "+this.datevalidationPrimaire.toString().substring(11,20);
+
+         this.dateSaisieString = this.dateSaisie.toString().substring(0,10)+" || "+this.dateSaisie.toString().substring(11,20);
+
+
+
+      console.log("datevalidationPrimaire ",this.datevalidationPrimaire);
+
+       console.log("type: "+ this.type);
+      console.log("MatriculeOwnerVP: "+ this.MatriculeOwnerVP);
+
+      this.getusernameUserByMatricule(this.MatriculeOwnerVP);
+         
+      // whatever you wanna add add it on top of this :
+
+       this.soldeThisYear=this.CongeModal.soldeThisYear ;
+       this.soldeYear_1= this.CongeModal.soldeYear_1  ;
+      this.soldeYear_2= this.CongeModal.soldeYear_2  ;
+      this.total= this.CongeModal.total  ;
+      this.nmbrDeJourConge= this.CongeModal.nmbrDeJourConge ;
+      this.RestDeJourConge= this.CongeModal.RestDeJourConge ;
+      this.datevalidationFinale= this.CongeModal.datevalidationFinale ;
+
+      this.datevalidationFinaleString= this.datevalidationFinale.toString().substring(0,10);
+
+
+      this.usernameVF= this.CongeModal.userNameVF;
+
   
-         console.log("type: "+ this.type);
-         console.log("MatriculeOwnerVP: "+ this.MatriculeOwnerVP);
-  
-         this.getusernameUserByMatricule(this.MatriculeOwnerVP);
-  
+      
          
         },
         (error: HttpErrorResponse) => {
           alert(error.message);
   
         }
+
+        
+
        )
   
+       /* get ownerVPusername
+
+
+
+       this.serviceClient.getUserNameFromMatricule(this.matricule).subscribe(
+        (response: string) => {
+          console.log("getUserNameFromMatricule response inside : "+ response);
+
+          this.UserNameOwnerVP=response ;
+          
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+  
+        }
+       )
+*/
+
+
+
+
+
+
+
        
     }
 
@@ -262,7 +339,7 @@ export class DemandeCongeComponent implements OnInit {
         console.log("this.MatriculeOwnerVP")
         console.log(MatriculeOwnerVP)
         this.C = response
-        console.log("this.fullname");
+        console.log("this.c");
         console.log(this.C);
         this.fullname = this.C.firstNameUser + " "+ this.C.lastNameUser;
         console.log("this.fullname");

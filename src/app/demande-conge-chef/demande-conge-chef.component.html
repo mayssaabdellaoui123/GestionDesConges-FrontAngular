@@ -175,6 +175,9 @@
                                             <div class="form-group" style="padding-top: 30px;">
                                                 <p></p>
 
+                                                <label><strong>Saisie le :</strong> </label>
+                                                <p>{{this.dateSaisieString}}</p>
+
                                               <label><strong>Type de conge :</strong> </label>
                                               <p>{{this.type}}</p>
                 
@@ -185,7 +188,7 @@
                                               <p>{{this.department}}</p>
                 
                                               <label><strong>Date de conge :</strong></label>
-                                              <p>{{this.dateDebut}} a {{this.dateFin}}</p>
+                                              <p><strong>De</strong> {{this.dateDebut}} <strong>à </strong>{{this.dateFin}}</p>
 
                                               <label><strong>Numero de telephone :</strong></label>
                                               <p>{{this.phone}}</p>
@@ -205,8 +208,8 @@
 
                                               </div>
 
-                                              <label><strong>Date saisie :</strong></label>
-                                              <p>{{this.dateSaisie}}</p>
+                                              <label><strong>Validation Primaire par {{this.fullname}} à {{this.datevalidationPrimaireString}}</strong></label>
+                                              <p></p>
 
                                  
 
@@ -324,11 +327,11 @@
                    </div>
                   
                   <div class="buttons">
-                  <button type="button" class="btn btn-success" [ngClass]="{'hidden' : this.hidden}" (click)="ValidationPrimaireChefDep()" (click)="reloadPage()">Accepter</button>
+                  <button type="button" class="btn btn-success" [ngClass]="{'hidden' : this.avisFinale}" [ngClass]="{'hidden' : this.hidden}" (click)="ValidationPrimaireChefDep()" (click)="reloadPage()">Accepter</button>
                   <!--div *ngIf="this.isValidationPvalidé" class="alert alert-info" role="alert">
                     <strong>#Succès</strong> la validation primaire a été approuvée
                    </div-->
-                    <button type="button" href="#modalavis" class="btn btn-danger"  [ngClass]="{'hidden' : this.hidden}"  (click)="Refuser()" >Refuser</button>
+                    <button type="button" href="#modalavis" class="btn btn-danger"  [ngClass]="{'hidden' : this.avisFinale}" [ngClass]="{'hidden' : this.hidden}" (click)="Refuser()" >Refuser</button>
                    </div> 
 
                     <div class="hiddendiv" style="margin-right: 640px;">
