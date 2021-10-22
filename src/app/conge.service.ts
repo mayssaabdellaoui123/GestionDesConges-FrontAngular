@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Conge, Conge1 } from './auth/Conge';
 import { Observable } from 'rxjs';
 import { DetailsUserConge } from './auth/DetailsUserConge';
-import { Client } from './auth/ClientInfo';
+import { Client } from './auth/EmployeInfo';
 import { Admin } from './auth/AdminInfo';
 
 @Injectable({

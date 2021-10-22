@@ -5,7 +5,7 @@ import { AuthService } from '../auth.service';
 import { TokenStorgeService } from '../token-storage.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DetailsUserConge } from '../auth/DetailsUserConge';
-import { Client } from '../auth/ClientInfo';
+import { Client } from '../auth/EmployeInfo';
 /*import * as jspdf from 'jspdf'*/
 import html2canvas from 'html2canvas';
 import jspdf from 'jspdf';

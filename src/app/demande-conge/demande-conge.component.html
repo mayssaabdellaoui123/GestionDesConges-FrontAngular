@@ -24,10 +24,14 @@
 						
 						<div class="form-group">
 							<label for="dateDebut" class="form-label">Date debut </label>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="form.dateDebut" #dateDebut="ngModel" required>
-                           <div id="dateDebutHelper" class="form-text" class="text-muted">
+                            <!--input type="text" class="form-control" name="dateDebut" [(ngModel)]="form.dateDebut" #dateDebut="ngModel" required-->
+                            
+                            <input type="date" class="form-control" data-date-format="mm-dd-yyyy"  name="dateDebut" [(ngModel)]="form.dateDebut" #dateDebut="ngModel" required>
+
+                          
+                            <!--div id="dateDebutHelper" class="form-text" class="text-muted">
                            Your Date Of Birth must be following this format : year-month-day (example : 1920-03-01)
-                            </div>
+                            </div-->
                             <div *ngIf="f.submitted && dateDebut.invalid">
                             <div *ngIf="dateDebut.errors.required" class="text-warning">date Debut is required</div>
                             </div>
@@ -37,10 +41,11 @@
 
 						<div class="form-group">
 							<label for="dateFin" class="form-label">Date fin </label>
-                            <input type="text" class="form-control" name="dateFin" [(ngModel)]="form.dateFin" #dateFin="ngModel" required>
-                           <div id="dateFinHelper" class="form-text" class="text-muted">
+                            <!--input type="text" class="form-control" name="dateFin" [(ngModel)]="form.dateFin" #dateFin="ngModel" required-->
+                            <input type="date" class="form-control" data-date-format="mm-dd-yyyy" name="dateFin" [(ngModel)]="form.dateFin" #dateFin="ngModel" required>
+                           <!--div id="dateFinHelper" class="form-text" class="text-muted">
                            Your Date Of Birth must be following this format : year-month-day (example : 1920-03-01)
-                            </div>
+                            </div-->
                             <div *ngIf="f.submitted && dateFin.invalid">
                             <div *ngIf="dateFin.errors.required" class="text-warning">Date of Birth is required</div>
                             </div>

@@ -33,6 +33,7 @@ import { DemandeCongeChefComponent } from './demande-conge-chef/demande-conge-ch
 import { DemandeCongeServiceADComponent } from './demande-conge-service-ad/demande-conge-service-ad.component';
 import { CongeDirecteurGeneraleComponent } from './conge-directeur-generale/conge-directeur-generale.component';
 import { CongeRemplaceurComponent } from './conge-remplaceur/conge-remplaceur.component';
+import { ListemployeedepComponent } from './listemployeedep/listemployeedep.component';
 
 
 
@@ -61,6 +62,11 @@ const routes: Routes = [
     path :'ads', 
     component : AdvertisementsComponent
   },
+  {
+    path :'listempdep', 
+    component : ListemployeedepComponent
+  },
+
   {
     path :'demandeCSA', 
     component : DemandeCongeServiceADComponent

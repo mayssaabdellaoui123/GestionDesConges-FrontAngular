@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { Client } from '../auth/ClientInfo';
+import { Client } from '../auth/EmployeInfo';
 import { Department } from '../auth/Department';
 import { SignUpInfo } from '../auth/SignUpInfo';
 import { ClientService } from '../client.service';

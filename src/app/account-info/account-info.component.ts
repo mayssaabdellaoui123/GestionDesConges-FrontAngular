@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Client } from '../auth/ClientInfo';
+import { Client } from '../auth/EmployeInfo';
 import { ClientService } from '../client.service';
 import { TokenStorgeService } from '../token-storage.service';
 

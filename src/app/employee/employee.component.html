@@ -232,10 +232,8 @@ $(document).ready(function(){
 						</div>
 						<div class="form-group">
 							<label for="dateofbirth" class="form-label">Date of Birth </label>
-                            <input type="text" class="form-control" name="dateofbirth" [(ngModel)]="form.dateofbirth" #dateofbirth="ngModel" required>
-                           <div id="dateofbirthHelper" class="form-text" class="text-muted">
-                           Your Date Of Birth must be following this format : year-month-day (example : 1920-03-01)
-                            </div>
+                            <input type="date" data-date-format="mm-dd-yyyy" class="form-control" name="dateofbirth" [(ngModel)]="form.dateofbirth" #dateofbirth="ngModel" required>
+                           
                             <div *ngIf="f.submitted && dateofbirth.invalid">
                             <div *ngIf="dateofbirth.errors.required" class="text-warning">Date of Birth is required</div>
                             </div>

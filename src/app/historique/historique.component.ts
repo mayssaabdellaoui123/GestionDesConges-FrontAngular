@@ -135,6 +135,8 @@ public isAll:boolean = true;
     this.RetiveHistoriqueByFiltreAndAll();
 
     this.getNombreHistorique();
+
+    this.DeleteAllHistoryAfterMonth();
   }
 
 
@@ -361,6 +363,18 @@ public isAll:boolean = true;
       }
     );
 
+  }
+
+
+  public DeleteAllHistoryAfterMonth (): void  {
+    this.HistoryService.DeleteAllHistoryAfterMonth().subscribe(
+     (response: void) => {
+       console.log(response);
+       
+     }
+     
+
+    )
   }
 
 

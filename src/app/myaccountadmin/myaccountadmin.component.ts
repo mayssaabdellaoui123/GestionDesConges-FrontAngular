@@ -3,7 +3,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { Admin } from '../auth/AdminInfo';
-import { Client } from '../auth/ClientInfo';
+import { Client } from '../auth/EmployeInfo';
 import { User } from '../auth/user';
 import { ClientService } from '../client.service';
 import { TokenStorgeService } from '../token-storage.service';

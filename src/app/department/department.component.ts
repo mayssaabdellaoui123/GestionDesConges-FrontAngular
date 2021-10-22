@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { Department } from '../auth/Department';
+import { Department, Department1 } from '../auth/Department';
 import { DepartmentServiceService } from '../department-service.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { DepartmentServiceService } from '../department-service.service';
 })
 export class DepartmentComponent implements OnInit {
 
-  public Department: Department[];
+  public Department: Department1[];
   form: any = {};
   private department: Department;
   isSignedUp = false;
@@ -28,7 +28,7 @@ export class DepartmentComponent implements OnInit {
 
   public getDepartment(): void {
     this.DepartmentService.getDepartment().subscribe(
-      (response: Department[]) => {
+      (response: Department1[]) => {
         this.Department = response;
         console.log(this.Department);
       },
@@ -147,7 +147,7 @@ export class DepartmentComponent implements OnInit {
 
     public searchDepartment(key: string): void {
       console.log(key);
-      const results: Department[] = [];
+      const results: Department1[] = [];
       for (const employee of this.Department) {
         if (employee.nomDepartement.toLowerCase().indexOf(key.toLowerCase()) !== -1
         || employee.matriculeBoss.toLowerCase().indexOf(key.toLowerCase()) !== -1) {

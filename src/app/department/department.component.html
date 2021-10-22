@@ -133,8 +133,9 @@ $(document).ready(function(){
 								</span>
 							</th-->
 							<th>id</th>
-							<th>nom Departement</th>
-							<th>matricule Boss</th>
+							<th>Nom Departement</th>
+							<th>Matricule Boss</th>
+							<th>Nom chef</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -149,11 +150,17 @@ $(document).ready(function(){
 							<td>{{department?.idDepartement}}</td>
 							<td>{{department?.nomDepartement}}</td>
 							<td>{{department?.matriculeBoss}}</td>
+							<td>{{department?.nomBoss}}</td>
 							
 							<td>
 								<!--a class="shop_now_btn" (click)="onOpenModal(department,'delete')">DELETE</a-->
-								<a href="#editDepartmentModal" class="edit" data-toggle="modal"(click)="onOpenModal(department,'edit')" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="#deleteDepartmentModal" class="delete" data-toggle="modal" (click)="onOpenModal(department,'delete')"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<!--a href="#editDepartmentModal" class="edit" data-toggle="modal"(click)="onOpenModal(department,'edit')" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a-->
+								<!--a href="#deleteDepartmentModal" class="delete" data-toggle="modal" (click)="onOpenModal(department,'delete')"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a-->
+								<div  style="min-width: 150px;">
+									<button style="padding: 3px; height: 40px;font-size: 13px; color: #832d26;" href="#editDepartmentModal" class="edit" data-toggle="modal"(click)="onOpenModal(department,'edit')" mat-raised-button>Affecter chef </button>
+								<button style="padding: 3px; height: 40px;font-size: 13px; color: white; background-color: #832d26;" href="#deleteDepartmentModal" class="delete" data-toggle="modal" (click)="onOpenModal(department,'delete')" mat-raised-button color="warn">Supprimer</button>
+							
+								</div>
 							</td>
 						</tr>
 						

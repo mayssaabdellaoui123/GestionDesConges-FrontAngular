@@ -34,5 +34,9 @@ export class HistoriqueService {
     return this.http.get<historique[]>(`http://localhost:8081/Historique/RetiveHistoriqueByFiltre/${type}/${action}`);
   }
 
+  public DeleteAllHistoryAfterMonth(): Observable<any>{
+    return this.http.delete<any>(`http://localhost:8081/Historique/DeleteAllHistoryAfterMonth`);
+  }
+
 
 }

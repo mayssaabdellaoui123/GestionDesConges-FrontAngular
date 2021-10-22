@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Client } from '../auth/ClientInfo';
+import { Client } from '../auth/EmployeInfo';
 import { ClientService } from '../client.service';
 
 @Component({

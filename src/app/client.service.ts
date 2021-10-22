@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Client } from './auth/ClientInfo';
+import { Client } from './auth/EmployeInfo';
 import { User } from './auth/user';
 
 @Injectable({
@@ -71,6 +71,10 @@ public DesAffectationRemplaceur(matricule: string): Observable<any> {
 
 public retriveRemplaceur(username: string): Observable<any>{
   return this.http.get<any>(`http://localhost:8081/ressources/client/retriveRemplaceur/${username}`);
+}
+
+public getEmployeeByDepartment(username: string): Observable<any>{
+  return this.http.get<any>(`http://localhost:8081/ressources/client/EmployeeByDep/${username}`);
 }
 
 

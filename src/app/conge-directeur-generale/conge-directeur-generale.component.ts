@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Admin } from '../auth/AdminInfo';
-import { Client } from '../auth/ClientInfo';
+import { Client } from '../auth/EmployeInfo';
 import { Conge1 } from '../auth/Conge';
 import { DetailsUserConge } from '../auth/DetailsUserConge';
 import { CongeService } from '../conge.service';

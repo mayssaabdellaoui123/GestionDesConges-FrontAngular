@@ -14,3 +14,22 @@ export class Department {
 
     
 }
+
+export class Department1 {
+    //user
+    idDepartement : number;
+    nomDepartement : string ;
+    matriculeBoss: string;
+    nomBoss: string;
+
+    constructor(nomDepartement: string, matriculeBoss: string, nomBoss:string) {
+        //user    
+       
+        this.nomDepartement = nomDepartement;
+        this.matriculeBoss = matriculeBoss;
+        this.nomBoss = nomBoss;
+        
+    }
+
+    
+}
